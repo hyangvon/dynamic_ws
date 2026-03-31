@@ -38,6 +38,10 @@ install(DIRECTORY config
   DESTINATION share/${PROJECT_NAME}
 )
 
+install(DIRECTORY rviz
+  DESTINATION share/${PROJECT_NAME}
+)
+
 # Install scripts
 install(DIRECTORY scripts
   DESTINATION share/${PROJECT_NAME}

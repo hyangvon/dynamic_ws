@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<rviz2 version="2.1">
+  <property name="Background Color" value="48; 48; 48"/>
+  <property name="Fixed Frame" value="base_link"/>
+  <property name="Frame Rate" value="30"/>
+  
+  <visualization_manager>
+    <!-- 网格平面 -->
+    <plugin name="rviz_common/Grid" type="rviz_common/Grid">
+      <property name="Cell Size" value="0.1"/>
+      <property name="Color" value="128; 128; 128"/>
+      <property name="Enabled" value="true"/>
+      <property name="Line Style" value="0"/>
+      <property name="Line Width" value="0.03"/>
+      <property name="Normal Cell Count" value="0"/>
+      <property name="Offset">
+        <object_name index="0"/>
+        <property name="X" value="0"/>
+        <property name="Y" value="0"/>
+        <property name="Z" value="0"/>
+      </property>
+      <property name="Plane" value="0"/>
+      <property name="Plane Cell Count" value="10"/>
+      <property name="Reference Frame" value="&lt;Fixed Frame&gt;"/>
+    </plugin>
+    
+    <!-- TF坐标系显示 -->
+    <plugin name="rviz_common/TF" type="rviz_common/TF">
+      <property name="All Enabled" value="true"/>
+      <property name="Enabled" value="true"/>
+      <property name="Frame Timeout" value="15"/>
+      <property name="Frames">
+        <expand base_link>
+          <expand Link2>
+            <expand Link3>
+              <expand Link4>
+                <expand Link5>
+                  <expand Link6>
+                    <expand Link7>
+                      <expand Link8>
+                        <expand tcp/>
+                      </expand>
+                    </expand>
+                  </expand>
+                </expand>
+              </expand>
+            </expand>
+          </expand>
+        </expand>
+      </property>
+      <property name="Marker Scale" value="0.3"/>
+      <property name="Show Arrows" value="true"/>
+      <property name="Show Axes" value="true"/>
+      <property name="Show Names" value="true"/>
+      <property name="Tree Style" value="true"/>
+    </plugin>
+    
+    <!-- Robot Model显示 -->
+    <plugin name="rviz_common/RobotModel" type="rviz_common/RobotModel">
+      <property name="Alpha" value="0.9"/>
+      <property name="Collision Enabled" value="false"/>
+      <property name="Enabled" value="true"/>
+      <property name="Links">
+        <expand base_link>
+          <expand Link2>
+            <expand Link3>
+              <expand Link4>
+                <expand Link5>
+                  <expand Link6>
+                    <expand Link7>
+                      <expand Link8>
+                        <expand tcp/>
+                      </expand>
+                    </expand>
+                  </expand>
+                </expand>
+              </expand>
+            </expand>
+          </expand>
+        </expand>
+      </property>
+      <property name="Mass Properties Enabled" value="true"/>
+      <property name="Robot Description" value="robot_description"/>
+      <property name="TF Prefix" value=""/>
+      <property name="Update Interval" value="0"/>
+      <property name="Visual Enabled" value="true"/>
+    </plugin>
+    
+    <!-- 交互式标记 -->
+    <plugin name="rviz_common/InteractiveMarkers" type="rviz_common/InteractiveMarkers">
+      <property name="Enabled" value="false"/>
+      <property name="Update Topic" value="/rviz_moveit_motion_planning_display/robot_interaction_interactive_marker_topic/update"/>
+    </plugin>
+    
+    <!-- 摄像头视角设置 -->
+    <property name="Camera">
+      <property name="Current State" value="Orbital">
+        <property name="Attached Frame" value=""/>
+        <property name="Target Frame" value=""/>
+        <property name="Distance" value="2"/>
+        <property name="Focal Point">
+          <object_name index="0"/>
+          <property name="X" value="0"/>
+          <property name="Y" value="0"/>
+          <property name="Z" value="0.5"/>
+        </property>
+        <property name="Focal Shape Fixed" value="true"/>
+        <property name="Invert Z Axis" value="false"/>
+        <property name="Name" value="Orbital"/>
+        <property name="Near Clip Distance" value="0.01"/>
+        <property name="Pitch" value="0.5"/>
+        <property name="Queue Size" value="1"/>
+        <property name="Stereo Focal Distance" value="0"/>
+        <property name="Stereo Mode" value="0"/>
+        <property name="Stereo Eye Separation" value="0.06"/>
+        <property name="Up Vector">
+          <object_name index="0"/>
+          <property name="X" value="0"/>
+          <property name="Y" value="0"/>
+          <property name="Z" value="1"/>
+        </property>
+        <property name="Yaw" value="0"/>
+      </property>
+    </property>
+    <property name="Enabled" value="true"/>
+    <property name="Global Options">
+      <property name="Background Color" value="48; 48; 48"/>
+      <property name="Fixed Frame" value="base_link"/>
+      <property name="Frame Rate" value="30"/>
+    </property>
+    <property name="Grid">
+      <property name="Cell Size" value="0.1"/>
+      <property name="Color" value="128; 128; 128"/>
+      <property name="Enabled" value="true"/>
+      <property name="Line Style" value="0"/>
+      <property name="Line Width" value="0.03"/>
+      <property name="Normal Cell Count" value="0"/>
+      <property name="Offset">
+        <object_name index="0"/>
+        <property name="X" value="0"/>
+        <property name="Y" value="0"/>
+        <property name="Z" value="0"/>
+      </property>
+      <property name="Plane" value="0"/>
+      <property name="Plane Cell Count" value="10"/>
+      <property name="Reference Frame" value="&lt;Fixed Frame&gt;"/>
+    </property>
+    <property name="Name" value="root"/>
+    <property name="Tools Visibility">
+      <property name="Measure" value="false"/>
+      <property name="Move Camera" value="false"/>
+    </property>
+  </visualization_manager>
+</rviz2>
