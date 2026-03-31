@@ -6,26 +6,21 @@ w10机械臂可视化 - Headless版本（需远程RViz连接）
 
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, Command
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, TextSubstitution, Command
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
+import os
 
 def generate_launch_description():
     
-    # 获取w10_sim包的路径
-    w10_sim_dir = FindPackageShare('w10_sim')
-    
-    # 声明URDF文件参数
-    urdf_model_arg = DeclareLaunchArgument(
-        'model',
-        default_value=PathJoinSubstitution([w10_sim_dir, 'urdf', 'w10_canonical.urdf']),
-        description='URDF模型文件路径'
+    # 直接读取URDF文件内容
+    urdf_file = os.path.join(
+        os.path.dirname(__file__), 
+        '..', 'urdf', 'w10_canonical.urdf'
     )
     
-    urdf_model_path = LaunchConfiguration('model')
-    
-    # 使用Command读取URDF文件
-    urdf_content = Command(['cat ', urdf_model_path])
+    with open(urdf_file, 'r') as f:
+        urdf_content = f.read()
     
     # robot_state_publisher节点
     robot_state_publisher_node = Node(
@@ -51,7 +46,6 @@ def generate_launch_description():
     )
     
     return LaunchDescription([
-        urdf_model_arg,
         robot_state_publisher_node,
         joint_state_publisher_node,
     ])
