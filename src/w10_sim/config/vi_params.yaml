@@ -1,0 +1,23 @@
+# w10 manipulator VI integrator parameters
+/**:  # 通配符，表示所有节点都能看到下面的参数
+  ros__parameters:
+    q_init: 0.2
+    timestep: 0.01
+    duration: 10.0
+    # urdf_path: "~/ros2_ws/dynamic_ws/src/w10_sim/urdf/7_pendulum.urdf"
+    urdf_path: "~/ros2_ws/dynamic_ws/src/w10_sim/urdf/w10.urdf"
+    eps_diff: 1.0e-6
+
+  ctsvi_w10_node:
+    ros__parameters:
+      # Simulation parameters
+      timestep: 0.01          # simulation timestep [s] - INCREASED for stability
+      duration: 1.0            # total simulation duration [s]
+      
+      # URDF model path (support ~ for home directory)
+      urdf_path: "~/ros2_ws/dynamic_ws/src/w10_sim/urdf/w10.urdf"
+      
+      # Initial joint configuration (7 DOF for w10)
+      # Order: joint2, joint3, joint4, joint5, joint6, joint7, joint8
+      # Using zero config for stability - try simple motion
+      q_init: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
