@@ -8,16 +8,16 @@
     name="base_link">
     <inertial>
       <origin
-        xyz="4.1556E-12 5.0803E-12 0.081676"
+        xyz="0 0 0.081676"
         rpy="0 0 0" />
       <mass
         value="19.318" />
       <inertia
         ixx="0.067819"
-        ixy="2.7427E-07"
-        ixz="-2.7824E-12"
+        ixy="0"
+        ixz="0"
         iyy="0.067813"
-        iyz="-6.6111E-12"
+        iyz="0"
         izz="0.04982" />
     </inertial>
     <visual>
@@ -54,10 +54,10 @@
         value="10.901" />
       <inertia
         ixx="0.020174"
-        ixy="6.1617E-12"
-        ixz="6.0597E-12"
+        ixy="0"
+        ixz="0"
         iyy="0.025336"
-        iyz="4.9314E-08"
+        iyz="0"
         izz="0.025339" />
     </inertial>
     <visual>
@@ -286,8 +286,8 @@
         value="27.001" />
       <inertia
         ixx="0.2404"
-        ixy="9.5265E-07"
-        ixz="-1.202E-08"
+        ixy="0"
+        ixz="0"
         iyy="0.1908"
         iyz="0.078383"
         izz="0.097801" />
@@ -449,5 +449,34 @@
       upper="3.14"
       effort="35"
       velocity="0" />
+  </joint>
+  <!-- End-effector link -->
+  <link
+    name="link_tcp">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.001" />
+      <inertia
+        ixx="0.00001"
+        ixy="0"
+        ixz="0"
+        iyy="0.00001"
+        iyz="0"
+        izz="0.00001" />
+    </inertial>
+  </link>
+  <joint
+    name="tcp_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0.05"
+      rpy="0 0 0" />
+    <parent
+      link="Link8" />
+    <child
+      link="link_tcp" />
   </joint>
 </robot>

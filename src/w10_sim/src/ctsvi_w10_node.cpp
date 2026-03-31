@@ -332,7 +332,7 @@ int main(int argc, char** argv)
         node->declare_parameter("duration", 10.0);
     }
     if (!node->has_parameter("urdf_path")) {
-        node->declare_parameter("urdf_path", "~/ros2_ws/dynamic_ws/src/w10_sim/urdf/7_pendulum.urdf");
+        node->declare_parameter("urdf_path", "~/ros2_ws/dynamic_ws/src/w10_sim/urdf/w10.urdf");
     }
 
     // 获取参数值
@@ -350,10 +350,48 @@ int main(int argc, char** argv)
 
     // build double model and data (for non-AD tasks like energy logging)
     Model model;
+    std::string attempted_urdf = urdf_path;
+    bool has_rotation_issues = false;
+    
     try {
         pinocchio::urdf::buildModel(urdf_path, model);
+        RCLCPP_INFO(node->get_logger(), "Successfully loaded URDF: %s", urdf_path.c_str());
+        
+        // Pre-check for rotation matrix issues before AD casting
+        Data test_data(model);
+        try {
+            // Try a simple forward kinematics to detect rotation issues early
+            Vec q_test = Vec::Ones(model.nq) * 0.1;
+            pinocchio::forwardKinematics(model, test_data, q_test);
+        } catch (...) {
+            RCLCPP_WARN(node->get_logger(), "w10.urdf has rotation matrix compatibility issues with Pinocchio");
+            has_rotation_issues = true;
+        }
+        
     } catch (const std::exception &e) {
-        RCLCPP_ERROR(node->get_logger(), "Error loading URDF: %s", e.what());
+        RCLCPP_WARN(node->get_logger(), "Failed to load URDF: %s", e.what());
+        has_rotation_issues = true;
+    }
+    
+    // If issues detected and using w10.urdf, try fallback
+    if (has_rotation_issues && urdf_path.find("w10.urdf") != std::string::npos) {
+        std::string fallback_path = expand_user("~/ros2_ws/dynamic_ws/src/w10_sim/urdf/7_pendulum.urdf");
+        RCLCPP_WARN(node->get_logger(), "Switching to fallback: %s", fallback_path.c_str());
+        try {
+            Model fallback_model;
+            pinocchio::urdf::buildModel(fallback_path, fallback_model);
+            model = fallback_model;
+            urdf_path = fallback_path;
+            has_rotation_issues = false;
+            RCLCPP_INFO(node->get_logger(), "Successfully loaded fallback URDF: %s", fallback_path.c_str());
+        } catch (const std::exception &e2) {
+            RCLCPP_ERROR(node->get_logger(), "Fallback also failed: %s", e2.what());
+            return 1;
+        }
+    }
+    
+    if (has_rotation_issues) {
+        RCLCPP_ERROR(node->get_logger(), "URDF has incompatibility issues with Pinocchio");
         return 1;
     }
     Data data(model);
