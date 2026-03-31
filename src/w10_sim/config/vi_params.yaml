@@ -11,13 +11,12 @@
   ctsvi_w10_node:
     ros__parameters:
       # Simulation parameters
-      timestep: 0.01          # simulation timestep [s] - INCREASED for stability
+      timestep: 0.01          # simulation timestep [s]
       duration: 1.0            # total simulation duration [s]
       
       # URDF model path (support ~ for home directory)
       urdf_path: "~/ros2_ws/dynamic_ws/src/w10_sim/urdf/w10.urdf"
       
-      # Initial joint configuration (7 DOF for w10)
-      # Order: joint2, joint3, joint4, joint5, joint6, joint7, joint8
-      # Using zero config for stability - try simple motion
-      q_init: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+      # Initial joint configuration (scalar - will be applied to all joints)
+      # For w10: 0.1 rad = ~5.7 degrees (safe starting pose)
+      q_init: 0.1

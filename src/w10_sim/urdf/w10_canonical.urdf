@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- w10机械臂 - Pinocchio规范版本 -->
+<!-- 自动生成自DH参数 - 运动学规范 -->
+<robot name="w10_sim">
+
+  <!-- 基座 -->
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0.081676" rpy="0 0 0" />
+      <mass value="19.318" />
+      <inertia ixx="0.067819" ixy="0" ixz="0" iyy="0.067813" iyz="0" izz="0.04982" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.1 0.1 0.05" />
+      </geometry>
+      <material name="base">
+        <color rgba="0.5 0.5 0.5 1.0" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- joint2 到 Link2 -->
+  <joint name="joint2" type="revolute">
+    <parent link="base_link" />
+    <child link="Link2" />
+    <origin xyz="0.000000 0.000000 0.163000" rpy="0.000000 0.000000 0.000000" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14159" upper="3.14159" effort="100" velocity="1.0" />
+    <dynamics damping="0.01" friction="0.01" />
+  </joint>
+
+  <link name="Link2">
+    <inertial>
+      <origin xyz="0 0 0.081500" rpy="0 0 0" />
+      <mass value="5.0" />
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.005" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.163000" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.8 0.8 0.8 1.0" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- joint3 到 Link3 -->
+  <joint name="joint3" type="revolute">
+    <parent link="Link2" />
+    <child link="Link3" />
+    <origin xyz="0.000000 0.000000 0.085000" rpy="0.000000 0.000000 0.000000" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14159" upper="3.14159" effort="100" velocity="1.0" />
+    <dynamics damping="0.01" friction="0.01" />
+  </joint>
+
+  <link name="Link3">
+    <inertial>
+      <origin xyz="0 0 0.042500" rpy="0 0 0" />
+      <mass value="5.0" />
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.005" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.100000" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.8 0.8 0.8 1.0" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- joint4 到 Link4 -->
+  <joint name="joint4" type="revolute">
+    <parent link="Link3" />
+    <child link="Link4" />
+    <origin xyz="0.281500 0.000000 0.000100" rpy="0.000000 0.000000 0.000000" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14159" upper="3.14159" effort="100" velocity="1.0" />
+    <dynamics damping="0.01" friction="0.01" />
+  </joint>
+
+  <link name="Link4">
+    <inertial>
+      <origin xyz="0 0 0.000050" rpy="0 0 0" />
+      <mass value="5.0" />
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.005" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.281500" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.8 0.8 0.8 1.0" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- joint5 到 Link5 -->
+  <joint name="joint5" type="revolute">
+    <parent link="Link4" />
+    <child link="Link5" />
+    <origin xyz="0.050000 0.000000 0.143500" rpy="0.000000 0.000000 0.000000" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14159" upper="3.14159" effort="100" velocity="1.0" />
+    <dynamics damping="0.01" friction="0.01" />
+  </joint>
+
+  <link name="Link5">
+    <inertial>
+      <origin xyz="0 0 0.071750" rpy="0 0 0" />
+      <mass value="5.0" />
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.005" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.143500" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.8 0.8 0.8 1.0" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- joint6 到 Link6 -->
+  <joint name="joint6" type="revolute">
+    <parent link="Link5" />
+    <child link="Link6" />
+    <origin xyz="0.121300 0.000000 0.000000" rpy="0.000000 0.000000 0.000000" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14159" upper="3.14159" effort="100" velocity="1.0" />
+    <dynamics damping="0.01" friction="0.01" />
+  </joint>
+
+  <link name="Link6">
+    <inertial>
+      <origin xyz="0 0 0.000000" rpy="0 0 0" />
+      <mass value="5.0" />
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.005" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.121300" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.8 0.8 0.8 1.0" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- joint7 到 Link7 -->
+  <joint name="joint7" type="revolute">
+    <parent link="Link6" />
+    <child link="Link7" />
+    <origin xyz="0.062900 0.000000 0.316200" rpy="0.000000 0.000000 0.000000" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14159" upper="3.14159" effort="100" velocity="1.0" />
+    <dynamics damping="0.01" friction="0.01" />
+  </joint>
+
+  <link name="Link7">
+    <inertial>
+      <origin xyz="0 0 0.158100" rpy="0 0 0" />
+      <mass value="5.0" />
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.005" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.316200" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.8 0.8 0.8 1.0" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- joint8 到 Link8 -->
+  <joint name="joint8" type="revolute">
+    <parent link="Link7" />
+    <child link="Link8" />
+    <origin xyz="0.068400 0.000000 0.062000" rpy="0.000000 0.000000 0.000000" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14159" upper="3.14159" effort="100" velocity="1.0" />
+    <dynamics damping="0.01" friction="0.01" />
+  </joint>
+
+  <link name="Link8">
+    <inertial>
+      <origin xyz="0 0 0.031000" rpy="0 0 0" />
+      <mass value="5.0" />
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.005" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.02" length="0.100000" />
+      </geometry>
+      <material name="link">
+        <color rgba="0.8 0.8 0.8 1.0" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- 末端执行器 -->
+  <joint name="joint_tcp" type="fixed">
+    <parent link="Link8" />
+    <child link="tcp" />
+    <origin xyz="0 0 0.05" rpy="0 0 0" />
+  </joint>
+
+  <link name="tcp">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.1" />
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+      <material name="tcp">
+        <color rgba="1.0 0.0 0.0 1.0" />
+      </material>
+    </visual>
+  </link>
+
+</robot>
