@@ -332,7 +332,7 @@ int main(int argc, char** argv)
         node->declare_parameter("duration", 10.0);
     }
     if (!node->has_parameter("urdf_path")) {
-        node->declare_parameter("urdf_path", "~/ros2_ws/dynamic_ws/src/w10_sim/urdf/w10.urdf");
+        node->declare_parameter("urdf_path", "~/ros2_ws/dynamic_ws/src/w10_sim/urdf/7_pendulum.urdf");
     }
 
     // 获取参数值
