@@ -13,9 +13,14 @@ import os
 def generate_launch_description():
     
     # 直接读取URDF文件内容
+    # urdf_file = os.path.join(
+    #     os.path.dirname(__file__), 
+    #     '..', 'urdf', 'w10_canonical.urdf'
+    # )
+    
     urdf_file = os.path.join(
         os.path.dirname(__file__), 
-        '..', 'urdf', 'w10_canonical.urdf'
+        '..', 'urdf', 'w10new.urdf'
     )
     
     with open(urdf_file, 'r') as f:
@@ -45,14 +50,14 @@ def generate_launch_description():
     )
     
     # 启动RViz
-    rviz_config_path = PathJoinSubstitution([w10_sim_dir, 'rviz', 'w10.rviz'])
+    # rviz_config_path = PathJoinSubstitution([w10_sim_dir, 'rviz', 'w10.rviz'])
     
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',
         name='rviz2',
         output='screen',
-        arguments=['-d', rviz_config_path],
+        # arguments=['-d', rviz_config_path],
     )
     
     return LaunchDescription([
