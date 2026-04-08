@@ -20,7 +20,7 @@ def generate_launch_description():
     
     urdf_file = os.path.join(
         os.path.dirname(__file__), 
-        '..', 'urdf', 'w10new.urdf'
+        '..', 'urdf', 'w10_body.urdf'
     )
     
     with open(urdf_file, 'r') as f:

@@ -17,8 +17,10 @@ include_directories(${EIGEN3_INCLUDE_DIRS})
 
 # Build executables
 # ament_auto_add_executable(vi_node src/vi_node.cpp)
-ament_auto_add_executable(ctsvi_node src/ctsvi_ad_node.cpp)
+ament_auto_add_executable(ctsvi_node src/ctsvi_node.cpp)
 ament_auto_add_executable(ctsvi_w10_node src/ctsvi_w10_node.cpp)
+ament_auto_add_executable(ctsvi_ad_node src/ctsvi_ad_node.cpp)
+ament_auto_add_executable(atsvi_ad_node src/atsvi_ad_node.cpp)
 
 
 # Install urdf, launch, config, and meshes directories
@@ -46,6 +48,11 @@ install(DIRECTORY rviz
 install(DIRECTORY scripts
   DESTINATION share/${PROJECT_NAME}
   FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
+)
+
+install(PROGRAMS
+        scripts/vi_sim.py
+        DESTINATION lib/${PROJECT_NAME}
 )
 
 if(BUILD_TESTING)

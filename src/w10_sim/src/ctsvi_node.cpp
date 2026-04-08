@@ -297,7 +297,7 @@ std::string fmt_double_label(double v)
 
 std::pair<double,double> read_lyap_from_config()
 {
-    std::string cfg = "src/vi/config/vi_params.yaml";
+    std::string cfg = "src/w10_sim/config/vi_params.yaml";
     std::ifstream ifs(cfg);
     double a = 0.0, b = 0.0;
     if (!ifs) return {a,b};
@@ -321,15 +321,32 @@ int main(int argc, char** argv)
         rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true)
     );
 
+    // Declare parameters with defaults (will be overridden by yaml/command-line)
+    if (!node->has_parameter("q_init")) {
+        node->declare_parameter("q_init", 0.2);
+    }
+    if (!node->has_parameter("timestep")) {
+        node->declare_parameter("timestep", 0.01);
+    }
+    if (!node->has_parameter("duration")) {
+        node->declare_parameter("duration", 10.0);
+    }
+    if (!node->has_parameter("urdf_path")) {
+        node->declare_parameter("urdf_path", "~/ros2_ws/dynamic_ws/src/w10_sim/urdf/w10.urdf");
+    }
+
     // 获取参数值
     double q_init = node->get_parameter("q_init").as_double();
     double timestep = node->get_parameter("timestep").as_double();
     double duration = node->get_parameter("duration").as_double();
-    // std::string urdf_path = node->get_parameter("urdf_path").as_string();
     std::string urdf_path = expand_user(node->get_parameter("urdf_path").as_string());
 
+    RCLCPP_INFO(node->get_logger(), "Parameters loaded from yaml/command-line:");
+    RCLCPP_INFO(node->get_logger(), "  q_init: %.2f rad", q_init);
+    RCLCPP_INFO(node->get_logger(), "  timestep: %.3f s", timestep);
+    RCLCPP_INFO(node->get_logger(), "  duration: %.1f s", duration);
+    RCLCPP_INFO(node->get_logger(), "  urdf_path: %s", urdf_path.c_str());
     RCLCPP_INFO(node->get_logger(), "Using URDF: %s", urdf_path.c_str());
-    RCLCPP_INFO(node->get_logger(), "Initial = %.2f rad, Duration = %.1f s, Timestep = %.3f s", q_init, duration, timestep);
 
     // build double model and data (for non-AD tasks like energy logging)
     Model model;
@@ -343,8 +360,7 @@ int main(int argc, char** argv)
     model.gravity.linear(Eigen::Vector3d(0,0,-9.81));
 
     // 获取末端 frame id
-    // int link_tcp_id = model.getFrameId("link_tcp");
-    int link_tcp_id = model.getFrameId("Link7");
+    int link_tcp_id = model.getFrameId("link_tcp");
     RCLCPP_INFO(node->get_logger(), "link_tcp_id=%d:", link_tcp_id);
     if (link_tcp_id == -1) {
         RCLCPP_ERROR(node->get_logger(), "TCP not found!");
