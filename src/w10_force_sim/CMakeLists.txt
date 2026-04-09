@@ -16,10 +16,19 @@ find_package(Eigen3 REQUIRED NO_MODULE)
 include_directories(${EIGEN3_INCLUDE_DIRS})
 
 # Build executables
-# ament_auto_add_executable(example_node src/example_node.cpp)
+ament_auto_add_executable(ctsvi_ad_node src/ctsvi_ad_node.cpp)
+# ament_auto_add_executable(atsvi_ad_node src/atsvi_ad_node.cpp)
+# ament_auto_add_executable(etsvi_node src/etsvi_node.cpp)
+ament_auto_add_executable(ctsvi_node src/ctsvi_node.cpp)
 
-# Install urdf, launch, config directories
+
+
+# Install urdf, launch, config, and meshes directories
 install(DIRECTORY urdf
+  DESTINATION share/${PROJECT_NAME}
+)
+
+install(DIRECTORY meshes
   DESTINATION share/${PROJECT_NAME}
 )
 
@@ -31,8 +40,28 @@ install(DIRECTORY config
   DESTINATION share/${PROJECT_NAME}
 )
 
-install(DIRECTORY include
-  DESTINATION include
+# Install scripts
+install(DIRECTORY scripts
+  DESTINATION share/${PROJECT_NAME}
+  FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
 )
 
-ament_package()
+install(PROGRAMS
+        scripts/vi_sim.py
+        scripts/analyze_vi_results.py
+        DESTINATION lib/${PROJECT_NAME}
+)
+
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  # the following line skips the linter which checks for copyrights
+  # comment the line when a copyright and license is added to all source files
+  set(ament_cmake_copyright_FOUND TRUE)
+  # the following line skips cpplint (only works in a git repo)
+  # comment the line when this package is in a git repo and when
+  # a copyright and license is added to all source files
+  set(ament_cmake_cpplint_FOUND TRUE)
+  ament_lint_auto_find_test_dependencies()
+endif()
+
+ament_auto_package()
