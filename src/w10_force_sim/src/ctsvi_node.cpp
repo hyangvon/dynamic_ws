@@ -21,6 +21,7 @@ namespace Eigen {
 #include <pinocchio/algorithm/kinematics.hpp>
 #include <pinocchio/algorithm/energy.hpp>
 #include <pinocchio/algorithm/frames.hpp>
+#include <pinocchio/algorithm/jacobian.hpp>
 #include <pinocchio/multibody/model.hpp>
 #include <pinocchio/multibody/data.hpp>
 
@@ -67,6 +68,18 @@ compute_end_effector_pose(const Model &model,
     Eigen::Matrix3d ee_rot = data.oMf[frame_id].rotation();
 
     return {ee_pos, ee_rot};
+}
+
+// 计算末端 frame 上 Cartesian 力映射到广义力 (世界坐标对齐)
+Vec compute_ext_generalized_force(const Model &model, Data &data,
+                                   int frame_id, const Vec &q,
+                                   const Eigen::Vector3d &cartesian_force)
+{
+    Mat J_full = Mat::Zero(6, model.nv);
+    pinocchio::computeFrameJacobian(model, data, q, (pinocchio::FrameIndex)frame_id,
+                                    pinocchio::LOCAL_WORLD_ALIGNED, J_full);
+    // 仅使用平动部分 (前3行)
+    return J_full.topRows(3).transpose() * cartesian_force;
 }
 
 // ---------- double 版本辅助（用于能量输出等） ----------
@@ -331,6 +344,36 @@ int main(int argc, char** argv)
     RCLCPP_INFO(node->get_logger(), "Using URDF: %s", urdf_path.c_str());
     RCLCPP_INFO(node->get_logger(), "Initial = %.2f rad, Duration = %.1f s, Timestep = %.3f s", q_init, duration, timestep);
 
+    // ---------- 外力冲击激励参数（yaml 中可覆盖，此处给出默认值） ----------
+    // 节点使用 automatically_declare_parameters_from_overrides，yaml 参数已自动声明，故先检查再声明
+    auto declare_if_needed = [&](const std::string &name, rclcpp::ParameterValue default_val) {
+        if (!node->has_parameter(name))
+            node->declare_parameter(name, default_val);
+    };
+    declare_if_needed("force_enable",     rclcpp::ParameterValue(false));
+    declare_if_needed("force_magnitude",  rclcpp::ParameterValue(50.0));
+    declare_if_needed("force_dir_x",      rclcpp::ParameterValue(1.0));
+    declare_if_needed("force_dir_y",      rclcpp::ParameterValue(0.0));
+    declare_if_needed("force_dir_z",      rclcpp::ParameterValue(0.0));
+    declare_if_needed("force_start_time", rclcpp::ParameterValue(2.0));
+    declare_if_needed("force_duration",   rclcpp::ParameterValue(0.5));
+
+    bool   force_enable = node->get_parameter("force_enable").as_bool();
+    double force_mag    = node->get_parameter("force_magnitude").as_double();
+    double force_dir_x  = node->get_parameter("force_dir_x").as_double();
+    double force_dir_y  = node->get_parameter("force_dir_y").as_double();
+    double force_dir_z  = node->get_parameter("force_dir_z").as_double();
+    double force_start  = node->get_parameter("force_start_time").as_double();
+    double force_dur    = node->get_parameter("force_duration").as_double();
+
+    if (force_enable) {
+        RCLCPP_INFO(node->get_logger(),
+            "External force ENABLED: mag=%.2f N, dir=[%.3f,%.3f,%.3f], start=%.3f s, dur=%.3f s",
+            force_mag, force_dir_x, force_dir_y, force_dir_z, force_start, force_dur);
+    } else {
+        RCLCPP_INFO(node->get_logger(), "External force DISABLED (conservative system)");
+    }
+
     // build double model and data (for non-AD tasks like energy logging)
     Model model;
     try {
@@ -364,7 +407,20 @@ int main(int argc, char** argv)
 
     Vec q_prev = Vec::Constant(n, q_init);
     Vec v_prev = Vec::Zero(n);
-    Vec tau_k = Vec::Zero(n);
+    Vec tau_k  = Vec::Zero(n);
+
+    // 归一化力方向，构建 Cartesian 力向量
+    Eigen::Vector3d f_dir(force_dir_x, force_dir_y, force_dir_z);
+    if (f_dir.norm() > 1e-10) f_dir.normalize();
+    Eigen::Vector3d f_vec = force_mag * f_dir;
+
+    // Lambda：在仿真时刻 t、关节构型 q 处求广义外力
+    auto get_tau_at = [&](double t, const Vec &q) -> Vec {
+        if (force_enable && t >= force_start && t < force_start + force_dur) {
+            return compute_ext_generalized_force(model, data, link_tcp_id, q, f_vec);
+        }
+        return Vec::Zero(n);
+    };
 
     std::vector<Vec> q_history;
     std::vector<double> time_history;
@@ -374,6 +430,7 @@ int main(int argc, char** argv)
     std::vector<double> energy_U_history;
     std::vector<Eigen::Vector3d> ee_history;
     std::vector<Vec> momentum_history;
+    std::vector<Vec> force_torque_history;
 
     q_history.push_back(q_prev);
 
@@ -399,7 +456,9 @@ int main(int argc, char** argv)
     auto [ee_pos0, ee_rot0] = compute_end_effector_pose(model, data, link_tcp_id, q_prev);
     ee_history.push_back(ee_pos0);
 
-    // initial VI step
+    // initial VI step  (t = 0)
+    tau_k = get_tau_at(0.0, q_prev);
+    force_torque_history.push_back(tau_k);
     auto [q_curr, info_init] = solve_q_next(model_ad, data_ad, q_prev, q_prev + v_prev * timestep, tau_k, timestep);
     q_history.push_back(q_curr);
 
@@ -422,6 +481,8 @@ int main(int argc, char** argv)
     for (int step = 0; step < n_steps - 1; ++step)
     {
         auto t0 = high_resolution_clock::now();
+        // 在当前构型处计算广义外力（时刻 t_{step+1}）
+        tau_k = get_tau_at((step + 1) * timestep, q_history.back());
         auto [q_next, info] = solve_q_next(model_ad, data_ad, q_history[q_history.size()-2],
                                            q_history[q_history.size()-1], tau_k, timestep);
         q_history.push_back(q_next);
@@ -449,6 +510,7 @@ int main(int argc, char** argv)
         Mat Mmid = inertia_matrix(model, data, qmid);
         Vec p = Mmid * qdot;
         momentum_history.push_back(p);
+        force_torque_history.push_back(tau_k);
 
         auto t1 = high_resolution_clock::now();
         double elapsed = std::chrono::duration_cast<std::chrono::duration<double>>(t1 - t0).count();
@@ -503,6 +565,7 @@ int main(int argc, char** argv)
 
     write_csv(csv_dir + "q_history.csv", q_history);
     write_csv(csv_dir + "momentum_history.csv", momentum_history);
+    write_csv(csv_dir + "force_torque_history.csv", force_torque_history);
     write_csv_scalar_series(csv_dir + "time_history.csv", time_history);
     write_csv_scalar_series(csv_dir + "energy_history.csv", energy_history);
     write_csv_scalar_series(csv_dir + "delta_energy_history.csv", delta_energy_history);

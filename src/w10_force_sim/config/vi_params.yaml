@@ -20,3 +20,21 @@
     ros__parameters:
       lyap_alpha: 0.4
       lyap_beta: 0.04
+
+
+# -------- 末端外力冲击激励（非保守项）--------
+# force_enable: true  => 启用外力；false => 纯保守系统
+# force_magnitude: 力的大小 [N]
+# force_dir_x/y/z:  世界坐标系中力的方向（会被自动归一化）
+# force_start_time: 外力开始时刻 [s]
+# force_duration:   外力持续时长 [s]
+  ctsvi_node:
+    ros__parameters:
+      # force_enable:      false
+      force_enable:      true
+      force_magnitude:   50.0
+      force_dir_x:       1.0
+      force_dir_y:       0.0
+      force_dir_z:       0.0
+      force_start_time:  2.0
+      force_duration:    0.5

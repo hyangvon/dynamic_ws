@@ -1,0 +1,804 @@
+[0.000000] (-) TimerEvent: {}
+[0.000141] (-) JobUnselected: {'identifier': 'vi'}
+[0.000284] (-) JobUnselected: {'identifier': 'vi_2p'}
+[0.000366] (-) JobUnselected: {'identifier': 'w10_kinematics'}
+[0.000446] (-) JobUnselected: {'identifier': 'w10_moveit_kinematics'}
+[0.000516] (-) JobUnselected: {'identifier': 'w10_sim'}
+[0.000545] (w10_force_sim) JobQueued: {'identifier': 'w10_force_sim', 'dependencies': OrderedDict()}
+[0.000571] (w10_force_sim) JobStarted: {'identifier': 'w10_force_sim'}
+[0.006388] (w10_force_sim) JobProgress: {'identifier': 'w10_force_sim', 'progress': 'cmake'}
+[0.007099] (w10_force_sim) Command: {'cmd': ['/usr/bin/cmake', '/home/user/ros2_ws/dynamic_ws/src/w10_force_sim', '-DCMAKE_BUILD_TYPE=Release', '-DCMAKE_INSTALL_PREFIX=/home/user/ros2_ws/dynamic_ws/install/w10_force_sim'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/w10_force_sim', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 59410 22'), ('GIT_EDITOR', ':'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('OLDPWD', '/home/user/ros2_ws/dynamic_ws'), ('TERM_PROGRAM_VERSION', '1.115.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-d01338f5-0928-471f-bb20-4fc566f5732c.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '14635'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '898'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignorespace'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-617e993a37.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('GIT_PAGER', 'cat'), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/w10_force_sim'), ('GIT_MERGE_AUTOEDIT', 'no'), ('SSH_CONNECTION', '192.168.100.41 59410 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots:')]), 'shell': False}
+[0.017825] (w10_force_sim) StdoutLine: {'line': b'-- Found ament_cmake_auto: 1.3.12 (/opt/ros/humble/share/ament_cmake_auto/cmake)\n'}
+[0.099844] (-) TimerEvent: {}
+[0.184241] (w10_force_sim) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.185809] (w10_force_sim) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.190355] (w10_force_sim) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.198108] (w10_force_sim) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.199897] (-) TimerEvent: {}
+[0.207500] (w10_force_sim) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.231217] (w10_force_sim) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.232168] (w10_force_sim) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.9 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.300006] (-) TimerEvent: {}
+[0.302104] (w10_force_sim) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.340514] (w10_force_sim) StdoutLine: {'line': b'-- pinocchio_default FOUND. pinocchio_default at /opt/openrobots/lib/libpinocchio_default.so\n'}
+[0.340671] (w10_force_sim) StdoutLine: {'line': b'-- pinocchio_parsers FOUND. pinocchio_parsers at /opt/openrobots/lib/libpinocchio_parsers.so\n'}
+[0.340753] (w10_force_sim) StdoutLine: {'line': b'-- pinocchio_casadi FOUND. pinocchio_casadi at /opt/openrobots/lib/libpinocchio_casadi.so\n'}
+[0.341996] (w10_force_sim) StdoutLine: {'line': b'-- boost_filesystem FOUND. boost_filesystem at /usr/lib/x86_64-linux-gnu/libboost_filesystem.so\n'}
+[0.342686] (w10_force_sim) StdoutLine: {'line': b'-- boost_serialization FOUND. boost_serialization at /usr/lib/x86_64-linux-gnu/libboost_serialization.so\n'}
+[0.343399] (w10_force_sim) StdoutLine: {'line': b'-- boost_system FOUND. boost_system at /usr/lib/x86_64-linux-gnu/libboost_system.so\n'}
+[0.351094] (w10_force_sim) StderrLine: {'line': b'CMake Warning at /opt/openrobots/lib/cmake/hpp-fcl/hpp-fclConfig.cmake:3 (message):\n'}
+[0.351240] (w10_force_sim) StderrLine: {'line': b"  Please update your CMake from 'hpp-fcl' to 'coal'\n"}
+[0.351320] (w10_force_sim) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[0.351470] (w10_force_sim) StderrLine: {'line': b'  /usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)\n'}
+[0.351559] (w10_force_sim) StderrLine: {'line': b'  /opt/openrobots/lib/cmake/pinocchio/pinocchioConfig.cmake:161 (find_dependency)\n'}
+[0.351637] (w10_force_sim) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_auto/cmake/ament_auto_find_build_dependencies.cmake:67 (find_package)\n'}
+[0.351709] (w10_force_sim) StderrLine: {'line': b'  CMakeLists.txt:12 (ament_auto_find_build_dependencies)\n'}
+[0.351780] (w10_force_sim) StderrLine: {'line': b'\n'}
+[0.351884] (w10_force_sim) StderrLine: {'line': b'\n'}
+[0.351959] (w10_force_sim) StdoutLine: {'line': b'-- coal FOUND. coal at /opt/openrobots/lib/libcoal.so\n'}
+[0.400115] (-) TimerEvent: {}
+[0.500314] (-) TimerEvent: {}
+[0.599436] (w10_force_sim) StdoutLine: {'line': b'-- Default C++ standard: 201703\n'}
+[0.599623] (w10_force_sim) StdoutLine: {'line': b'-- C++ standard sufficient: Minimal required 11, currently defined: 17\n'}
+[0.599701] (w10_force_sim) StdoutLine: {'line': b'-- CMAKE_CXX_STANDARD was not set: automatically set to currently defined standard 17\n'}
+[0.600416] (w10_force_sim) StdoutLine: {'line': b'-- C++ standard sufficient: Minimal required 11, currently defined: 17\n'}
+[0.600502] (-) TimerEvent: {}
+[0.621159] (w10_force_sim) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)\n'}
+[0.622170] (w10_force_sim) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[0.700614] (-) TimerEvent: {}
+[0.721107] (w10_force_sim) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[0.724319] (w10_force_sim) StderrLine: {'line': b'In this package, headers install destination is set to `include` by ament_auto_package. It is recommended to install `include/w10_force_sim` instead and will be the default behavior of ament_auto_package from ROS 2 Kilted Kaiju. On distributions before Kilted, ament_auto_package behaves the same way when you use USE_SCOPED_HEADER_INSTALL_DIR option.\n'}
+[0.728052] (w10_force_sim) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[0.728303] (w10_force_sim) StdoutLine: {'line': b'-- Configured cppcheck include dirs: /home/user/ros2_ws/dynamic_ws/src/w10_force_sim/include\n'}
+[0.728400] (w10_force_sim) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[0.728643] (w10_force_sim) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[0.729101] (w10_force_sim) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[0.729407] (w10_force_sim) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[0.731255] (w10_force_sim) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[0.731334] (w10_force_sim) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[0.731652] (w10_force_sim) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[0.733155] (w10_force_sim) StdoutLine: {'line': b'-- Configuring done\n'}
+[0.757486] (w10_force_sim) StdoutLine: {'line': b'-- Generating done\n'}
+[0.763136] (w10_force_sim) StdoutLine: {'line': b'-- Build files have been written to: /home/user/ros2_ws/dynamic_ws/build/w10_force_sim\n'}
+[0.768486] (w10_force_sim) CommandEnded: {'returncode': 0}
+[0.769544] (w10_force_sim) JobProgress: {'identifier': 'w10_force_sim', 'progress': 'build'}
+[0.769880] (w10_force_sim) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/user/ros2_ws/dynamic_ws/build/w10_force_sim', '--', '-j32', '-l32'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/w10_force_sim', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 59410 22'), ('GIT_EDITOR', ':'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('OLDPWD', '/home/user/ros2_ws/dynamic_ws'), ('TERM_PROGRAM_VERSION', '1.115.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-d01338f5-0928-471f-bb20-4fc566f5732c.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '14635'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '898'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignorespace'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-617e993a37.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('GIT_PAGER', 'cat'), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/w10_force_sim'), ('GIT_MERGE_AUTOEDIT', 'no'), ('SSH_CONNECTION', '192.168.100.41 59410 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots:')]), 'shell': False}
+[0.800711] (-) TimerEvent: {}
+[0.812572] (w10_force_sim) StdoutLine: {'line': b'[ 25%] Building CXX object CMakeFiles/ctsvi_node.dir/src/ctsvi_node.cpp.o\n'}
+[0.856279] (w10_force_sim) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target ctsvi_ad_node\n'}
+[0.879135] (w10_force_sim) StdoutLine: {'line': b'[ 50%] Building CXX object CMakeFiles/ctsvi_ad_node.dir/src/ctsvi_ad_node.cpp.o\n'}
+[0.900800] (-) TimerEvent: {}
+[1.000963] (-) TimerEvent: {}
+[1.101157] (-) TimerEvent: {}
+[1.201347] (-) TimerEvent: {}
+[1.301526] (-) TimerEvent: {}
+[1.401705] (-) TimerEvent: {}
+[1.501915] (-) TimerEvent: {}
+[1.602092] (-) TimerEvent: {}
+[1.702283] (-) TimerEvent: {}
+[1.802473] (-) TimerEvent: {}
+[1.902675] (-) TimerEvent: {}
+[2.002842] (-) TimerEvent: {}
+[2.103044] (-) TimerEvent: {}
+[2.203246] (-) TimerEvent: {}
+[2.303409] (-) TimerEvent: {}
+[2.403656] (-) TimerEvent: {}
+[2.503870] (-) TimerEvent: {}
+[2.604060] (-) TimerEvent: {}
+[2.704250] (-) TimerEvent: {}
+[2.804488] (-) TimerEvent: {}
+[2.904710] (-) TimerEvent: {}
+[3.004842] (-) TimerEvent: {}
+[3.105008] (-) TimerEvent: {}
+[3.205201] (-) TimerEvent: {}
+[3.305411] (-) TimerEvent: {}
+[3.405614] (-) TimerEvent: {}
+[3.505821] (-) TimerEvent: {}
+[3.606018] (-) TimerEvent: {}
+[3.706213] (-) TimerEvent: {}
+[3.806412] (-) TimerEvent: {}
+[3.906627] (-) TimerEvent: {}
+[4.006806] (-) TimerEvent: {}
+[4.107008] (-) TimerEvent: {}
+[4.207176] (-) TimerEvent: {}
+[4.307375] (-) TimerEvent: {}
+[4.407573] (-) TimerEvent: {}
+[4.507785] (-) TimerEvent: {}
+[4.607969] (-) TimerEvent: {}
+[4.708159] (-) TimerEvent: {}
+[4.808362] (-) TimerEvent: {}
+[4.908530] (-) TimerEvent: {}
+[5.008753] (-) TimerEvent: {}
+[5.108961] (-) TimerEvent: {}
+[5.209145] (-) TimerEvent: {}
+[5.309324] (-) TimerEvent: {}
+[5.409496] (-) TimerEvent: {}
+[5.509665] (-) TimerEvent: {}
+[5.609846] (-) TimerEvent: {}
+[5.710404] (-) TimerEvent: {}
+[5.810574] (-) TimerEvent: {}
+[5.910773] (-) TimerEvent: {}
+[6.010952] (-) TimerEvent: {}
+[6.111122] (-) TimerEvent: {}
+[6.211290] (-) TimerEvent: {}
+[6.311457] (-) TimerEvent: {}
+[6.411624] (-) TimerEvent: {}
+[6.511829] (-) TimerEvent: {}
+[6.612006] (-) TimerEvent: {}
+[6.712731] (-) TimerEvent: {}
+[6.812965] (-) TimerEvent: {}
+[6.913135] (-) TimerEvent: {}
+[7.013365] (-) TimerEvent: {}
+[7.113547] (-) TimerEvent: {}
+[7.213841] (-) TimerEvent: {}
+[7.314053] (-) TimerEvent: {}
+[7.414228] (-) TimerEvent: {}
+[7.514409] (-) TimerEvent: {}
+[7.614585] (-) TimerEvent: {}
+[7.714772] (-) TimerEvent: {}
+[7.815091] (-) TimerEvent: {}
+[7.915287] (-) TimerEvent: {}
+[8.015497] (-) TimerEvent: {}
+[8.115671] (-) TimerEvent: {}
+[8.215912] (-) TimerEvent: {}
+[8.316207] (-) TimerEvent: {}
+[8.416412] (-) TimerEvent: {}
+[8.516619] (-) TimerEvent: {}
+[8.616828] (-) TimerEvent: {}
+[8.716999] (-) TimerEvent: {}
+[8.817135] (-) TimerEvent: {}
+[8.917314] (-) TimerEvent: {}
+[9.017515] (-) TimerEvent: {}
+[9.117731] (-) TimerEvent: {}
+[9.217914] (-) TimerEvent: {}
+[9.318100] (-) TimerEvent: {}
+[9.418272] (-) TimerEvent: {}
+[9.518454] (-) TimerEvent: {}
+[9.618634] (-) TimerEvent: {}
+[9.718842] (-) TimerEvent: {}
+[9.819017] (-) TimerEvent: {}
+[9.919193] (-) TimerEvent: {}
+[10.019376] (-) TimerEvent: {}
+[10.119558] (-) TimerEvent: {}
+[10.219777] (-) TimerEvent: {}
+[10.319955] (-) TimerEvent: {}
+[10.420127] (-) TimerEvent: {}
+[10.520322] (-) TimerEvent: {}
+[10.620487] (-) TimerEvent: {}
+[10.720663] (-) TimerEvent: {}
+[10.820869] (-) TimerEvent: {}
+[10.921038] (-) TimerEvent: {}
+[11.021231] (-) TimerEvent: {}
+[11.121459] (-) TimerEvent: {}
+[11.221663] (-) TimerEvent: {}
+[11.321854] (-) TimerEvent: {}
+[11.422050] (-) TimerEvent: {}
+[11.522249] (-) TimerEvent: {}
+[11.622425] (-) TimerEvent: {}
+[11.722749] (-) TimerEvent: {}
+[11.822958] (-) TimerEvent: {}
+[11.923166] (-) TimerEvent: {}
+[12.023365] (-) TimerEvent: {}
+[12.123573] (-) TimerEvent: {}
+[12.223742] (-) TimerEvent: {}
+[12.324013] (-) TimerEvent: {}
+[12.424217] (-) TimerEvent: {}
+[12.524425] (-) TimerEvent: {}
+[12.624615] (-) TimerEvent: {}
+[12.724857] (-) TimerEvent: {}
+[12.825063] (-) TimerEvent: {}
+[12.925260] (-) TimerEvent: {}
+[13.025468] (-) TimerEvent: {}
+[13.125700] (-) TimerEvent: {}
+[13.225913] (-) TimerEvent: {}
+[13.326086] (-) TimerEvent: {}
+[13.426275] (-) TimerEvent: {}
+[13.526484] (-) TimerEvent: {}
+[13.626688] (-) TimerEvent: {}
+[13.726858] (-) TimerEvent: {}
+[13.827061] (-) TimerEvent: {}
+[13.927265] (-) TimerEvent: {}
+[14.027484] (-) TimerEvent: {}
+[14.127689] (-) TimerEvent: {}
+[14.227856] (-) TimerEvent: {}
+[14.328059] (-) TimerEvent: {}
+[14.428266] (-) TimerEvent: {}
+[14.528477] (-) TimerEvent: {}
+[14.628704] (-) TimerEvent: {}
+[14.728909] (-) TimerEvent: {}
+[14.829105] (-) TimerEvent: {}
+[14.929304] (-) TimerEvent: {}
+[15.029508] (-) TimerEvent: {}
+[15.129726] (-) TimerEvent: {}
+[15.230019] (-) TimerEvent: {}
+[15.330154] (-) TimerEvent: {}
+[15.430304] (-) TimerEvent: {}
+[15.530482] (-) TimerEvent: {}
+[15.630686] (-) TimerEvent: {}
+[15.730876] (-) TimerEvent: {}
+[15.831060] (-) TimerEvent: {}
+[15.931250] (-) TimerEvent: {}
+[16.031484] (-) TimerEvent: {}
+[16.131660] (-) TimerEvent: {}
+[16.231867] (-) TimerEvent: {}
+[16.332030] (-) TimerEvent: {}
+[16.432194] (-) TimerEvent: {}
+[16.532364] (-) TimerEvent: {}
+[16.632534] (-) TimerEvent: {}
+[16.732705] (-) TimerEvent: {}
+[16.832845] (-) TimerEvent: {}
+[16.933016] (-) TimerEvent: {}
+[17.033156] (-) TimerEvent: {}
+[17.133293] (-) TimerEvent: {}
+[17.233526] (-) TimerEvent: {}
+[17.333782] (-) TimerEvent: {}
+[17.434056] (-) TimerEvent: {}
+[17.534265] (-) TimerEvent: {}
+[17.634475] (-) TimerEvent: {}
+[17.734682] (-) TimerEvent: {}
+[17.834867] (-) TimerEvent: {}
+[17.935048] (-) TimerEvent: {}
+[18.035213] (-) TimerEvent: {}
+[18.135382] (-) TimerEvent: {}
+[18.235552] (-) TimerEvent: {}
+[18.335730] (-) TimerEvent: {}
+[18.437870] (-) TimerEvent: {}
+[18.538087] (-) TimerEvent: {}
+[18.638264] (-) TimerEvent: {}
+[18.738433] (-) TimerEvent: {}
+[18.838606] (-) TimerEvent: {}
+[18.938781] (-) TimerEvent: {}
+[19.038974] (-) TimerEvent: {}
+[19.139144] (-) TimerEvent: {}
+[19.239321] (-) TimerEvent: {}
+[19.339495] (-) TimerEvent: {}
+[19.439680] (-) TimerEvent: {}
+[19.540550] (-) TimerEvent: {}
+[19.640754] (-) TimerEvent: {}
+[19.740928] (-) TimerEvent: {}
+[19.841104] (-) TimerEvent: {}
+[19.941327] (-) TimerEvent: {}
+[20.041555] (-) TimerEvent: {}
+[20.141731] (-) TimerEvent: {}
+[20.241951] (-) TimerEvent: {}
+[20.342124] (-) TimerEvent: {}
+[20.442333] (-) TimerEvent: {}
+[20.542523] (-) TimerEvent: {}
+[20.642742] (-) TimerEvent: {}
+[20.742941] (-) TimerEvent: {}
+[20.843148] (-) TimerEvent: {}
+[20.943360] (-) TimerEvent: {}
+[21.043567] (-) TimerEvent: {}
+[21.143746] (-) TimerEvent: {}
+[21.243934] (-) TimerEvent: {}
+[21.344115] (-) TimerEvent: {}
+[21.444319] (-) TimerEvent: {}
+[21.544496] (-) TimerEvent: {}
+[21.644670] (-) TimerEvent: {}
+[21.744858] (-) TimerEvent: {}
+[21.845064] (-) TimerEvent: {}
+[21.945252] (-) TimerEvent: {}
+[22.045437] (-) TimerEvent: {}
+[22.145622] (-) TimerEvent: {}
+[22.245832] (-) TimerEvent: {}
+[22.346022] (-) TimerEvent: {}
+[22.446209] (-) TimerEvent: {}
+[22.546401] (-) TimerEvent: {}
+[22.646602] (-) TimerEvent: {}
+[22.746776] (-) TimerEvent: {}
+[22.847002] (-) TimerEvent: {}
+[22.947179] (-) TimerEvent: {}
+[23.047362] (-) TimerEvent: {}
+[23.147540] (-) TimerEvent: {}
+[23.247687] (-) TimerEvent: {}
+[23.347920] (-) TimerEvent: {}
+[23.448091] (-) TimerEvent: {}
+[23.548280] (-) TimerEvent: {}
+[23.648517] (-) TimerEvent: {}
+[23.748775] (-) TimerEvent: {}
+[23.848993] (-) TimerEvent: {}
+[23.949188] (-) TimerEvent: {}
+[24.049357] (-) TimerEvent: {}
+[24.149528] (-) TimerEvent: {}
+[24.249724] (-) TimerEvent: {}
+[24.349921] (-) TimerEvent: {}
+[24.450097] (-) TimerEvent: {}
+[24.550303] (-) TimerEvent: {}
+[24.650492] (-) TimerEvent: {}
+[24.750660] (-) TimerEvent: {}
+[24.850835] (-) TimerEvent: {}
+[24.950975] (-) TimerEvent: {}
+[25.051166] (-) TimerEvent: {}
+[25.151347] (-) TimerEvent: {}
+[25.251560] (-) TimerEvent: {}
+[25.351746] (-) TimerEvent: {}
+[25.451931] (-) TimerEvent: {}
+[25.552114] (-) TimerEvent: {}
+[25.652326] (-) TimerEvent: {}
+[25.752497] (-) TimerEvent: {}
+[25.852676] (-) TimerEvent: {}
+[25.952846] (-) TimerEvent: {}
+[26.053040] (-) TimerEvent: {}
+[26.153214] (-) TimerEvent: {}
+[26.253393] (-) TimerEvent: {}
+[26.353581] (-) TimerEvent: {}
+[26.453778] (-) TimerEvent: {}
+[26.553953] (-) TimerEvent: {}
+[26.654122] (-) TimerEvent: {}
+[26.754296] (-) TimerEvent: {}
+[26.854420] (-) TimerEvent: {}
+[26.954594] (-) TimerEvent: {}
+[27.054800] (-) TimerEvent: {}
+[27.154969] (-) TimerEvent: {}
+[27.255152] (-) TimerEvent: {}
+[27.355335] (-) TimerEvent: {}
+[27.455552] (-) TimerEvent: {}
+[27.555736] (-) TimerEvent: {}
+[27.655925] (-) TimerEvent: {}
+[27.756113] (-) TimerEvent: {}
+[27.856324] (-) TimerEvent: {}
+[27.956500] (-) TimerEvent: {}
+[28.056687] (-) TimerEvent: {}
+[28.156895] (-) TimerEvent: {}
+[28.257099] (-) TimerEvent: {}
+[28.357276] (-) TimerEvent: {}
+[28.457480] (-) TimerEvent: {}
+[28.557664] (-) TimerEvent: {}
+[28.657846] (-) TimerEvent: {}
+[28.758030] (-) TimerEvent: {}
+[28.858221] (-) TimerEvent: {}
+[28.958435] (-) TimerEvent: {}
+[29.058643] (-) TimerEvent: {}
+[29.158897] (-) TimerEvent: {}
+[29.259078] (-) TimerEvent: {}
+[29.359249] (-) TimerEvent: {}
+[29.459429] (-) TimerEvent: {}
+[29.559599] (-) TimerEvent: {}
+[29.659853] (-) TimerEvent: {}
+[29.760056] (-) TimerEvent: {}
+[29.860238] (-) TimerEvent: {}
+[29.960448] (-) TimerEvent: {}
+[30.060710] (-) TimerEvent: {}
+[30.160865] (-) TimerEvent: {}
+[30.261057] (-) TimerEvent: {}
+[30.361239] (-) TimerEvent: {}
+[30.461435] (-) TimerEvent: {}
+[30.561646] (-) TimerEvent: {}
+[30.661957] (-) TimerEvent: {}
+[30.762185] (-) TimerEvent: {}
+[30.862383] (-) TimerEvent: {}
+[30.962574] (-) TimerEvent: {}
+[31.062782] (-) TimerEvent: {}
+[31.163054] (-) TimerEvent: {}
+[31.263271] (-) TimerEvent: {}
+[31.363495] (-) TimerEvent: {}
+[31.463678] (-) TimerEvent: {}
+[31.563843] (-) TimerEvent: {}
+[31.664035] (-) TimerEvent: {}
+[31.764237] (-) TimerEvent: {}
+[31.864436] (-) TimerEvent: {}
+[31.964603] (-) TimerEvent: {}
+[32.064769] (-) TimerEvent: {}
+[32.164984] (-) TimerEvent: {}
+[32.265197] (-) TimerEvent: {}
+[32.365458] (-) TimerEvent: {}
+[32.465675] (-) TimerEvent: {}
+[32.565855] (-) TimerEvent: {}
+[32.666077] (-) TimerEvent: {}
+[32.766283] (-) TimerEvent: {}
+[32.866484] (-) TimerEvent: {}
+[32.966685] (-) TimerEvent: {}
+[33.066855] (-) TimerEvent: {}
+[33.167068] (-) TimerEvent: {}
+[33.267249] (-) TimerEvent: {}
+[33.367924] (-) TimerEvent: {}
+[33.468221] (-) TimerEvent: {}
+[33.568396] (-) TimerEvent: {}
+[33.668583] (-) TimerEvent: {}
+[33.768838] (-) TimerEvent: {}
+[33.869041] (-) TimerEvent: {}
+[33.969247] (-) TimerEvent: {}
+[34.069420] (-) TimerEvent: {}
+[34.169594] (-) TimerEvent: {}
+[34.269803] (-) TimerEvent: {}
+[34.369979] (-) TimerEvent: {}
+[34.470168] (-) TimerEvent: {}
+[34.570306] (-) TimerEvent: {}
+[34.670504] (-) TimerEvent: {}
+[34.770713] (-) TimerEvent: {}
+[34.870928] (-) TimerEvent: {}
+[34.971105] (-) TimerEvent: {}
+[35.071290] (-) TimerEvent: {}
+[35.171580] (-) TimerEvent: {}
+[35.271758] (-) TimerEvent: {}
+[35.371935] (-) TimerEvent: {}
+[35.472165] (-) TimerEvent: {}
+[35.572383] (-) TimerEvent: {}
+[35.672586] (-) TimerEvent: {}
+[35.772804] (-) TimerEvent: {}
+[35.872996] (-) TimerEvent: {}
+[35.973179] (-) TimerEvent: {}
+[36.073359] (-) TimerEvent: {}
+[36.173555] (-) TimerEvent: {}
+[36.273754] (-) TimerEvent: {}
+[36.373916] (-) TimerEvent: {}
+[36.474266] (-) TimerEvent: {}
+[36.574498] (-) TimerEvent: {}
+[36.674694] (-) TimerEvent: {}
+[36.775868] (-) TimerEvent: {}
+[36.876101] (-) TimerEvent: {}
+[36.976280] (-) TimerEvent: {}
+[37.076459] (-) TimerEvent: {}
+[37.176640] (-) TimerEvent: {}
+[37.276851] (-) TimerEvent: {}
+[37.377018] (-) TimerEvent: {}
+[37.477184] (-) TimerEvent: {}
+[37.577348] (-) TimerEvent: {}
+[37.677514] (-) TimerEvent: {}
+[37.777696] (-) TimerEvent: {}
+[37.877894] (-) TimerEvent: {}
+[37.978067] (-) TimerEvent: {}
+[38.078254] (-) TimerEvent: {}
+[38.178424] (-) TimerEvent: {}
+[38.278599] (-) TimerEvent: {}
+[38.378789] (-) TimerEvent: {}
+[38.478968] (-) TimerEvent: {}
+[38.579131] (-) TimerEvent: {}
+[38.679295] (-) TimerEvent: {}
+[38.779461] (-) TimerEvent: {}
+[38.879647] (-) TimerEvent: {}
+[38.979855] (-) TimerEvent: {}
+[39.080029] (-) TimerEvent: {}
+[39.180201] (-) TimerEvent: {}
+[39.280391] (-) TimerEvent: {}
+[39.380558] (-) TimerEvent: {}
+[39.480751] (-) TimerEvent: {}
+[39.580927] (-) TimerEvent: {}
+[39.681149] (-) TimerEvent: {}
+[39.781321] (-) TimerEvent: {}
+[39.881538] (-) TimerEvent: {}
+[39.981773] (-) TimerEvent: {}
+[40.081964] (-) TimerEvent: {}
+[40.182208] (-) TimerEvent: {}
+[40.282389] (-) TimerEvent: {}
+[40.382565] (-) TimerEvent: {}
+[40.482747] (-) TimerEvent: {}
+[40.582924] (-) TimerEvent: {}
+[40.683127] (-) TimerEvent: {}
+[40.783301] (-) TimerEvent: {}
+[40.883510] (-) TimerEvent: {}
+[40.983686] (-) TimerEvent: {}
+[41.083846] (-) TimerEvent: {}
+[41.184064] (-) TimerEvent: {}
+[41.284235] (-) TimerEvent: {}
+[41.384409] (-) TimerEvent: {}
+[41.484628] (-) TimerEvent: {}
+[41.584801] (-) TimerEvent: {}
+[41.685058] (-) TimerEvent: {}
+[41.785317] (-) TimerEvent: {}
+[41.885542] (-) TimerEvent: {}
+[41.985818] (-) TimerEvent: {}
+[42.085997] (-) TimerEvent: {}
+[42.186163] (-) TimerEvent: {}
+[42.286341] (-) TimerEvent: {}
+[42.386529] (-) TimerEvent: {}
+[42.486697] (-) TimerEvent: {}
+[42.586882] (-) TimerEvent: {}
+[42.687091] (-) TimerEvent: {}
+[42.787257] (-) TimerEvent: {}
+[42.887435] (-) TimerEvent: {}
+[42.987598] (-) TimerEvent: {}
+[43.087784] (-) TimerEvent: {}
+[43.187972] (-) TimerEvent: {}
+[43.288138] (-) TimerEvent: {}
+[43.388308] (-) TimerEvent: {}
+[43.488473] (-) TimerEvent: {}
+[43.588635] (-) TimerEvent: {}
+[43.688801] (-) TimerEvent: {}
+[43.788997] (-) TimerEvent: {}
+[43.889175] (-) TimerEvent: {}
+[43.989348] (-) TimerEvent: {}
+[44.089556] (-) TimerEvent: {}
+[44.189696] (-) TimerEvent: {}
+[44.289886] (-) TimerEvent: {}
+[44.390083] (-) TimerEvent: {}
+[44.490264] (-) TimerEvent: {}
+[44.590461] (-) TimerEvent: {}
+[44.690642] (-) TimerEvent: {}
+[44.790839] (-) TimerEvent: {}
+[44.891007] (-) TimerEvent: {}
+[44.991211] (-) TimerEvent: {}
+[45.091444] (-) TimerEvent: {}
+[45.191733] (-) TimerEvent: {}
+[45.291986] (-) TimerEvent: {}
+[45.392306] (-) TimerEvent: {}
+[45.492587] (-) TimerEvent: {}
+[45.592887] (-) TimerEvent: {}
+[45.693195] (-) TimerEvent: {}
+[45.793432] (-) TimerEvent: {}
+[45.893664] (-) TimerEvent: {}
+[45.993992] (-) TimerEvent: {}
+[46.094196] (-) TimerEvent: {}
+[46.194468] (-) TimerEvent: {}
+[46.294700] (-) TimerEvent: {}
+[46.394969] (-) TimerEvent: {}
+[46.495318] (-) TimerEvent: {}
+[46.595545] (-) TimerEvent: {}
+[46.695869] (-) TimerEvent: {}
+[46.796072] (-) TimerEvent: {}
+[46.896273] (-) TimerEvent: {}
+[46.996540] (-) TimerEvent: {}
+[47.096981] (-) TimerEvent: {}
+[47.198983] (-) TimerEvent: {}
+[47.299364] (-) TimerEvent: {}
+[47.399561] (-) TimerEvent: {}
+[47.499740] (-) TimerEvent: {}
+[47.599976] (-) TimerEvent: {}
+[47.700166] (-) TimerEvent: {}
+[47.800344] (-) TimerEvent: {}
+[47.900527] (-) TimerEvent: {}
+[48.000764] (-) TimerEvent: {}
+[48.100948] (-) TimerEvent: {}
+[48.201165] (-) TimerEvent: {}
+[48.301369] (-) TimerEvent: {}
+[48.401540] (-) TimerEvent: {}
+[48.501722] (-) TimerEvent: {}
+[48.601903] (-) TimerEvent: {}
+[48.702072] (-) TimerEvent: {}
+[48.802252] (-) TimerEvent: {}
+[48.902415] (-) TimerEvent: {}
+[49.002570] (-) TimerEvent: {}
+[49.102734] (-) TimerEvent: {}
+[49.202932] (-) TimerEvent: {}
+[49.303128] (-) TimerEvent: {}
+[49.403318] (-) TimerEvent: {}
+[49.503526] (-) TimerEvent: {}
+[49.603736] (-) TimerEvent: {}
+[49.703923] (-) TimerEvent: {}
+[49.804123] (-) TimerEvent: {}
+[49.904332] (-) TimerEvent: {}
+[50.004498] (-) TimerEvent: {}
+[50.104763] (-) TimerEvent: {}
+[50.204999] (-) TimerEvent: {}
+[50.305178] (-) TimerEvent: {}
+[50.405423] (-) TimerEvent: {}
+[50.505737] (-) TimerEvent: {}
+[50.606118] (-) TimerEvent: {}
+[50.706311] (-) TimerEvent: {}
+[50.806506] (-) TimerEvent: {}
+[50.906714] (-) TimerEvent: {}
+[51.006843] (-) TimerEvent: {}
+[51.107007] (-) TimerEvent: {}
+[51.207182] (-) TimerEvent: {}
+[51.307379] (-) TimerEvent: {}
+[51.407568] (-) TimerEvent: {}
+[51.507914] (-) TimerEvent: {}
+[51.608122] (-) TimerEvent: {}
+[51.708322] (-) TimerEvent: {}
+[51.808523] (-) TimerEvent: {}
+[51.908759] (-) TimerEvent: {}
+[52.008983] (-) TimerEvent: {}
+[52.109245] (-) TimerEvent: {}
+[52.209459] (-) TimerEvent: {}
+[52.309712] (-) TimerEvent: {}
+[52.409930] (-) TimerEvent: {}
+[52.510140] (-) TimerEvent: {}
+[52.610354] (-) TimerEvent: {}
+[52.710563] (-) TimerEvent: {}
+[52.810759] (-) TimerEvent: {}
+[52.910988] (-) TimerEvent: {}
+[53.011182] (-) TimerEvent: {}
+[53.111388] (-) TimerEvent: {}
+[53.211569] (-) TimerEvent: {}
+[53.311741] (-) TimerEvent: {}
+[53.411929] (-) TimerEvent: {}
+[53.512109] (-) TimerEvent: {}
+[53.612280] (-) TimerEvent: {}
+[53.712450] (-) TimerEvent: {}
+[53.812697] (-) TimerEvent: {}
+[53.912854] (-) TimerEvent: {}
+[54.013026] (-) TimerEvent: {}
+[54.113219] (-) TimerEvent: {}
+[54.213421] (-) TimerEvent: {}
+[54.313598] (-) TimerEvent: {}
+[54.413787] (-) TimerEvent: {}
+[54.513962] (-) TimerEvent: {}
+[54.614129] (-) TimerEvent: {}
+[54.714296] (-) TimerEvent: {}
+[54.814466] (-) TimerEvent: {}
+[54.914619] (-) TimerEvent: {}
+[55.014770] (-) TimerEvent: {}
+[55.114937] (-) TimerEvent: {}
+[55.215097] (-) TimerEvent: {}
+[55.315257] (-) TimerEvent: {}
+[55.415432] (-) TimerEvent: {}
+[55.515590] (-) TimerEvent: {}
+[55.615799] (-) TimerEvent: {}
+[55.715982] (-) TimerEvent: {}
+[55.816180] (-) TimerEvent: {}
+[55.916366] (-) TimerEvent: {}
+[56.016547] (-) TimerEvent: {}
+[56.116710] (-) TimerEvent: {}
+[56.216906] (-) TimerEvent: {}
+[56.317079] (-) TimerEvent: {}
+[56.417356] (-) TimerEvent: {}
+[56.517532] (-) TimerEvent: {}
+[56.617768] (-) TimerEvent: {}
+[56.717951] (-) TimerEvent: {}
+[56.818127] (-) TimerEvent: {}
+[56.918347] (-) TimerEvent: {}
+[57.018588] (-) TimerEvent: {}
+[57.118783] (-) TimerEvent: {}
+[57.219017] (-) TimerEvent: {}
+[57.319183] (-) TimerEvent: {}
+[57.419351] (-) TimerEvent: {}
+[57.519517] (-) TimerEvent: {}
+[57.619709] (-) TimerEvent: {}
+[57.719963] (-) TimerEvent: {}
+[57.820161] (-) TimerEvent: {}
+[57.920376] (-) TimerEvent: {}
+[58.020539] (-) TimerEvent: {}
+[58.120732] (-) TimerEvent: {}
+[58.220958] (-) TimerEvent: {}
+[58.321097] (-) TimerEvent: {}
+[58.421273] (-) TimerEvent: {}
+[58.521434] (-) TimerEvent: {}
+[58.621665] (-) TimerEvent: {}
+[58.721899] (-) TimerEvent: {}
+[58.822105] (-) TimerEvent: {}
+[58.922307] (-) TimerEvent: {}
+[59.022483] (-) TimerEvent: {}
+[59.122671] (-) TimerEvent: {}
+[59.222837] (-) TimerEvent: {}
+[59.323014] (-) TimerEvent: {}
+[59.423183] (-) TimerEvent: {}
+[59.523356] (-) TimerEvent: {}
+[59.623555] (-) TimerEvent: {}
+[59.723722] (-) TimerEvent: {}
+[59.823931] (-) TimerEvent: {}
+[59.924076] (-) TimerEvent: {}
+[60.024241] (-) TimerEvent: {}
+[60.124428] (-) TimerEvent: {}
+[60.224592] (-) TimerEvent: {}
+[60.324919] (-) TimerEvent: {}
+[60.425119] (-) TimerEvent: {}
+[60.525314] (-) TimerEvent: {}
+[60.625534] (-) TimerEvent: {}
+[60.725706] (-) TimerEvent: {}
+[60.825852] (-) TimerEvent: {}
+[60.926034] (-) TimerEvent: {}
+[61.026200] (-) TimerEvent: {}
+[61.126477] (-) TimerEvent: {}
+[61.226661] (-) TimerEvent: {}
+[61.326867] (-) TimerEvent: {}
+[61.427040] (-) TimerEvent: {}
+[61.527262] (-) TimerEvent: {}
+[61.627437] (-) TimerEvent: {}
+[61.727606] (-) TimerEvent: {}
+[61.827890] (-) TimerEvent: {}
+[61.928134] (-) TimerEvent: {}
+[62.028332] (-) TimerEvent: {}
+[62.128537] (-) TimerEvent: {}
+[62.228759] (-) TimerEvent: {}
+[62.328966] (-) TimerEvent: {}
+[62.429135] (-) TimerEvent: {}
+[62.529344] (-) TimerEvent: {}
+[62.629523] (-) TimerEvent: {}
+[62.729707] (-) TimerEvent: {}
+[62.829878] (-) TimerEvent: {}
+[62.930047] (-) TimerEvent: {}
+[63.030912] (-) TimerEvent: {}
+[63.131291] (-) TimerEvent: {}
+[63.231481] (-) TimerEvent: {}
+[63.331660] (-) TimerEvent: {}
+[63.431835] (-) TimerEvent: {}
+[63.532005] (-) TimerEvent: {}
+[63.632151] (-) TimerEvent: {}
+[63.732318] (-) TimerEvent: {}
+[63.832500] (-) TimerEvent: {}
+[63.932686] (-) TimerEvent: {}
+[64.032874] (-) TimerEvent: {}
+[64.133042] (-) TimerEvent: {}
+[64.233213] (-) TimerEvent: {}
+[64.333393] (-) TimerEvent: {}
+[64.433566] (-) TimerEvent: {}
+[64.533733] (-) TimerEvent: {}
+[64.633922] (-) TimerEvent: {}
+[64.734090] (-) TimerEvent: {}
+[64.834264] (-) TimerEvent: {}
+[64.934481] (-) TimerEvent: {}
+[65.034678] (-) TimerEvent: {}
+[65.134855] (-) TimerEvent: {}
+[65.235048] (-) TimerEvent: {}
+[65.335268] (-) TimerEvent: {}
+[65.435463] (-) TimerEvent: {}
+[65.535667] (-) TimerEvent: {}
+[65.635869] (-) TimerEvent: {}
+[65.736071] (-) TimerEvent: {}
+[65.836268] (-) TimerEvent: {}
+[65.936457] (-) TimerEvent: {}
+[65.984138] (w10_force_sim) StdoutLine: {'line': b'[ 75%] Linking CXX executable ctsvi_ad_node\n'}
+[66.036559] (-) TimerEvent: {}
+[66.136747] (-) TimerEvent: {}
+[66.171190] (w10_force_sim) StdoutLine: {'line': b'[ 75%] Built target ctsvi_ad_node\n'}
+[66.236901] (-) TimerEvent: {}
+[66.337085] (-) TimerEvent: {}
+[66.437263] (-) TimerEvent: {}
+[66.537457] (-) TimerEvent: {}
+[66.637693] (-) TimerEvent: {}
+[66.737992] (-) TimerEvent: {}
+[66.838282] (-) TimerEvent: {}
+[66.938612] (-) TimerEvent: {}
+[67.038915] (-) TimerEvent: {}
+[67.139123] (-) TimerEvent: {}
+[67.239335] (-) TimerEvent: {}
+[67.339609] (-) TimerEvent: {}
+[67.439806] (-) TimerEvent: {}
+[67.540015] (-) TimerEvent: {}
+[67.640220] (-) TimerEvent: {}
+[67.740427] (-) TimerEvent: {}
+[67.840625] (-) TimerEvent: {}
+[67.940819] (-) TimerEvent: {}
+[68.041886] (-) TimerEvent: {}
+[68.142141] (-) TimerEvent: {}
+[68.242344] (-) TimerEvent: {}
+[68.342548] (-) TimerEvent: {}
+[68.442862] (-) TimerEvent: {}
+[68.543063] (-) TimerEvent: {}
+[68.643256] (-) TimerEvent: {}
+[68.743515] (-) TimerEvent: {}
+[68.843822] (-) TimerEvent: {}
+[68.944020] (-) TimerEvent: {}
+[69.009627] (w10_force_sim) StdoutLine: {'line': b'[100%] Linking CXX executable ctsvi_node\n'}
+[69.044109] (-) TimerEvent: {}
+[69.144286] (-) TimerEvent: {}
+[69.171780] (w10_force_sim) StdoutLine: {'line': b'[100%] Built target ctsvi_node\n'}
+[69.179884] (w10_force_sim) CommandEnded: {'returncode': 0}
+[69.180380] (w10_force_sim) JobProgress: {'identifier': 'w10_force_sim', 'progress': 'install'}
+[69.187222] (w10_force_sim) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/user/ros2_ws/dynamic_ws/build/w10_force_sim'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/w10_force_sim', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 59410 22'), ('GIT_EDITOR', ':'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('OLDPWD', '/home/user/ros2_ws/dynamic_ws'), ('TERM_PROGRAM_VERSION', '1.115.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-d01338f5-0928-471f-bb20-4fc566f5732c.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '14635'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '898'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignorespace'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-617e993a37.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('GIT_PAGER', 'cat'), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/w10_force_sim'), ('GIT_MERGE_AUTOEDIT', 'no'), ('SSH_CONNECTION', '192.168.100.41 59410 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots:')]), 'shell': False}
+[69.193575] (w10_force_sim) StdoutLine: {'line': b'-- Install configuration: "Release"\n'}
+[69.193803] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/urdf\n'}
+[69.194094] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/urdf/w10_body.urdf\n'}
+[69.194294] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/meshes\n'}
+[69.194516] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/meshes/base_link.STL\n'}
+[69.194602] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/meshes/Link1.STL\n'}
+[69.194680] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/meshes/Link6.STL\n'}
+[69.194785] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/meshes/Link7.STL\n'}
+[69.194870] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/meshes/Link3.STL\n'}
+[69.194946] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/meshes/Link4.STL\n'}
+[69.195016] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/meshes/Link5.STL\n'}
+[69.195097] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/meshes/Link2.STL\n'}
+[69.195172] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/launch\n'}
+[69.195243] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/config\n'}
+[69.195319] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/config/vi_params.yaml\n'}
+[69.195399] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/config/plot_config.yaml\n'}
+[69.195470] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/scripts\n'}
+[69.195544] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/scripts/analyze_vi_results.py\n'}
+[69.195630] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/scripts/vi_sim.py\n'}
+[69.195703] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/lib/w10_force_sim/vi_sim.py\n'}
+[69.195778] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/lib/w10_force_sim/analyze_vi_results.py\n'}
+[69.195868] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/include\n'}
+[69.195944] (w10_force_sim) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/lib/w10_force_sim/ctsvi_ad_node\n'}
+[69.197003] (w10_force_sim) StdoutLine: {'line': b'-- Set runtime path of "/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/lib/w10_force_sim/ctsvi_ad_node" to ""\n'}
+[69.197132] (w10_force_sim) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/lib/w10_force_sim/ctsvi_node\n'}
+[69.208808] (w10_force_sim) StdoutLine: {'line': b'-- Set runtime path of "/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/lib/w10_force_sim/ctsvi_node" to ""\n'}
+[69.209055] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/ament_index/resource_index/package_run_dependencies/w10_force_sim\n'}
+[69.209209] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/ament_index/resource_index/parent_prefix_path/w10_force_sim\n'}
+[69.209260] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/environment/ament_prefix_path.sh\n'}
+[69.209335] (w10_force_sim) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/environment/ament_prefix_path.dsv\n'}
+[69.209379] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/environment/path.sh\n'}
+[69.209422] (w10_force_sim) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/environment/path.dsv\n'}
+[69.209619] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/local_setup.bash\n'}
+[69.209665] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/local_setup.sh\n'}
+[69.209704] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/local_setup.zsh\n'}
+[69.209741] (w10_force_sim) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/local_setup.dsv\n'}
+[69.209780] (w10_force_sim) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/package.dsv\n'}
+[69.209828] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/ament_index/resource_index/packages/w10_force_sim\n'}
+[69.209892] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[69.210167] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[69.210324] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/cmake/w10_force_simConfig.cmake\n'}
+[69.210425] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/cmake/w10_force_simConfig-version.cmake\n'}
+[69.210616] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/package.xml\n'}
+[69.210898] (w10_force_sim) CommandEnded: {'returncode': 0}
+[69.221486] (w10_force_sim) JobEnded: {'identifier': 'w10_force_sim', 'rc': 0}
+[69.221930] (-) EventReactorShutdown: {}

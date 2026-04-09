@@ -210,6 +210,19 @@ ctsvi_ad_node/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ctsvi_ad_node.dir/build.make CMakeFiles/ctsvi_ad_node.dir/build
 .PHONY : ctsvi_ad_node/fast
 
+#=============================================================================
+# Target rules for targets named ctsvi_node
+
+# Build rule for target.
+ctsvi_node: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ctsvi_node
+.PHONY : ctsvi_node
+
+# fast build rule for target.
+ctsvi_node/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ctsvi_node.dir/build.make CMakeFiles/ctsvi_node.dir/build
+.PHONY : ctsvi_node/fast
+
 src/ctsvi_ad_node.o: src/ctsvi_ad_node.cpp.o
 .PHONY : src/ctsvi_ad_node.o
 
@@ -234,6 +247,30 @@ src/ctsvi_ad_node.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ctsvi_ad_node.dir/build.make CMakeFiles/ctsvi_ad_node.dir/src/ctsvi_ad_node.cpp.s
 .PHONY : src/ctsvi_ad_node.cpp.s
 
+src/ctsvi_node.o: src/ctsvi_node.cpp.o
+.PHONY : src/ctsvi_node.o
+
+# target to build an object file
+src/ctsvi_node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ctsvi_node.dir/build.make CMakeFiles/ctsvi_node.dir/src/ctsvi_node.cpp.o
+.PHONY : src/ctsvi_node.cpp.o
+
+src/ctsvi_node.i: src/ctsvi_node.cpp.i
+.PHONY : src/ctsvi_node.i
+
+# target to preprocess a source file
+src/ctsvi_node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ctsvi_node.dir/build.make CMakeFiles/ctsvi_node.dir/src/ctsvi_node.cpp.i
+.PHONY : src/ctsvi_node.cpp.i
+
+src/ctsvi_node.s: src/ctsvi_node.cpp.s
+.PHONY : src/ctsvi_node.s
+
+# target to generate assembly for a file
+src/ctsvi_node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ctsvi_node.dir/build.make CMakeFiles/ctsvi_node.dir/src/ctsvi_node.cpp.s
+.PHONY : src/ctsvi_node.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -250,9 +287,13 @@ help:
 	@echo "... uninstall"
 	@echo "... w10_force_sim_uninstall"
 	@echo "... ctsvi_ad_node"
+	@echo "... ctsvi_node"
 	@echo "... src/ctsvi_ad_node.o"
 	@echo "... src/ctsvi_ad_node.i"
 	@echo "... src/ctsvi_ad_node.s"
+	@echo "... src/ctsvi_node.o"
+	@echo "... src/ctsvi_node.i"
+	@echo "... src/ctsvi_node.s"
 .PHONY : help
 
 
