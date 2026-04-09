@@ -1,0 +1,66 @@
+[0.012s] Invoking command in '/home/user/ros2_ws/dynamic_ws/build/w10_force': CMAKE_PREFIX_PATH=/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force:/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/w10_force -- -j32 -l32
+[0.035s] -- Found ament_cmake_auto: 1.3.12 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+[0.208s] -- pinocchio_default FOUND. pinocchio_default at /opt/openrobots/lib/libpinocchio_default.so
+[0.208s] -- pinocchio_parsers FOUND. pinocchio_parsers at /opt/openrobots/lib/libpinocchio_parsers.so
+[0.208s] -- pinocchio_casadi FOUND. pinocchio_casadi at /opt/openrobots/lib/libpinocchio_casadi.so
+[0.213s] -- boost_filesystem FOUND. boost_filesystem at /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+[0.214s] -- boost_serialization FOUND. boost_serialization at /usr/lib/x86_64-linux-gnu/libboost_serialization.so
+[0.214s] -- boost_system FOUND. boost_system at /usr/lib/x86_64-linux-gnu/libboost_system.so
+[0.221s] CMake Warning at /opt/openrobots/lib/cmake/hpp-fcl/hpp-fclConfig.cmake:3 (message):
+[0.221s]   Please update your CMake from 'hpp-fcl' to 'coal'
+[0.221s] Call Stack (most recent call first):
+[0.221s]   /usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+[0.221s]   /opt/openrobots/lib/cmake/pinocchio/pinocchioConfig.cmake:161 (find_dependency)
+[0.221s]   /opt/ros/humble/share/ament_cmake_auto/cmake/ament_auto_find_build_dependencies.cmake:67 (find_package)
+[0.222s]   CMakeLists.txt:10 (ament_auto_find_build_dependencies)
+[0.222s] 
+[0.222s] 
+[0.222s] -- coal FOUND. coal at /opt/openrobots/lib/libcoal.so
+[0.454s] -- Default C++ standard: 201703
+[0.454s] -- C++ standard sufficient: Minimal required 11, currently defined: 17
+[0.454s] -- CMAKE_CXX_STANDARD was not set: automatically set to currently defined standard 17
+[0.455s] -- C++ standard sufficient: Minimal required 11, currently defined: 17
+[0.473s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.476s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.481s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.489s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.498s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.522s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.523s] -- Found rmw_fastrtps_cpp: 6.2.9 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.606s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.657s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[0.658s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[0.755s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.758s] In this package, headers install destination is set to `include` by ament_auto_package. It is recommended to install `include/w10_force` instead and will be the default behavior of ament_auto_package from ROS 2 Kilted Kaiju. On distributions before Kilted, ament_auto_package behaves the same way when you use USE_SCOPED_HEADER_INSTALL_DIR option.
+[0.761s] -- Added test 'lint_cmake' to check CMake code style
+[0.761s] -- Added test 'xmllint' to check XML markup files
+[0.764s] -- Configuring done
+[0.766s] CMake Error at CMakeLists.txt:17 (add_library):
+[0.766s]   Cannot find source file:
+[0.766s] 
+[0.766s]     src/force_controller.cpp
+[0.766s] 
+[0.766s]   Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm .h
+[0.766s]   .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90 .f95 .f03 .hip .ispc
+[0.766s] 
+[0.767s] 
+[0.767s] CMake Error at CMakeLists.txt:25 (add_executable):
+[0.767s]   Cannot find source file:
+[0.767s] 
+[0.767s]     src/force_control_node.cpp
+[0.767s] 
+[0.767s]   Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm .h
+[0.767s]   .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90 .f95 .f03 .hip .ispc
+[0.767s] 
+[0.767s] 
+[0.767s] CMake Error at CMakeLists.txt:17 (add_library):
+[0.767s]   No SOURCES given to target: force_controller
+[0.767s] 
+[0.767s] 
+[0.767s] CMake Error at CMakeLists.txt:25 (add_executable):
+[0.767s]   No SOURCES given to target: force_control_node
+[0.767s] 
+[0.768s] 
+[0.768s] CMake Generate step failed.  Build files cannot be regenerated correctly.
+[0.772s] gmake: *** [Makefile:308: cmake_check_build_system] Error 1
+[0.773s] Invoked command in '/home/user/ros2_ws/dynamic_ws/build/w10_force' returned '2': CMAKE_PREFIX_PATH=/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force:/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/w10_force -- -j32 -l32

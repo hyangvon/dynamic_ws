@@ -1,0 +1,38 @@
+CMake Warning at /opt/openrobots/lib/cmake/hpp-fcl/hpp-fclConfig.cmake:3 (message):
+  Please update your CMake from 'hpp-fcl' to 'coal'
+Call Stack (most recent call first):
+  /usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+  /opt/openrobots/lib/cmake/pinocchio/pinocchioConfig.cmake:161 (find_dependency)
+  /opt/ros/humble/share/ament_cmake_auto/cmake/ament_auto_find_build_dependencies.cmake:67 (find_package)
+  CMakeLists.txt:10 (ament_auto_find_build_dependencies)
+
+
+In this package, headers install destination is set to `include` by ament_auto_package. It is recommended to install `include/w10_force` instead and will be the default behavior of ament_auto_package from ROS 2 Kilted Kaiju. On distributions before Kilted, ament_auto_package behaves the same way when you use USE_SCOPED_HEADER_INSTALL_DIR option.
+CMake Error at CMakeLists.txt:17 (add_library):
+  Cannot find source file:
+
+    src/force_controller.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm .h
+  .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90 .f95 .f03 .hip .ispc
+
+
+CMake Error at CMakeLists.txt:25 (add_executable):
+  Cannot find source file:
+
+    src/force_control_node.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm .h
+  .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90 .f95 .f03 .hip .ispc
+
+
+CMake Error at CMakeLists.txt:17 (add_library):
+  No SOURCES given to target: force_controller
+
+
+CMake Error at CMakeLists.txt:25 (add_executable):
+  No SOURCES given to target: force_control_node
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
+gmake: *** [Makefile:308: cmake_check_build_system] Error 1

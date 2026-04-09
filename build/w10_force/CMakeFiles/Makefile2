@@ -63,8 +63,7 @@ CMAKE_BINARY_DIR = /home/user/ros2_ws/dynamic_ws/build/w10_force
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/force_controller.dir/all
-all: CMakeFiles/force_control_node.dir/all
+all:
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -74,8 +73,6 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/uninstall.dir/clean
 clean: CMakeFiles/w10_force_uninstall.dir/clean
-clean: CMakeFiles/force_controller.dir/clean
-clean: CMakeFiles/force_control_node.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -129,58 +126,6 @@ w10_force_uninstall: CMakeFiles/w10_force_uninstall.dir/rule
 CMakeFiles/w10_force_uninstall.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/w10_force_uninstall.dir/build.make CMakeFiles/w10_force_uninstall.dir/clean
 .PHONY : CMakeFiles/w10_force_uninstall.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/force_controller.dir
-
-# All Build rule for target.
-CMakeFiles/force_controller.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/force_controller.dir/build.make CMakeFiles/force_controller.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/force_controller.dir/build.make CMakeFiles/force_controller.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/user/ros2_ws/dynamic_ws/build/w10_force/CMakeFiles --progress-num=3,4 "Built target force_controller"
-.PHONY : CMakeFiles/force_controller.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/force_controller.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/ros2_ws/dynamic_ws/build/w10_force/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/force_controller.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/ros2_ws/dynamic_ws/build/w10_force/CMakeFiles 0
-.PHONY : CMakeFiles/force_controller.dir/rule
-
-# Convenience name for target.
-force_controller: CMakeFiles/force_controller.dir/rule
-.PHONY : force_controller
-
-# clean rule for target.
-CMakeFiles/force_controller.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/force_controller.dir/build.make CMakeFiles/force_controller.dir/clean
-.PHONY : CMakeFiles/force_controller.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/force_control_node.dir
-
-# All Build rule for target.
-CMakeFiles/force_control_node.dir/all: CMakeFiles/force_controller.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/force_control_node.dir/build.make CMakeFiles/force_control_node.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/force_control_node.dir/build.make CMakeFiles/force_control_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/user/ros2_ws/dynamic_ws/build/w10_force/CMakeFiles --progress-num=1,2 "Built target force_control_node"
-.PHONY : CMakeFiles/force_control_node.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/force_control_node.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/ros2_ws/dynamic_ws/build/w10_force/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/force_control_node.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/ros2_ws/dynamic_ws/build/w10_force/CMakeFiles 0
-.PHONY : CMakeFiles/force_control_node.dir/rule
-
-# Convenience name for target.
-force_control_node: CMakeFiles/force_control_node.dir/rule
-.PHONY : force_control_node
-
-# clean rule for target.
-CMakeFiles/force_control_node.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/force_control_node.dir/build.make CMakeFiles/force_control_node.dir/clean
-.PHONY : CMakeFiles/force_control_node.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
