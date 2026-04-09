@@ -1,0 +1,107 @@
+CMake Warning at /opt/openrobots/lib/cmake/hpp-fcl/hpp-fclConfig.cmake:3 (message):
+  Please update your CMake from 'hpp-fcl' to 'coal'
+Call Stack (most recent call first):
+  /usr/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+  /opt/openrobots/lib/cmake/pinocchio/pinocchioConfig.cmake:161 (find_dependency)
+  /opt/ros/humble/share/ament_cmake_auto/cmake/ament_auto_find_build_dependencies.cmake:67 (find_package)
+  CMakeLists.txt:12 (ament_auto_find_build_dependencies)
+
+
+In this package, headers install destination is set to `include` by ament_auto_package. It is recommended to install `include/w10_force` instead and will be the default behavior of ament_auto_package from ROS 2 Kilted Kaiju. On distributions before Kilted, ament_auto_package behaves the same way when you use USE_SCOPED_HEADER_INSTALL_DIR option.
+In file included from /opt/openrobots/include/hpp/fcl/config.hh:1,
+                 from /opt/openrobots/include/pinocchio/serialization/eigen.hpp:20,
+                 from /opt/openrobots/include/pinocchio/serialization/fwd.hpp:11,
+                 from /opt/openrobots/include/pinocchio/multibody/joint/joint-composite.hpp:14,
+                 from /opt/openrobots/include/pinocchio/multibody/joint/joint-generic.hpp:9,
+                 from /opt/openrobots/include/pinocchio/multibody/model.hpp:17,
+                 from /home/user/ros2_ws/dynamic_ws/src/w10_force/include/w10_force/force_controller.hpp:8,
+                 from /home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:1:
+/opt/openrobots/include/hpp/fcl/coal.hpp:10:71: note: ‘#pragma message: Please update your includes from 'hpp/fcl' to 'coal'’
+   10 | #pragma message("Please update your includes from 'hpp/fcl' to 'coal'")
+      |                                                                       ^
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp: In destructor ‘w10_force::ForceController::~ForceController()’:
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:11:5: warning: possible problem detected in invocation of ‘operator delete’ [-Wdelete-incomplete]
+   11 |     delete data_;
+      |     ^~~~~~~~~~~~
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:11:12: warning: invalid use of incomplete type ‘struct pinocchio::DataTpl<double, 0>’
+   11 |     delete data_;
+      |            ^~~~~
+In file included from /opt/openrobots/include/pinocchio/context/default.hpp:10,
+                 from /opt/openrobots/include/pinocchio/context.hpp:16,
+                 from /opt/openrobots/include/pinocchio/fwd.hpp:149,
+                 from /home/user/ros2_ws/dynamic_ws/src/w10_force/include/w10_force/force_controller.hpp:7,
+                 from /home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:1:
+/opt/openrobots/include/pinocchio/context/generic.hpp:25:10: note: declaration of ‘struct pinocchio::DataTpl<double, 0>’
+   25 |   struct DataTpl;
+      |          ^~~~~~~
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:11:5: note: neither the destructor nor the class-specific ‘operator delete’ will be called, even if they are declared when the class is defined
+   11 |     delete data_;
+      |     ^~~~~~~~~~~~
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp: In member function ‘void w10_force::ForceController::initialize(const string&)’:
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:17:14: error: ‘pinocchio::urdf’ has not been declared
+   17 |   pinocchio::urdf::buildModel(urdf_path, model_);
+      |              ^~~~
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:18:37: error: invalid use of incomplete type ‘pinocchio::Data’ {aka ‘struct pinocchio::DataTpl<double, 0>’}
+   18 |   data_ = new pinocchio::Data(model_);
+      |                                     ^
+In file included from /opt/openrobots/include/pinocchio/context/default.hpp:10,
+                 from /opt/openrobots/include/pinocchio/context.hpp:16,
+                 from /opt/openrobots/include/pinocchio/fwd.hpp:149,
+                 from /home/user/ros2_ws/dynamic_ws/src/w10_force/include/w10_force/force_controller.hpp:7,
+                 from /home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:1:
+/opt/openrobots/include/pinocchio/context/generic.hpp:25:10: note: declaration of ‘pinocchio::Data’ {aka ‘struct pinocchio::DataTpl<double, 0>’}
+   25 |   struct DataTpl;
+      |          ^~~~~~~
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp: In member function ‘Eigen::VectorXd w10_force::ForceController::computeForceTorque(const VectorXd&, const Vector3d&)’:
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:22:28: warning: unused parameter ‘desired_force’ [-Wunused-parameter]
+   22 |     const Eigen::VectorXd& desired_force,
+      |     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp: In destructor ‘w10_force::ForceController::~ForceController()’:
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:11:5: warning: possible problem detected in invocation of ‘operator delete’ [-Wdelete-incomplete]
+   11 |     delete data_;
+      |     ^~~~~~~~~~~~
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:23:28: warning: unused parameter ‘contact_position’ [-Wunused-parameter]
+   23 |     const Eigen::Vector3d& contact_position) {
+      |     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:11:12: warning: invalid use of incomplete type ‘struct pinocchio::DataTpl<double, 0>’
+   11 |     delete data_;
+      |            ^~~~~
+In file included from /opt/openrobots/include/pinocchio/context/default.hpp:10,
+                 from /opt/openrobots/include/pinocchio/context.hpp:16,
+                 from /opt/openrobots/include/pinocchio/fwd.hpp:149,
+                 from /home/user/ros2_ws/dynamic_ws/src/w10_force/include/w10_force/force_controller.hpp:7,
+                 from /home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:1:
+/opt/openrobots/include/pinocchio/context/generic.hpp:25:10: note: declaration of ‘struct pinocchio::DataTpl<double, 0>’
+   25 |   struct DataTpl;
+      |          ^~~~~~~
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:11:5: note: neither the destructor nor the class-specific ‘operator delete’ will be called, even if they are declared when the class is defined
+   11 |     delete data_;
+      |     ^~~~~~~~~~~~
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp: In member function ‘void w10_force::ForceController::initialize(const string&)’:
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:17:14: error: ‘pinocchio::urdf’ has not been declared
+   17 |   pinocchio::urdf::buildModel(urdf_path, model_);
+      |              ^~~~
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:18:37: error: invalid use of incomplete type ‘pinocchio::Data’ {aka ‘struct pinocchio::DataTpl<double, 0>’}
+   18 |   data_ = new pinocchio::Data(model_);
+      |                                     ^
+In file included from /opt/openrobots/include/pinocchio/context/default.hpp:10,
+                 from /opt/openrobots/include/pinocchio/context.hpp:16,
+                 from /opt/openrobots/include/pinocchio/fwd.hpp:149,
+                 from /home/user/ros2_ws/dynamic_ws/src/w10_force/include/w10_force/force_controller.hpp:7,
+                 from /home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:1:
+/opt/openrobots/include/pinocchio/context/generic.hpp:25:10: note: declaration of ‘pinocchio::Data’ {aka ‘struct pinocchio::DataTpl<double, 0>’}
+   25 |   struct DataTpl;
+      |          ^~~~~~~
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp: In member function ‘Eigen::VectorXd w10_force::ForceController::computeForceTorque(const VectorXd&, const Vector3d&)’:
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:22:28: warning: unused parameter ‘desired_force’ [-Wunused-parameter]
+   22 |     const Eigen::VectorXd& desired_force,
+      |     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:23:28: warning: unused parameter ‘contact_position’ [-Wunused-parameter]
+   23 |     const Eigen::Vector3d& contact_position) {
+      |     ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+gmake[2]: *** [CMakeFiles/force_controller.dir/build.make:76: CMakeFiles/force_controller.dir/src/force_controller.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:141: CMakeFiles/force_controller.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/w10_force.dir/build.make:76: CMakeFiles/w10_force.dir/src/force_controller.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:193: CMakeFiles/w10_force.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

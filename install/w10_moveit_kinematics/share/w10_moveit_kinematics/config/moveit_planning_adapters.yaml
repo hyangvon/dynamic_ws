@@ -1,0 +1,10 @@
+# Motion planning parameters for MoveIt2
+
+planning_plugin: moveit_core/planning_request_adapters/InitializeStateCollisionChecking
+request_adapters: >
+  moveit_core/planning_request_adapters/InitializeStateCollisionChecking
+  moveit_core/planning_request_adapters/ValidateWorkspaceBounds
+  moveit_core/planning_request_adapters/CheckStartStateBounds
+  moveit_core/planning_request_adapters/CheckStartStateCollision
+start_state_max_bounds_error: 0.1
+

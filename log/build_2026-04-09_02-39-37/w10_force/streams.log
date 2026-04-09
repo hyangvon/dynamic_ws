@@ -1,0 +1,30 @@
+[0.010s] Invoking command in '/home/user/ros2_ws/dynamic_ws/build/w10_force': CMAKE_PREFIX_PATH=/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force:/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/w10_force -- -j32 -l32
+[0.069s] Consolidate compiler generated dependencies of target force_controller
+[0.069s] Consolidate compiler generated dependencies of target w10_force
+[0.088s] [ 33%] Building CXX object CMakeFiles/force_controller.dir/src/force_controller.cpp.o
+[0.088s] [ 33%] Building CXX object CMakeFiles/w10_force.dir/src/force_controller.cpp.o
+[2.704s] In file included from /opt/openrobots/include/hpp/fcl/config.hh:1,
+[2.704s]                  from /opt/openrobots/include/pinocchio/serialization/eigen.hpp:20,
+[2.704s]                  from /opt/openrobots/include/pinocchio/serialization/fwd.hpp:11,
+[2.704s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-composite.hpp:14,
+[2.704s]                  from /opt/openrobots/include/pinocchio/multibody/joint/joint-generic.hpp:9,
+[2.704s]                  from /opt/openrobots/include/pinocchio/multibody/model.hpp:17,
+[2.704s]                  from /home/user/ros2_ws/dynamic_ws/src/w10_force/include/w10_force/force_controller.hpp:7,
+[2.704s]                  from /home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:1:
+[2.704s] /opt/openrobots/include/hpp/fcl/coal.hpp:10:71: note: ‘#pragma message: Please update your includes from 'hpp/fcl' to 'coal'’
+[2.704s]    10 | #pragma message("Please update your includes from 'hpp/fcl' to 'coal'")
+[2.704s]       |                                                                       ^
+[7.584s] [ 50%] Linking CXX static library libforce_controller.a
+[7.628s] [ 50%] Built target force_controller
+[7.643s] [ 66%] Building CXX object CMakeFiles/force_control_node.dir/src/force_control_node.cpp.o
+[7.651s] /home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_control_node.cpp:1:10: fatal error: rclcpp/rclcpp.hpp: No such file or directory
+[7.651s]     1 | #include <rclcpp/rclcpp.hpp>
+[7.651s]       |          ^~~~~~~~~~~~~~~~~~~
+[7.651s] compilation terminated.
+[7.651s] gmake[2]: *** [CMakeFiles/force_control_node.dir/build.make:76: CMakeFiles/force_control_node.dir/src/force_control_node.cpp.o] Error 1
+[7.651s] gmake[1]: *** [CMakeFiles/Makefile2:167: CMakeFiles/force_control_node.dir/all] Error 2
+[7.651s] gmake[1]: *** Waiting for unfinished jobs....
+[10.060s] [ 83%] Linking CXX static library libw10_force.a
+[10.163s] [ 83%] Built target w10_force
+[10.163s] gmake: *** [Makefile:146: all] Error 2
+[10.164s] Invoked command in '/home/user/ros2_ws/dynamic_ws/build/w10_force' returned '2': CMAKE_PREFIX_PATH=/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force:/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/w10_force -- -j32 -l32

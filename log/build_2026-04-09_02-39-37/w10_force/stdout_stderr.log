@@ -1,0 +1,28 @@
+Consolidate compiler generated dependencies of target force_controller
+Consolidate compiler generated dependencies of target w10_force
+[ 33%] Building CXX object CMakeFiles/force_controller.dir/src/force_controller.cpp.o
+[ 33%] Building CXX object CMakeFiles/w10_force.dir/src/force_controller.cpp.o
+In file included from /opt/openrobots/include/hpp/fcl/config.hh:1,
+                 from /opt/openrobots/include/pinocchio/serialization/eigen.hpp:20,
+                 from /opt/openrobots/include/pinocchio/serialization/fwd.hpp:11,
+                 from /opt/openrobots/include/pinocchio/multibody/joint/joint-composite.hpp:14,
+                 from /opt/openrobots/include/pinocchio/multibody/joint/joint-generic.hpp:9,
+                 from /opt/openrobots/include/pinocchio/multibody/model.hpp:17,
+                 from /home/user/ros2_ws/dynamic_ws/src/w10_force/include/w10_force/force_controller.hpp:7,
+                 from /home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_controller.cpp:1:
+/opt/openrobots/include/hpp/fcl/coal.hpp:10:71: note: ‘#pragma message: Please update your includes from 'hpp/fcl' to 'coal'’
+   10 | #pragma message("Please update your includes from 'hpp/fcl' to 'coal'")
+      |                                                                       ^
+[ 50%] Linking CXX static library libforce_controller.a
+[ 50%] Built target force_controller
+[ 66%] Building CXX object CMakeFiles/force_control_node.dir/src/force_control_node.cpp.o
+/home/user/ros2_ws/dynamic_ws/src/w10_force/src/force_control_node.cpp:1:10: fatal error: rclcpp/rclcpp.hpp: No such file or directory
+    1 | #include <rclcpp/rclcpp.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[2]: *** [CMakeFiles/force_control_node.dir/build.make:76: CMakeFiles/force_control_node.dir/src/force_control_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:167: CMakeFiles/force_control_node.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+[ 83%] Linking CXX static library libw10_force.a
+[ 83%] Built target w10_force
+gmake: *** [Makefile:146: all] Error 2

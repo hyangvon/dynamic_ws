@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Semantic Robot Description Format (SRDF) for W10 robot
+Defines kinematic groups, end effector, collision body pairs
+-->
+<robot name="w10_sim">
+  
+  <!-- Define the kinematic chain group -->
+  <group name="w10_arm">
+    <chain base_link="base_link" tip_link="Link8" />
+  </group>
+
+  <!-- Define end effector -->
+  <end_effector name="gripper" parent_link="Link8" group="w10_arm" />
+
+  <!-- Define collision body pairs to disable -->
+  <disable_collisions link1="base_link" link2="Link2" reason="Adjacent"/>
+  <disable_collisions link1="Link2" link2="Link3" reason="Adjacent"/>
+  <disable_collisions link1="Link3" link2="Link4" reason="Adjacent"/>
+  <disable_collisions link1="Link4" link2="Link5" reason="Adjacent"/>
+  <disable_collisions link1="Link5" link2="Link6" reason="Adjacent"/>
+  <disable_collisions link1="Link6" link2="Link7" reason="Adjacent"/>
+  <disable_collisions link1="Link7" link2="Link8" reason="Adjacent"/>
+
+</robot>

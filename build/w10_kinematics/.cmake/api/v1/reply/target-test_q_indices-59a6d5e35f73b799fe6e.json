@@ -1,0 +1,282 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "test_q_indices"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"install",
+			"target_link_libraries",
+			"add_compile_options",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 70,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 112,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 71,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 5,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 21,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"backtrace" : 4,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-Wextra"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-Wpedantic"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 3,
+					"define" : "BOOST_MPL_LIMIT_LIST_SIZE=30"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "BOOST_MPL_LIMIT_VECTOR_SIZE=30"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "COAL_BACKWARD_COMPATIBILITY_WITH_HPP_FCL"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "COAL_HAS_OCTOMAP"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "COAL_HAVE_OCTOMAP"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "OCTOMAP_MAJOR_VERSION=1"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "OCTOMAP_MINOR_VERSION=9"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "OCTOMAP_PATCH_VERSION=7"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "PINOCCHIO_ENABLE_TEMPLATE_INSTANTIATION"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "PINOCCHIO_WITH_HPP_FCL"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "PINOCCHIO_WITH_URDFDOM"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 5,
+					"path" : "/home/user/ros2_ws/dynamic_ws/src/w10_kinematics/include"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/usr/include/eigen3"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/opt/openrobots/include"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "arm_angle_ik::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "test_q_indices::@6890427a1f51a3e7e1df",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "lib/w10_kinematics"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "/home/user/ros2_ws/dynamic_ws/install/w10_kinematics"
+		}
+	},
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/opt/openrobots/lib:",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "libarm_angle_ik.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/openrobots/lib/libpinocchio_parsers.so.3.4.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/liburdfdom_sensor.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/liburdfdom_model_state.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/liburdfdom_model.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/liburdfdom_world.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.1.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/openrobots/lib/libpinocchio_collision.so.3.4.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/openrobots/lib/libpinocchio_default.so.3.4.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/openrobots/lib/libcoal.so.3.0.1",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_filesystem.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_serialization.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_chrono.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/liboctomap.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/liboctomath.so",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "test_q_indices",
+	"nameOnDisk" : "test_q_indices",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/test_q_indices.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}
