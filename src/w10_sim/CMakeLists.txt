@@ -21,6 +21,7 @@ ament_auto_add_executable(ctsvi_node src/ctsvi_node.cpp)
 ament_auto_add_executable(ctsvi_w10_node src/ctsvi_w10_node.cpp)
 ament_auto_add_executable(ctsvi_ad_node src/ctsvi_ad_node.cpp)
 ament_auto_add_executable(atsvi_ad_node src/atsvi_ad_node.cpp)
+ament_auto_add_executable(etsvi_node src/etsvi_node.cpp)
 
 
 # Install urdf, launch, config, and meshes directories
@@ -52,6 +53,7 @@ install(DIRECTORY scripts
 
 install(PROGRAMS
         scripts/vi_sim.py
+        scripts/analyze_vi_results.py
         DESTINATION lib/${PROJECT_NAME}
 )
 

@@ -50,6 +50,26 @@ def run_atsvi():
             print(f"Error output: {e.stderr}")
         return False
 
+def run_etsvi():
+    """运行 C++ 仿真节点"""
+    config_file = os.path.expanduser('~/ros2_ws/dynamic_ws/src/w10_sim/config/vi_params.yaml')
+
+    print("Starting etsvi simulation...")
+
+    try:
+        result = subprocess.run([
+            'ros2', 'run', 'w10_sim', 'etsvi_node',
+            '--ros-args', '--params-file', config_file
+        ], check=True)
+
+        print("Simulation completed successfully")
+        return True
+    except subprocess.CalledProcessError as e:
+        print(f"Simulation failed: {e}")
+        if e.stderr:
+            print(f"Error output: {e.stderr}")
+        return False
+
 def main():
     """主函数"""
     parser = argparse.ArgumentParser()
@@ -62,6 +82,9 @@ def main():
             return 1
 
         if not run_atsvi():
+            return 1
+
+        if not run_etsvi():
             return 1
 
     print("All tasks completed successfully!")
