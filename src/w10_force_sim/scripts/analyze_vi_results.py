@@ -186,12 +186,13 @@ def plot_results(data, config=None):
     cfg_ee_speed = config.get('end_effector_speed', {}) or {}
     cfg_joints = config.get('joint_configuration', {}) or {}
     cfg_traj3d = config.get('trajectory_3d', {}) or {}
+    cfg_momentum = config.get('momentum', {}) or {}
     
-    fig = plt.figure(figsize=(15, 10))
+    fig = plt.figure(figsize=(18, 13))
     
     # 能量曲线
     if 'energy' in data:
-        ax1 = plt.subplot(2, 3, 1)
+        ax1 = plt.subplot(3, 3, 1)
         energy = data['energy']
         ax1.plot(time, energy, 'b-', linewidth=1.5, label='Total Energy')
         if 'energy_T' in data:
@@ -212,7 +213,7 @@ def plot_results(data, config=None):
     
     # 能量漂移
     if 'delta_energy' in data:
-        ax2 = plt.subplot(2, 3, 2)
+        ax2 = plt.subplot(3, 3, 2)
         de = data['delta_energy']
         ax2.plot(time, de, 'r-', linewidth=1)
         ax2.fill_between(time, de, alpha=0.3)
@@ -229,7 +230,7 @@ def plot_results(data, config=None):
     
     # 末端位置
     if 'ee' in data:
-        ax3 = plt.subplot(2, 3, 3)
+        ax3 = plt.subplot(3, 3, 3)
         ee = data['ee']
         ax3.plot(time, ee[:, 0], 'r-', label='X', linewidth=1.5)
         ax3.plot(time, ee[:, 1], 'g-', label='Y', linewidth=1.5)
@@ -248,7 +249,7 @@ def plot_results(data, config=None):
     
     # 关节配置（显示前7列，即活跃DOF）
     if 'q' in data:
-        ax4 = plt.subplot(2, 3, 4)
+        ax4 = plt.subplot(3, 3, 4)
         q = data['q']
         n_dof = min(7, q.shape[1])  # 只显示前7个DOF（活跃关节）
         for i in range(n_dof):
@@ -267,7 +268,7 @@ def plot_results(data, config=None):
     
     # 末端速度（数值微分）
     if 'ee' in data:
-        ax5 = plt.subplot(2, 3, 5)
+        ax5 = plt.subplot(3, 3, 5)
         ee = data['ee']
         if len(time) > 1:
             dt = time[1] - time[0]
@@ -286,7 +287,7 @@ def plot_results(data, config=None):
     
     # 在3D中绘制末端轨迹
     if 'ee' in data:
-        ax6 = plt.subplot(2, 3, 6, projection='3d')
+        ax6 = plt.subplot(3, 3, 6, projection='3d')
         ee = data['ee']
         ax6.plot(ee[:, 0], ee[:, 1], ee[:, 2], 'b-', linewidth=1.5)
         ax6.scatter(ee[0, 0], ee[0, 1], ee[0, 2], c='g', s=100, marker='o', label='Start')
@@ -304,6 +305,23 @@ def plot_results(data, config=None):
             ax6.set_ylim(cfg_traj3d['ylim'])
         if cfg_traj3d.get('zlim'):
             ax6.set_zlim(cfg_traj3d['zlim'])
+    
+    # 广义动量（每个DOF一条曲线）
+    if 'momentum' in data:
+        ax7 = plt.subplot(3, 3, 7)
+        p = data['momentum']
+        n_dof = min(7, p.shape[1])
+        for i in range(n_dof):
+            ax7.plot(time[:len(p)], p[:, i], label=f'p{i+1}', linewidth=1)
+        ax7.set_ylabel('Generalized Momentum [kg·m²/s]')
+        ax7.set_xlabel('Time [s]')
+        ax7.set_title('Generalized Momentum')
+        ax7.grid(True, alpha=0.3)
+        ax7.legend(fontsize=8, ncol=2)
+        if cfg_momentum.get('xlim'):
+            ax7.set_xlim(cfg_momentum['xlim'])
+        if cfg_momentum.get('ylim'):
+            ax7.set_ylim(cfg_momentum['ylim'])
     
     plt.tight_layout()
     return fig

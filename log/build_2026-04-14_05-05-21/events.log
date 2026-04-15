@@ -1,0 +1,1036 @@
+[0.000000] (-) TimerEvent: {}
+[0.000277] (marvin_sim) JobQueued: {'identifier': 'marvin_sim', 'dependencies': OrderedDict()}
+[0.000346] (show_urdf) JobQueued: {'identifier': 'show_urdf', 'dependencies': OrderedDict()}
+[0.000374] (vi) JobQueued: {'identifier': 'vi', 'dependencies': OrderedDict()}
+[0.000415] (vi_2p) JobQueued: {'identifier': 'vi_2p', 'dependencies': OrderedDict()}
+[0.000438] (w10_force_sim) JobQueued: {'identifier': 'w10_force_sim', 'dependencies': OrderedDict()}
+[0.000540] (w10_sim) JobQueued: {'identifier': 'w10_sim', 'dependencies': OrderedDict()}
+[0.000562] (w10_kinematics) JobQueued: {'identifier': 'w10_kinematics', 'dependencies': OrderedDict([('w10_sim', '/home/user/ros2_ws/dynamic_ws/install/w10_sim')])}
+[0.000646] (w10_moveit_kinematics) JobQueued: {'identifier': 'w10_moveit_kinematics', 'dependencies': OrderedDict([('w10_sim', '/home/user/ros2_ws/dynamic_ws/install/w10_sim')])}
+[0.000667] (w10_sim) JobStarted: {'identifier': 'w10_sim'}
+[0.003585] (marvin_sim) JobStarted: {'identifier': 'marvin_sim'}
+[0.005612] (show_urdf) JobStarted: {'identifier': 'show_urdf'}
+[0.007637] (vi) JobStarted: {'identifier': 'vi'}
+[0.009425] (vi_2p) JobStarted: {'identifier': 'vi_2p'}
+[0.011267] (w10_force_sim) JobStarted: {'identifier': 'w10_force_sim'}
+[0.013783] (w10_sim) JobProgress: {'identifier': 'w10_sim', 'progress': 'cmake'}
+[0.014075] (w10_sim) JobProgress: {'identifier': 'w10_sim', 'progress': 'build'}
+[0.014647] (w10_sim) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/user/ros2_ws/dynamic_ws/build/w10_sim', '--', '-j32', '-l32'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/w10_sim', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 46190 22'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('TERM_PROGRAM_VERSION', '1.115.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-69f1e4b5-0328-451d-9d4d-61bbea6e83de.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '20569'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ac9392d44c.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/w10_sim'), ('SSH_CONNECTION', '192.168.100.41 46190 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots:')]), 'shell': False}
+[0.016803] (marvin_sim) JobProgress: {'identifier': 'marvin_sim', 'progress': 'cmake'}
+[0.016824] (marvin_sim) JobProgress: {'identifier': 'marvin_sim', 'progress': 'build'}
+[0.016837] (marvin_sim) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/user/ros2_ws/dynamic_ws/build/marvin_sim', '--', '-j32', '-l32'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/marvin_sim', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 46190 22'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('TERM_PROGRAM_VERSION', '1.115.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-69f1e4b5-0328-451d-9d4d-61bbea6e83de.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '20569'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ac9392d44c.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/marvin_sim'), ('SSH_CONNECTION', '192.168.100.41 46190 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots:')]), 'shell': False}
+[0.017730] (show_urdf) JobProgress: {'identifier': 'show_urdf', 'progress': 'cmake'}
+[0.017754] (show_urdf) JobProgress: {'identifier': 'show_urdf', 'progress': 'build'}
+[0.017806] (show_urdf) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/user/ros2_ws/dynamic_ws/build/show_urdf', '--', '-j32', '-l32'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/show_urdf', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 46190 22'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('TERM_PROGRAM_VERSION', '1.115.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-69f1e4b5-0328-451d-9d4d-61bbea6e83de.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '20569'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ac9392d44c.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/show_urdf'), ('SSH_CONNECTION', '192.168.100.41 46190 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots:')]), 'shell': False}
+[0.018582] (vi) JobProgress: {'identifier': 'vi', 'progress': 'cmake'}
+[0.018789] (vi) JobProgress: {'identifier': 'vi', 'progress': 'build'}
+[0.018838] (vi) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/user/ros2_ws/dynamic_ws/build/vi', '--', '-j32', '-l32'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/vi', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 46190 22'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('TERM_PROGRAM_VERSION', '1.115.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-69f1e4b5-0328-451d-9d4d-61bbea6e83de.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '20569'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ac9392d44c.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/vi'), ('SSH_CONNECTION', '192.168.100.41 46190 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots:')]), 'shell': False}
+[0.019187] (vi_2p) JobProgress: {'identifier': 'vi_2p', 'progress': 'cmake'}
+[0.019375] (vi_2p) JobProgress: {'identifier': 'vi_2p', 'progress': 'build'}
+[0.019677] (vi_2p) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/user/ros2_ws/dynamic_ws/build/vi_2p', '--', '-j32', '-l32'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/vi_2p', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 46190 22'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('TERM_PROGRAM_VERSION', '1.115.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-69f1e4b5-0328-451d-9d4d-61bbea6e83de.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '20569'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ac9392d44c.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/vi_2p'), ('SSH_CONNECTION', '192.168.100.41 46190 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots:')]), 'shell': False}
+[0.022489] (w10_force_sim) JobProgress: {'identifier': 'w10_force_sim', 'progress': 'cmake'}
+[0.022759] (w10_force_sim) JobProgress: {'identifier': 'w10_force_sim', 'progress': 'build'}
+[0.023082] (w10_force_sim) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/user/ros2_ws/dynamic_ws/build/w10_force_sim', '--', '-j32', '-l32'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/w10_force_sim', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 46190 22'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('TERM_PROGRAM_VERSION', '1.115.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-69f1e4b5-0328-451d-9d4d-61bbea6e83de.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '20569'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ac9392d44c.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/w10_force_sim'), ('SSH_CONNECTION', '192.168.100.41 46190 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots:')]), 'shell': False}
+[0.039587] (show_urdf) CommandEnded: {'returncode': 0}
+[0.040008] (show_urdf) JobProgress: {'identifier': 'show_urdf', 'progress': 'install'}
+[0.044114] (show_urdf) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/user/ros2_ws/dynamic_ws/build/show_urdf'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/show_urdf', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 46190 22'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('TERM_PROGRAM_VERSION', '1.115.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-69f1e4b5-0328-451d-9d4d-61bbea6e83de.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '20569'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ac9392d44c.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/show_urdf'), ('SSH_CONNECTION', '192.168.100.41 46190 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots:')]), 'shell': False}
+[0.048889] (show_urdf) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.049145] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/launch\n'}
+[0.049277] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/launch/show_urdf.launch.py\n'}
+[0.049376] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/urdf\n'}
+[0.049486] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/urdf/marvin.urdf\n'}
+[0.049594] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/meshes\n'}
+[0.049687] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/meshes/Link1_L.STL\n'}
+[0.049784] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/meshes/Base_L.STL\n'}
+[0.049868] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/meshes/Link3_L.STL\n'}
+[0.049948] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/meshes/Link2_L.STL\n'}
+[0.050020] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/meshes/Link5_L.STL\n'}
+[0.050092] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/meshes/Link4_L.STL\n'}
+[0.050188] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/meshes/Link7_L.STL\n'}
+[0.050268] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/meshes/Link6_L.STL\n'}
+[0.050340] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/ament_index/resource_index/package_run_dependencies/show_urdf\n'}
+[0.050410] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/ament_index/resource_index/parent_prefix_path/show_urdf\n'}
+[0.050478] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/environment/ament_prefix_path.sh\n'}
+[0.050554] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/environment/ament_prefix_path.dsv\n'}
+[0.050625] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/environment/path.sh\n'}
+[0.050694] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/environment/path.dsv\n'}
+[0.050759] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/local_setup.bash\n'}
+[0.050830] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/local_setup.sh\n'}
+[0.050901] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/local_setup.zsh\n'}
+[0.050966] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/local_setup.dsv\n'}
+[0.051127] (show_urdf) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/package.dsv\n'}
+[0.051480] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/ament_index/resource_index/packages/show_urdf\n'}
+[0.051968] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/cmake/show_urdfConfig.cmake\n'}
+[0.052100] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/cmake/show_urdfConfig-version.cmake\n'}
+[0.052246] (show_urdf) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/package.xml\n'}
+[0.052394] (show_urdf) CommandEnded: {'returncode': 0}
+[0.058691] (w10_sim) StdoutLine: {'line': b'[ 20%] Built target ctsvi_w10_node\n'}
+[0.059394] (vi) StdoutLine: {'line': b'[ 25%] Built target atsvi_ad_node\n'}
+[0.059612] (marvin_sim) StdoutLine: {'line': b'[ 50%] Built target ctsvi_node\n'}
+[0.059819] (vi) StdoutLine: {'line': b'[ 50%] Built target rk4_node\n'}
+[0.060908] (marvin_sim) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/atsvi_node.dir/src/atsvi_node.cpp.o\x1b[0m\n'}
+[0.061891] (w10_sim) StdoutLine: {'line': b'[ 40%] Built target ctsvi_node\n'}
+[0.062032] (vi_2p) StdoutLine: {'line': b'[ 25%] Built target atsvi_ad_node\n'}
+[0.062669] (w10_sim) StdoutLine: {'line': b'[ 60%] Built target ctsvi_ad_node\n'}
+[0.062965] (w10_sim) StdoutLine: {'line': b'[ 80%] Built target etsvi_node\n'}
+[0.063094] (vi_2p) StdoutLine: {'line': b'[ 50%] Built target ctsvi_ad_node\n'}
+[0.063559] (vi) StdoutLine: {'line': b'[ 75%] Built target etsvi_node\n'}
+[0.064138] (vi_2p) StdoutLine: {'line': b'[ 75%] Built target rk4_node\n'}
+[0.064250] (vi) StdoutLine: {'line': b'[100%] Built target ctsvi_ad_node\n'}
+[0.066392] (show_urdf) JobEnded: {'identifier': 'show_urdf', 'rc': 0}
+[0.066681] (w10_sim) StdoutLine: {'line': b'[100%] Built target atsvi_ad_node\n'}
+[0.069344] (vi_2p) StdoutLine: {'line': b'[100%] Built target etsvi_node\n'}
+[0.070227] (w10_force_sim) StdoutLine: {'line': b'[ 50%] Built target ctsvi_ad_node\n'}
+[0.070741] (w10_force_sim) StdoutLine: {'line': b'[100%] Built target ctsvi_node\n'}
+[0.071279] (vi) CommandEnded: {'returncode': 0}
+[0.071711] (vi) JobProgress: {'identifier': 'vi', 'progress': 'install'}
+[0.072014] (vi) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/user/ros2_ws/dynamic_ws/build/vi'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/vi', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 46190 22'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('TERM_PROGRAM_VERSION', '1.115.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-69f1e4b5-0328-451d-9d4d-61bbea6e83de.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '20569'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ac9392d44c.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/vi'), ('SSH_CONNECTION', '192.168.100.41 46190 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots:')]), 'shell': False}
+[0.073618] (w10_sim) CommandEnded: {'returncode': 0}
+[0.074011] (w10_sim) JobProgress: {'identifier': 'w10_sim', 'progress': 'install'}
+[0.074273] (w10_sim) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/user/ros2_ws/dynamic_ws/build/w10_sim'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/w10_sim', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 46190 22'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('TERM_PROGRAM_VERSION', '1.115.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-69f1e4b5-0328-451d-9d4d-61bbea6e83de.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '20569'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ac9392d44c.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/w10_sim'), ('SSH_CONNECTION', '192.168.100.41 46190 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots:')]), 'shell': False}
+[0.075361] (vi_2p) CommandEnded: {'returncode': 0}
+[0.075727] (vi_2p) JobProgress: {'identifier': 'vi_2p', 'progress': 'install'}
+[0.076338] (vi_2p) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/user/ros2_ws/dynamic_ws/build/vi_2p'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/vi_2p', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 46190 22'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('TERM_PROGRAM_VERSION', '1.115.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-69f1e4b5-0328-451d-9d4d-61bbea6e83de.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '20569'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ac9392d44c.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/vi_2p'), ('SSH_CONNECTION', '192.168.100.41 46190 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots:')]), 'shell': False}
+[0.076706] (vi) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.076832] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/lib/vi/pybullet_sim.py\n'}
+[0.076987] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/lib/vi/plot_7dof_pendulum.py\n'}
+[0.077165] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/lib/vi/render_pendulum.py\n'}
+[0.077463] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/lib/vi/vi_compare_sim.py\n'}
+[0.077531] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/lib/vi/rk4_vi_compare_sim.py\n'}
+[0.077639] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/lib/vi/etsvi_sweep_heatmap.py\n'}
+[0.077680] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/lib/vi/ctsvi_ad_node\n'}
+[0.077720] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/lib/vi/atsvi_ad_node\n'}
+[0.077759] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/lib/vi/etsvi_node\n'}
+[0.077800] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/lib/vi/rk4_node\n'}
+[0.077842] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/share/ament_index/resource_index/package_run_dependencies/vi\n'}
+[0.077884] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/share/ament_index/resource_index/parent_prefix_path/vi\n'}
+[0.077964] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/share/vi/environment/ament_prefix_path.sh\n'}
+[0.078071] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/share/vi/environment/ament_prefix_path.dsv\n'}
+[0.078542] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/share/vi/environment/path.sh\n'}
+[0.079286] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/share/vi/environment/path.dsv\n'}
+[0.079569] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/share/vi/local_setup.bash\n'}
+[0.079708] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/share/vi/local_setup.sh\n'}
+[0.079776] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/share/vi/local_setup.zsh\n'}
+[0.079901] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/share/vi/local_setup.dsv\n'}
+[0.080026] (vi) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/vi/share/vi/package.dsv\n'}
+[0.080125] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/share/ament_index/resource_index/packages/vi\n'}
+[0.080173] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/share/vi/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[0.080273] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/share/vi/cmake/viConfig.cmake\n'}
+[0.080353] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/share/vi/cmake/viConfig-version.cmake\n'}
+[0.080407] (vi) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi/share/vi/package.xml\n'}
+[0.080487] (w10_force_sim) CommandEnded: {'returncode': 0}
+[0.080672] (w10_force_sim) JobProgress: {'identifier': 'w10_force_sim', 'progress': 'install'}
+[0.080688] (w10_force_sim) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/user/ros2_ws/dynamic_ws/build/w10_force_sim'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/w10_force_sim', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 46190 22'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('TERM_PROGRAM_VERSION', '1.115.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-69f1e4b5-0328-451d-9d4d-61bbea6e83de.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '20569'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ac9392d44c.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/w10_force_sim'), ('SSH_CONNECTION', '192.168.100.41 46190 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots:')]), 'shell': False}
+[0.080862] (w10_sim) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.080974] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/urdf\n'}
+[0.081021] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/urdf/7_pendulum.urdf\n'}
+[0.081079] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/urdf/w10.csv\n'}
+[0.081137] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/urdf/w10new.urdf\n'}
+[0.081193] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/urdf/w10_body.urdf\n'}
+[0.081246] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/urdf/w10.urdf\n'}
+[0.081330] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/urdf/1_pendulum.urdf\n'}
+[0.081716] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/meshes\n'}
+[0.081872] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/meshes/base_link.STL\n'}
+[0.081926] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/meshes/Link6.STL\n'}
+[0.082041] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/meshes/Link1.STL\n'}
+[0.082140] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/meshes/Link7.STL\n'}
+[0.082307] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/meshes/Link4.STL\n'}
+[0.082496] (vi) CommandEnded: {'returncode': 0}
+[0.082749] (vi_2p) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.082899] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/lib/vi_2p/pybullet_sim.py\n'}
+[0.083000] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/lib/vi_2p/plot_pendulum.py\n'}
+[0.083497] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/lib/vi_2p/render_pendulum.py\n'}
+[0.083564] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/lib/vi_2p/vi_compare_sim.py\n'}
+[0.083745] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/lib/vi_2p/rk4_vi_compare_sim.py\n'}
+[0.083800] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/meshes/Link3.STL\n'}
+[0.083901] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/meshes/Link2.STL\n'}
+[0.084021] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/meshes/Link5.STL\n'}
+[0.084068] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/launch\n'}
+[0.084175] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/launch/display_urdf.launch.py\n'}
+[0.084318] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/launch/ctsvi_w10.launch.py\n'}
+[0.084418] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/launch/display_urdf_headless.launch.py\n'}
+[0.084466] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/launch/ctsvi_ad.launch.py\n'}
+[0.084570] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/launch/__pycache__\n'}
+[0.084666] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/lib/vi_2p/etsvi_sweep_heatmap.py\n'}
+[0.084767] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/lib/vi_2p/ctsvi_ad_node\n'}
+[0.084855] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/lib/vi_2p/atsvi_ad_node\n'}
+[0.084909] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/launch/__pycache__/display_urdf_headless.launch.cpython-310.pyc\n'}
+[0.084981] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/config\n'}
+[0.085052] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/config/plot_config.yaml\n'}
+[0.085099] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/config/vi_params.yaml\n'}
+[0.085415] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/rviz\n'}
+[0.085484] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/rviz/w10.rviz\n'}
+[0.085546] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/scripts\n'}
+[0.085699] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/scripts/w10_joint_controller.py\n'}
+[0.085782] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/scripts/generate_urdf_from_dh.py\n'}
+[0.085841] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/scripts/rviz_diagnose.py\n'}
+[0.085889] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/scripts/analyze_vi_results.py\n'}
+[0.086035] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/scripts/extract_dh_params.py\n'}
+[0.086159] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/scripts/__pycache__\n'}
+[0.086258] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/scripts/__pycache__/analyze_vi_results.cpython-310.pyc\n'}
+[0.086345] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/scripts/vi_sim.py\n'}
+[0.086397] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/lib/w10_sim/vi_sim.py\n'}
+[0.086479] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/lib/w10_sim/analyze_vi_results.py\n'}
+[0.086594] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/include\n'}
+[0.086639] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/include/w10_sim\n'}
+[0.086731] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/lib/w10_sim/ctsvi_node\n'}
+[0.086805] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/lib/w10_sim/ctsvi_w10_node\n'}
+[0.086857] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/lib/vi_2p/etsvi_node\n'}
+[0.087378] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/lib/w10_sim/ctsvi_ad_node\n'}
+[0.087437] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/lib/vi_2p/rk4_node\n'}
+[0.087591] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/share/ament_index/resource_index/package_run_dependencies/vi_2p\n'}
+[0.087629] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/lib/w10_sim/atsvi_ad_node\n'}
+[0.087719] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/share/ament_index/resource_index/parent_prefix_path/vi_2p\n'}
+[0.087859] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/environment/ament_prefix_path.sh\n'}
+[0.087927] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/environment/ament_prefix_path.dsv\n'}
+[0.088060] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/environment/path.sh\n'}
+[0.088099] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/environment/path.dsv\n'}
+[0.088187] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/local_setup.bash\n'}
+[0.088293] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/lib/w10_sim/etsvi_node\n'}
+[0.088334] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/local_setup.sh\n'}
+[0.088418] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/local_setup.zsh\n'}
+[0.088529] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/local_setup.dsv\n'}
+[0.088609] (vi_2p) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/package.dsv\n'}
+[0.088653] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/ament_index/resource_index/package_run_dependencies/w10_sim\n'}
+[0.088737] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/ament_index/resource_index/parent_prefix_path/w10_sim\n'}
+[0.088892] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/environment/ament_prefix_path.sh\n'}
+[0.089099] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/environment/ament_prefix_path.dsv\n'}
+[0.089445] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/environment/path.sh\n'}
+[0.089481] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/environment/path.dsv\n'}
+[0.089530] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/share/ament_index/resource_index/packages/vi_2p\n'}
+[0.089577] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[0.089620] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/cmake/vi_2pConfig.cmake\n'}
+[0.089663] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/local_setup.bash\n'}
+[0.089708] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/local_setup.sh\n'}
+[0.089753] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/cmake/vi_2pConfig-version.cmake\n'}
+[0.089815] (vi_2p) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/package.xml\n'}
+[0.089852] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/local_setup.zsh\n'}
+[0.089919] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/local_setup.dsv\n'}
+[0.089959] (w10_sim) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/package.dsv\n'}
+[0.089997] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/ament_index/resource_index/packages/w10_sim\n'}
+[0.090030] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[0.090066] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[0.090223] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/cmake/w10_simConfig.cmake\n'}
+[0.090262] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/cmake/w10_simConfig-version.cmake\n'}
+[0.090377] (w10_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/package.xml\n'}
+[0.090408] (w10_force_sim) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.090513] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/urdf\n'}
+[0.090599] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/urdf/7_pendulum.urdf\n'}
+[0.090638] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/urdf/w10_body.urdf\n'}
+[0.090727] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/urdf/1_pendulum.urdf\n'}
+[0.090841] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/meshes\n'}
+[0.090943] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/meshes/base_link.STL\n'}
+[0.091014] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/meshes/Link1.STL\n'}
+[0.091069] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/meshes/Link6.STL\n'}
+[0.091372] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/meshes/Link7.STL\n'}
+[0.091560] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/meshes/Link3.STL\n'}
+[0.091694] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/meshes/Link4.STL\n'}
+[0.091725] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/meshes/Link5.STL\n'}
+[0.091763] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/meshes/Link2.STL\n'}
+[0.091846] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/launch\n'}
+[0.091960] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/config\n'}
+[0.092052] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/config/vi_params.yaml\n'}
+[0.092148] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/config/plot_config.yaml\n'}
+[0.092191] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/scripts\n'}
+[0.092275] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/scripts/analyze_vi_results.py\n'}
+[0.092377] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/scripts/vi_sim.py\n'}
+[0.092415] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/lib/w10_force_sim/vi_sim.py\n'}
+[0.092501] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/lib/w10_force_sim/analyze_vi_results.py\n'}
+[0.092587] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/include\n'}
+[0.092614] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/lib/w10_force_sim/ctsvi_ad_node\n'}
+[0.092638] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/lib/w10_force_sim/ctsvi_node\n'}
+[0.092725] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/ament_index/resource_index/package_run_dependencies/w10_force_sim\n'}
+[0.092770] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/ament_index/resource_index/parent_prefix_path/w10_force_sim\n'}
+[0.092831] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/environment/ament_prefix_path.sh\n'}
+[0.092864] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/environment/ament_prefix_path.dsv\n'}
+[0.092936] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/environment/path.sh\n'}
+[0.093256] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/environment/path.dsv\n'}
+[0.093297] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/local_setup.bash\n'}
+[0.093345] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/local_setup.sh\n'}
+[0.093391] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/local_setup.zsh\n'}
+[0.093432] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/local_setup.dsv\n'}
+[0.093475] (w10_force_sim) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/package.dsv\n'}
+[0.093523] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/ament_index/resource_index/packages/w10_force_sim\n'}
+[0.093567] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[0.093630] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[0.093669] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/cmake/w10_force_simConfig.cmake\n'}
+[0.093730] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/cmake/w10_force_simConfig-version.cmake\n'}
+[0.093768] (w10_force_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/package.xml\n'}
+[0.093810] (vi) JobEnded: {'identifier': 'vi', 'rc': 0}
+[0.094065] (vi_2p) CommandEnded: {'returncode': 0}
+[0.095932] (vi_2p) JobEnded: {'identifier': 'vi_2p', 'rc': 0}
+[0.096325] (w10_sim) CommandEnded: {'returncode': 0}
+[0.099824] (-) TimerEvent: {}
+[0.101479] (w10_sim) JobEnded: {'identifier': 'w10_sim', 'rc': 0}
+[0.101810] (w10_force_sim) CommandEnded: {'returncode': 0}
+[0.106594] (w10_force_sim) JobEnded: {'identifier': 'w10_force_sim', 'rc': 0}
+[0.106936] (w10_kinematics) JobStarted: {'identifier': 'w10_kinematics'}
+[0.108971] (w10_moveit_kinematics) JobStarted: {'identifier': 'w10_moveit_kinematics'}
+[0.111347] (w10_kinematics) JobProgress: {'identifier': 'w10_kinematics', 'progress': 'cmake'}
+[0.111599] (w10_kinematics) JobProgress: {'identifier': 'w10_kinematics', 'progress': 'build'}
+[0.111940] (w10_kinematics) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/user/ros2_ws/dynamic_ws/build/w10_kinematics', '--', '-j32', '-l32'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/w10_kinematics', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 46190 22'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('TERM_PROGRAM_VERSION', '1.115.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-69f1e4b5-0328-451d-9d4d-61bbea6e83de.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '20569'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ac9392d44c.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/w10_kinematics'), ('SSH_CONNECTION', '192.168.100.41 46190 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_sim:/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots')]), 'shell': False}
+[0.112890] (w10_moveit_kinematics) JobProgress: {'identifier': 'w10_moveit_kinematics', 'progress': 'cmake'}
+[0.113211] (w10_moveit_kinematics) JobProgress: {'identifier': 'w10_moveit_kinematics', 'progress': 'build'}
+[0.113446] (w10_moveit_kinematics) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/user/ros2_ws/dynamic_ws/build/w10_moveit_kinematics', '--', '-j32', '-l32'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/w10_moveit_kinematics', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 46190 22'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('TERM_PROGRAM_VERSION', '1.115.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-69f1e4b5-0328-451d-9d4d-61bbea6e83de.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '20569'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ac9392d44c.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/w10_moveit_kinematics'), ('SSH_CONNECTION', '192.168.100.41 46190 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_sim:/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots')]), 'shell': False}
+[0.145327] (w10_moveit_kinematics) StdoutLine: {'line': b'Built target ament_cmake_python_copy_kinematics_experiments\n'}
+[0.152789] (w10_kinematics) StdoutLine: {'line': b'[ 11%] Built target arm_angle_ik\n'}
+[0.172686] (w10_kinematics) StdoutLine: {'line': b'[ 22%] Built target debug_q_mapping\n'}
+[0.173321] (w10_kinematics) StdoutLine: {'line': b'[ 33%] Built target find_arm_angle\n'}
+[0.173958] (w10_kinematics) StdoutLine: {'line': b'[ 44%] Built target test_all_q\n'}
+[0.174118] (w10_kinematics) StdoutLine: {'line': b'[ 55%] Built target ik_visualize\n'}
+[0.176328] (w10_kinematics) StdoutLine: {'line': b'[ 66%] Built target test_q_indices\n'}
+[0.176433] (w10_kinematics) StdoutLine: {'line': b'[ 77%] Built target ik_test\n'}
+[0.176978] (w10_kinematics) StdoutLine: {'line': b'[ 88%] Built target debug_positions\n'}
+[0.177659] (w10_kinematics) StdoutLine: {'line': b'[100%] Built target debug_joints\n'}
+[0.184397] (w10_kinematics) CommandEnded: {'returncode': 0}
+[0.184927] (w10_kinematics) JobProgress: {'identifier': 'w10_kinematics', 'progress': 'install'}
+[0.185114] (w10_kinematics) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/user/ros2_ws/dynamic_ws/build/w10_kinematics'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/w10_kinematics', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 46190 22'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('TERM_PROGRAM_VERSION', '1.115.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-69f1e4b5-0328-451d-9d4d-61bbea6e83de.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '20569'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ac9392d44c.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/w10_kinematics'), ('SSH_CONNECTION', '192.168.100.41 46190 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_sim:/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots')]), 'shell': False}
+[0.188872] (w10_kinematics) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.188962] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/lib/libarm_angle_ik.a\n'}
+[0.189019] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/include\n'}
+[0.189062] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/include/w10_kinematics\n'}
+[0.189106] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/include/w10_kinematics/arm_angle_ik.hpp\n'}
+[0.189154] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/launch\n'}
+[0.189186] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/launch/start_ik_visualization.sh\n'}
+[0.189214] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/launch/ik_visualize.launch.py\n'}
+[0.189281] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/lib/w10_kinematics/ik_test\n'}
+[0.189455] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/lib/w10_kinematics/ik_visualize\n'}
+[0.189622] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/lib/w10_kinematics/debug_joints\n'}
+[0.189782] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/lib/w10_kinematics/debug_q_mapping\n'}
+[0.189941] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/lib/w10_kinematics/test_q_indices\n'}
+[0.190101] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/lib/w10_kinematics/test_all_q\n'}
+[0.190263] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/lib/w10_kinematics/debug_positions\n'}
+[0.190415] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/lib/w10_kinematics/find_arm_angle\n'}
+[0.190524] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/ament_index/resource_index/package_run_dependencies/w10_kinematics\n'}
+[0.190564] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/ament_index/resource_index/parent_prefix_path/w10_kinematics\n'}
+[0.190611] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/environment/ament_prefix_path.sh\n'}
+[0.190649] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/environment/ament_prefix_path.dsv\n'}
+[0.190686] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/environment/path.sh\n'}
+[0.190730] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/environment/path.dsv\n'}
+[0.190768] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/local_setup.bash\n'}
+[0.190805] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/local_setup.sh\n'}
+[0.190848] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/local_setup.zsh\n'}
+[0.190875] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/local_setup.dsv\n'}
+[0.190902] (w10_kinematics) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/package.dsv\n'}
+[0.191021] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/ament_index/resource_index/packages/w10_kinematics\n'}
+[0.191060] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/cmake/w10_kinematicsConfig.cmake\n'}
+[0.191105] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/cmake/w10_kinematicsConfig-version.cmake\n'}
+[0.191136] (w10_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/package.xml\n'}
+[0.192044] (w10_kinematics) CommandEnded: {'returncode': 0}
+[0.199906] (-) TimerEvent: {}
+[0.200152] (w10_kinematics) JobEnded: {'identifier': 'w10_kinematics', 'rc': 0}
+[0.266603] (w10_moveit_kinematics) StdoutLine: {'line': b'running egg_info\n'}
+[0.266953] (w10_moveit_kinematics) StdoutLine: {'line': b'writing kinematics_experiments.egg-info/PKG-INFO\n'}
+[0.267072] (w10_moveit_kinematics) StdoutLine: {'line': b'writing dependency_links to kinematics_experiments.egg-info/dependency_links.txt\n'}
+[0.267141] (w10_moveit_kinematics) StdoutLine: {'line': b'writing top-level names to kinematics_experiments.egg-info/top_level.txt\n'}
+[0.267963] (w10_moveit_kinematics) StdoutLine: {'line': b"reading manifest file 'kinematics_experiments.egg-info/SOURCES.txt'\n"}
+[0.268132] (w10_moveit_kinematics) StdoutLine: {'line': b"writing manifest file 'kinematics_experiments.egg-info/SOURCES.txt'\n"}
+[0.282582] (w10_moveit_kinematics) StdoutLine: {'line': b'Built target ament_cmake_python_build_kinematics_experiments_egg\n'}
+[0.290300] (w10_moveit_kinematics) CommandEnded: {'returncode': 0}
+[0.290926] (w10_moveit_kinematics) JobProgress: {'identifier': 'w10_moveit_kinematics', 'progress': 'install'}
+[0.291121] (w10_moveit_kinematics) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/user/ros2_ws/dynamic_ws/build/w10_moveit_kinematics'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/w10_moveit_kinematics', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 46190 22'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('TERM_PROGRAM_VERSION', '1.115.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-69f1e4b5-0328-451d-9d4d-61bbea6e83de.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '20569'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ac9392d44c.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/w10_moveit_kinematics'), ('SSH_CONNECTION', '192.168.100.41 46190 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_sim:/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots')]), 'shell': False}
+[0.294822] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.294912] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/environment/pythonpath.sh\n'}
+[0.295016] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/environment/pythonpath.dsv\n'}
+[0.295126] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages/kinematics_experiments-0.1.0-py3.10.egg-info\n'}
+[0.295274] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages/kinematics_experiments-0.1.0-py3.10.egg-info/SOURCES.txt\n'}
+[0.299987] (-) TimerEvent: {}
+[0.308419] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages/kinematics_experiments-0.1.0-py3.10.egg-info/dependency_links.txt\n'}
+[0.308551] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages/kinematics_experiments-0.1.0-py3.10.egg-info/top_level.txt\n'}
+[0.308665] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages/kinematics_experiments-0.1.0-py3.10.egg-info/PKG-INFO\n'}
+[0.308835] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages/kinematics_experiments\n'}
+[0.308887] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages/kinematics_experiments/src\n'}
+[0.308929] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages/kinematics_experiments/src/kinematics_solver.py\n'}
+[0.308966] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages/kinematics_experiments/scripts\n'}
+[0.309009] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages/kinematics_experiments/scripts/inverse_kinematics_demo.py\n'}
+[0.309052] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages/kinematics_experiments/scripts/forward_kinematics_demo.py\n'}
+[0.309089] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages/kinematics_experiments/scripts/joint_state_publisher.py\n'}
+[0.309134] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages/kinematics_experiments/scripts/motion_planning_demo.py\n'}
+[0.309161] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages/kinematics_experiments/scripts/interactive_kinematics.py\n'}
+[0.309189] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages/kinematics_experiments/__init__.py\n'}
+[0.334492] (w10_moveit_kinematics) StdoutLine: {'line': b"Listing '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages/kinematics_experiments'...\n"}
+[0.334596] (w10_moveit_kinematics) StdoutLine: {'line': b"Listing '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages/kinematics_experiments/scripts'...\n"}
+[0.334625] (w10_moveit_kinematics) StdoutLine: {'line': b"Listing '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages/kinematics_experiments/src'...\n"}
+[0.337138] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/lib/w10_moveit_kinematics/forward_kinematics_demo.py\n'}
+[0.337186] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/lib/w10_moveit_kinematics/inverse_kinematics_demo.py\n'}
+[0.337230] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/lib/w10_moveit_kinematics/motion_planning_demo.py\n'}
+[0.337277] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/lib/w10_moveit_kinematics/interactive_kinematics.py\n'}
+[0.337303] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/lib/w10_moveit_kinematics/joint_state_publisher.py\n'}
+[0.337353] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/launch\n'}
+[0.337391] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/launch/move_group.launch.py\n'}
+[0.337418] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/launch/move_group_minimal.launch.py\n'}
+[0.337444] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/config\n'}
+[0.337506] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/config/moveit_planning_adapters.yaml\n'}
+[0.337532] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/config/kinematics.yaml\n'}
+[0.337568] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/config/w10_sim.srdf\n'}
+[0.337607] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/config/joint_limits.yaml\n'}
+[0.337643] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/ament_index/resource_index/package_run_dependencies/w10_moveit_kinematics\n'}
+[0.337681] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/ament_index/resource_index/parent_prefix_path/w10_moveit_kinematics\n'}
+[0.337716] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/environment/ament_prefix_path.sh\n'}
+[0.337756] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/environment/ament_prefix_path.dsv\n'}
+[0.337792] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/environment/path.sh\n'}
+[0.337829] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/environment/path.dsv\n'}
+[0.337856] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/local_setup.bash\n'}
+[0.337883] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/local_setup.sh\n'}
+[0.337911] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/local_setup.zsh\n'}
+[0.337937] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/local_setup.dsv\n'}
+[0.337963] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/package.dsv\n'}
+[0.338024] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/ament_index/resource_index/packages/w10_moveit_kinematics\n'}
+[0.338071] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/cmake/w10_moveit_kinematicsConfig.cmake\n'}
+[0.338109] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/cmake/w10_moveit_kinematicsConfig-version.cmake\n'}
+[0.338150] (w10_moveit_kinematics) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/package.xml\n'}
+[0.339776] (w10_moveit_kinematics) CommandEnded: {'returncode': 0}
+[0.345486] (w10_moveit_kinematics) JobEnded: {'identifier': 'w10_moveit_kinematics', 'rc': 0}
+[0.400068] (-) TimerEvent: {}
+[0.500313] (-) TimerEvent: {}
+[0.600553] (-) TimerEvent: {}
+[0.700779] (-) TimerEvent: {}
+[0.800997] (-) TimerEvent: {}
+[0.901305] (-) TimerEvent: {}
+[1.001578] (-) TimerEvent: {}
+[1.101868] (-) TimerEvent: {}
+[1.202141] (-) TimerEvent: {}
+[1.302592] (-) TimerEvent: {}
+[1.402979] (-) TimerEvent: {}
+[1.503375] (-) TimerEvent: {}
+[1.603779] (-) TimerEvent: {}
+[1.704054] (-) TimerEvent: {}
+[1.804399] (-) TimerEvent: {}
+[1.904738] (-) TimerEvent: {}
+[2.005059] (-) TimerEvent: {}
+[2.105455] (-) TimerEvent: {}
+[2.205882] (-) TimerEvent: {}
+[2.306278] (-) TimerEvent: {}
+[2.406676] (-) TimerEvent: {}
+[2.507076] (-) TimerEvent: {}
+[2.607483] (-) TimerEvent: {}
+[2.707802] (-) TimerEvent: {}
+[2.808034] (-) TimerEvent: {}
+[2.908251] (-) TimerEvent: {}
+[3.008564] (-) TimerEvent: {}
+[3.108787] (-) TimerEvent: {}
+[3.208971] (-) TimerEvent: {}
+[3.229666] (marvin_sim) StderrLine: {'line': b'\x1b[01m\x1b[K/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/atsvi_node.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kstd::tuple<Eigen::Matrix<double, -1, 1, 0, -1, 1>, double, SolverInfo> solve_q_next_sem_ad(const Model&, pinocchio::Data&, const ModelAD&, DataAD&, const Vec&, const Vec&, double, const Vec&, const Vec&, double, double, int, double, double, double)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.229838] (marvin_sim) StderrLine: {'line': b'\x1b[01m\x1b[K/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/atsvi_node.cpp:303:16:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Ktau_k\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.229877] (marvin_sim) StderrLine: {'line': b'  303 |     \x1b[01;35m\x1b[Kconst Vec &tau_k\x1b[m\x1b[K,\n'}
+[3.229906] (marvin_sim) StderrLine: {'line': b'      |     \x1b[01;35m\x1b[K~~~~~~~~~~~^~~~~\x1b[m\x1b[K\n'}
+[3.309039] (-) TimerEvent: {}
+[3.409219] (-) TimerEvent: {}
+[3.509416] (-) TimerEvent: {}
+[3.609627] (-) TimerEvent: {}
+[3.709822] (-) TimerEvent: {}
+[3.810092] (-) TimerEvent: {}
+[3.910330] (-) TimerEvent: {}
+[4.010621] (-) TimerEvent: {}
+[4.110844] (-) TimerEvent: {}
+[4.211063] (-) TimerEvent: {}
+[4.311380] (-) TimerEvent: {}
+[4.411713] (-) TimerEvent: {}
+[4.512049] (-) TimerEvent: {}
+[4.612398] (-) TimerEvent: {}
+[4.712745] (-) TimerEvent: {}
+[4.813087] (-) TimerEvent: {}
+[4.913376] (-) TimerEvent: {}
+[5.013712] (-) TimerEvent: {}
+[5.114052] (-) TimerEvent: {}
+[5.214402] (-) TimerEvent: {}
+[5.314748] (-) TimerEvent: {}
+[5.414993] (-) TimerEvent: {}
+[5.515347] (-) TimerEvent: {}
+[5.615697] (-) TimerEvent: {}
+[5.716039] (-) TimerEvent: {}
+[5.816410] (-) TimerEvent: {}
+[5.916653] (-) TimerEvent: {}
+[6.016900] (-) TimerEvent: {}
+[6.117293] (-) TimerEvent: {}
+[6.217641] (-) TimerEvent: {}
+[6.317980] (-) TimerEvent: {}
+[6.418334] (-) TimerEvent: {}
+[6.518680] (-) TimerEvent: {}
+[6.618936] (-) TimerEvent: {}
+[6.719284] (-) TimerEvent: {}
+[6.819632] (-) TimerEvent: {}
+[6.919936] (-) TimerEvent: {}
+[7.020213] (-) TimerEvent: {}
+[7.120457] (-) TimerEvent: {}
+[7.220725] (-) TimerEvent: {}
+[7.320959] (-) TimerEvent: {}
+[7.421199] (-) TimerEvent: {}
+[7.521446] (-) TimerEvent: {}
+[7.621746] (-) TimerEvent: {}
+[7.722042] (-) TimerEvent: {}
+[7.822377] (-) TimerEvent: {}
+[7.922728] (-) TimerEvent: {}
+[8.022970] (-) TimerEvent: {}
+[8.123202] (-) TimerEvent: {}
+[8.223454] (-) TimerEvent: {}
+[8.323694] (-) TimerEvent: {}
+[8.423934] (-) TimerEvent: {}
+[8.524091] (-) TimerEvent: {}
+[8.624297] (-) TimerEvent: {}
+[8.724595] (-) TimerEvent: {}
+[8.824801] (-) TimerEvent: {}
+[8.924991] (-) TimerEvent: {}
+[9.025243] (-) TimerEvent: {}
+[9.125511] (-) TimerEvent: {}
+[9.225740] (-) TimerEvent: {}
+[9.326029] (-) TimerEvent: {}
+[9.426269] (-) TimerEvent: {}
+[9.526516] (-) TimerEvent: {}
+[9.626756] (-) TimerEvent: {}
+[9.726984] (-) TimerEvent: {}
+[9.827185] (-) TimerEvent: {}
+[9.927330] (-) TimerEvent: {}
+[10.027446] (-) TimerEvent: {}
+[10.127619] (-) TimerEvent: {}
+[10.227754] (-) TimerEvent: {}
+[10.327864] (-) TimerEvent: {}
+[10.427995] (-) TimerEvent: {}
+[10.528156] (-) TimerEvent: {}
+[10.628376] (-) TimerEvent: {}
+[10.728613] (-) TimerEvent: {}
+[10.829161] (-) TimerEvent: {}
+[10.929412] (-) TimerEvent: {}
+[11.029709] (-) TimerEvent: {}
+[11.129964] (-) TimerEvent: {}
+[11.230216] (-) TimerEvent: {}
+[11.330503] (-) TimerEvent: {}
+[11.430764] (-) TimerEvent: {}
+[11.531021] (-) TimerEvent: {}
+[11.631327] (-) TimerEvent: {}
+[11.731649] (-) TimerEvent: {}
+[11.832030] (-) TimerEvent: {}
+[11.932344] (-) TimerEvent: {}
+[12.032671] (-) TimerEvent: {}
+[12.132901] (-) TimerEvent: {}
+[12.233175] (-) TimerEvent: {}
+[12.333434] (-) TimerEvent: {}
+[12.433720] (-) TimerEvent: {}
+[12.534668] (-) TimerEvent: {}
+[12.635046] (-) TimerEvent: {}
+[12.735344] (-) TimerEvent: {}
+[12.835687] (-) TimerEvent: {}
+[12.935946] (-) TimerEvent: {}
+[13.036246] (-) TimerEvent: {}
+[13.136582] (-) TimerEvent: {}
+[13.236865] (-) TimerEvent: {}
+[13.337109] (-) TimerEvent: {}
+[13.437402] (-) TimerEvent: {}
+[13.537716] (-) TimerEvent: {}
+[13.637979] (-) TimerEvent: {}
+[13.738292] (-) TimerEvent: {}
+[13.838650] (-) TimerEvent: {}
+[13.938910] (-) TimerEvent: {}
+[14.039214] (-) TimerEvent: {}
+[14.139535] (-) TimerEvent: {}
+[14.239801] (-) TimerEvent: {}
+[14.340045] (-) TimerEvent: {}
+[14.440344] (-) TimerEvent: {}
+[14.540619] (-) TimerEvent: {}
+[14.640856] (-) TimerEvent: {}
+[14.741112] (-) TimerEvent: {}
+[14.841412] (-) TimerEvent: {}
+[14.941715] (-) TimerEvent: {}
+[15.041977] (-) TimerEvent: {}
+[15.142287] (-) TimerEvent: {}
+[15.242607] (-) TimerEvent: {}
+[15.342872] (-) TimerEvent: {}
+[15.443201] (-) TimerEvent: {}
+[15.543536] (-) TimerEvent: {}
+[15.643800] (-) TimerEvent: {}
+[15.744075] (-) TimerEvent: {}
+[15.844396] (-) TimerEvent: {}
+[15.944707] (-) TimerEvent: {}
+[16.044967] (-) TimerEvent: {}
+[16.145285] (-) TimerEvent: {}
+[16.245648] (-) TimerEvent: {}
+[16.345895] (-) TimerEvent: {}
+[16.446203] (-) TimerEvent: {}
+[16.546501] (-) TimerEvent: {}
+[16.646767] (-) TimerEvent: {}
+[16.747026] (-) TimerEvent: {}
+[16.847342] (-) TimerEvent: {}
+[16.947699] (-) TimerEvent: {}
+[17.047944] (-) TimerEvent: {}
+[17.148246] (-) TimerEvent: {}
+[17.248551] (-) TimerEvent: {}
+[17.348968] (-) TimerEvent: {}
+[17.449328] (-) TimerEvent: {}
+[17.549679] (-) TimerEvent: {}
+[17.650015] (-) TimerEvent: {}
+[17.750357] (-) TimerEvent: {}
+[17.850713] (-) TimerEvent: {}
+[17.951069] (-) TimerEvent: {}
+[18.051395] (-) TimerEvent: {}
+[18.151720] (-) TimerEvent: {}
+[18.251977] (-) TimerEvent: {}
+[18.352284] (-) TimerEvent: {}
+[18.452628] (-) TimerEvent: {}
+[18.552987] (-) TimerEvent: {}
+[18.653234] (-) TimerEvent: {}
+[18.753561] (-) TimerEvent: {}
+[18.853831] (-) TimerEvent: {}
+[18.954085] (-) TimerEvent: {}
+[19.054401] (-) TimerEvent: {}
+[19.154744] (-) TimerEvent: {}
+[19.255014] (-) TimerEvent: {}
+[19.355317] (-) TimerEvent: {}
+[19.455640] (-) TimerEvent: {}
+[19.555993] (-) TimerEvent: {}
+[19.656283] (-) TimerEvent: {}
+[19.756640] (-) TimerEvent: {}
+[19.856999] (-) TimerEvent: {}
+[19.957354] (-) TimerEvent: {}
+[20.057715] (-) TimerEvent: {}
+[20.157961] (-) TimerEvent: {}
+[20.258310] (-) TimerEvent: {}
+[20.358672] (-) TimerEvent: {}
+[20.459034] (-) TimerEvent: {}
+[20.559314] (-) TimerEvent: {}
+[20.659656] (-) TimerEvent: {}
+[20.759922] (-) TimerEvent: {}
+[20.860149] (-) TimerEvent: {}
+[20.960487] (-) TimerEvent: {}
+[21.060755] (-) TimerEvent: {}
+[21.161060] (-) TimerEvent: {}
+[21.261408] (-) TimerEvent: {}
+[21.361765] (-) TimerEvent: {}
+[21.462108] (-) TimerEvent: {}
+[21.562428] (-) TimerEvent: {}
+[21.662826] (-) TimerEvent: {}
+[21.763175] (-) TimerEvent: {}
+[21.863538] (-) TimerEvent: {}
+[21.963804] (-) TimerEvent: {}
+[22.064068] (-) TimerEvent: {}
+[22.164375] (-) TimerEvent: {}
+[22.264711] (-) TimerEvent: {}
+[22.365056] (-) TimerEvent: {}
+[22.465404] (-) TimerEvent: {}
+[22.565756] (-) TimerEvent: {}
+[22.666113] (-) TimerEvent: {}
+[22.766466] (-) TimerEvent: {}
+[22.866718] (-) TimerEvent: {}
+[22.966977] (-) TimerEvent: {}
+[23.067234] (-) TimerEvent: {}
+[23.167607] (-) TimerEvent: {}
+[23.267960] (-) TimerEvent: {}
+[23.368322] (-) TimerEvent: {}
+[23.468708] (-) TimerEvent: {}
+[23.569066] (-) TimerEvent: {}
+[23.669409] (-) TimerEvent: {}
+[23.769780] (-) TimerEvent: {}
+[23.870148] (-) TimerEvent: {}
+[23.970401] (-) TimerEvent: {}
+[24.070780] (-) TimerEvent: {}
+[24.171129] (-) TimerEvent: {}
+[24.271425] (-) TimerEvent: {}
+[24.371788] (-) TimerEvent: {}
+[24.472132] (-) TimerEvent: {}
+[24.572492] (-) TimerEvent: {}
+[24.672847] (-) TimerEvent: {}
+[24.773192] (-) TimerEvent: {}
+[24.873537] (-) TimerEvent: {}
+[24.973798] (-) TimerEvent: {}
+[25.074143] (-) TimerEvent: {}
+[25.174461] (-) TimerEvent: {}
+[25.274830] (-) TimerEvent: {}
+[25.375192] (-) TimerEvent: {}
+[25.475478] (-) TimerEvent: {}
+[25.575819] (-) TimerEvent: {}
+[25.676172] (-) TimerEvent: {}
+[25.776520] (-) TimerEvent: {}
+[25.876789] (-) TimerEvent: {}
+[25.977036] (-) TimerEvent: {}
+[26.077383] (-) TimerEvent: {}
+[26.177760] (-) TimerEvent: {}
+[26.278117] (-) TimerEvent: {}
+[26.378474] (-) TimerEvent: {}
+[26.478843] (-) TimerEvent: {}
+[26.579193] (-) TimerEvent: {}
+[26.679562] (-) TimerEvent: {}
+[26.779917] (-) TimerEvent: {}
+[26.880273] (-) TimerEvent: {}
+[26.980675] (-) TimerEvent: {}
+[27.081044] (-) TimerEvent: {}
+[27.181309] (-) TimerEvent: {}
+[27.281666] (-) TimerEvent: {}
+[27.382038] (-) TimerEvent: {}
+[27.482403] (-) TimerEvent: {}
+[27.582753] (-) TimerEvent: {}
+[27.683108] (-) TimerEvent: {}
+[27.783454] (-) TimerEvent: {}
+[27.883820] (-) TimerEvent: {}
+[27.984171] (-) TimerEvent: {}
+[28.084519] (-) TimerEvent: {}
+[28.184795] (-) TimerEvent: {}
+[28.285150] (-) TimerEvent: {}
+[28.385512] (-) TimerEvent: {}
+[28.485865] (-) TimerEvent: {}
+[28.586215] (-) TimerEvent: {}
+[28.686497] (-) TimerEvent: {}
+[28.786862] (-) TimerEvent: {}
+[28.887224] (-) TimerEvent: {}
+[28.987604] (-) TimerEvent: {}
+[29.087967] (-) TimerEvent: {}
+[29.188333] (-) TimerEvent: {}
+[29.288694] (-) TimerEvent: {}
+[29.389049] (-) TimerEvent: {}
+[29.489418] (-) TimerEvent: {}
+[29.589790] (-) TimerEvent: {}
+[29.690115] (-) TimerEvent: {}
+[29.790474] (-) TimerEvent: {}
+[29.890847] (-) TimerEvent: {}
+[29.991217] (-) TimerEvent: {}
+[30.091589] (-) TimerEvent: {}
+[30.191902] (-) TimerEvent: {}
+[30.292675] (-) TimerEvent: {}
+[30.393120] (-) TimerEvent: {}
+[30.493391] (-) TimerEvent: {}
+[30.593719] (-) TimerEvent: {}
+[30.693983] (-) TimerEvent: {}
+[30.794298] (-) TimerEvent: {}
+[30.894676] (-) TimerEvent: {}
+[30.995018] (-) TimerEvent: {}
+[31.095399] (-) TimerEvent: {}
+[31.195723] (-) TimerEvent: {}
+[31.295969] (-) TimerEvent: {}
+[31.396278] (-) TimerEvent: {}
+[31.496669] (-) TimerEvent: {}
+[31.597140] (-) TimerEvent: {}
+[31.697500] (-) TimerEvent: {}
+[31.797848] (-) TimerEvent: {}
+[31.898196] (-) TimerEvent: {}
+[31.998538] (-) TimerEvent: {}
+[32.098915] (-) TimerEvent: {}
+[32.199225] (-) TimerEvent: {}
+[32.299611] (-) TimerEvent: {}
+[32.399958] (-) TimerEvent: {}
+[32.500312] (-) TimerEvent: {}
+[32.600686] (-) TimerEvent: {}
+[32.701051] (-) TimerEvent: {}
+[32.801390] (-) TimerEvent: {}
+[32.901749] (-) TimerEvent: {}
+[33.002093] (-) TimerEvent: {}
+[33.102394] (-) TimerEvent: {}
+[33.202771] (-) TimerEvent: {}
+[33.303134] (-) TimerEvent: {}
+[33.403389] (-) TimerEvent: {}
+[33.503722] (-) TimerEvent: {}
+[33.604092] (-) TimerEvent: {}
+[33.704455] (-) TimerEvent: {}
+[33.804813] (-) TimerEvent: {}
+[33.905183] (-) TimerEvent: {}
+[34.005529] (-) TimerEvent: {}
+[34.105897] (-) TimerEvent: {}
+[34.206269] (-) TimerEvent: {}
+[34.306637] (-) TimerEvent: {}
+[34.407001] (-) TimerEvent: {}
+[34.507292] (-) TimerEvent: {}
+[34.607644] (-) TimerEvent: {}
+[34.708023] (-) TimerEvent: {}
+[34.808368] (-) TimerEvent: {}
+[34.908716] (-) TimerEvent: {}
+[35.009081] (-) TimerEvent: {}
+[35.109464] (-) TimerEvent: {}
+[35.209761] (-) TimerEvent: {}
+[35.310104] (-) TimerEvent: {}
+[35.410468] (-) TimerEvent: {}
+[35.510832] (-) TimerEvent: {}
+[35.611177] (-) TimerEvent: {}
+[35.711539] (-) TimerEvent: {}
+[35.811910] (-) TimerEvent: {}
+[35.912217] (-) TimerEvent: {}
+[36.012555] (-) TimerEvent: {}
+[36.112833] (-) TimerEvent: {}
+[36.213176] (-) TimerEvent: {}
+[36.313549] (-) TimerEvent: {}
+[36.413827] (-) TimerEvent: {}
+[36.514180] (-) TimerEvent: {}
+[36.614527] (-) TimerEvent: {}
+[36.714898] (-) TimerEvent: {}
+[36.815276] (-) TimerEvent: {}
+[36.915646] (-) TimerEvent: {}
+[37.015903] (-) TimerEvent: {}
+[37.116243] (-) TimerEvent: {}
+[37.216628] (-) TimerEvent: {}
+[37.316983] (-) TimerEvent: {}
+[37.417281] (-) TimerEvent: {}
+[37.517641] (-) TimerEvent: {}
+[37.617995] (-) TimerEvent: {}
+[37.718363] (-) TimerEvent: {}
+[37.818705] (-) TimerEvent: {}
+[37.919068] (-) TimerEvent: {}
+[38.019397] (-) TimerEvent: {}
+[38.119752] (-) TimerEvent: {}
+[38.220105] (-) TimerEvent: {}
+[38.320367] (-) TimerEvent: {}
+[38.420713] (-) TimerEvent: {}
+[38.521071] (-) TimerEvent: {}
+[38.621414] (-) TimerEvent: {}
+[38.721670] (-) TimerEvent: {}
+[38.821880] (-) TimerEvent: {}
+[38.922174] (-) TimerEvent: {}
+[39.022435] (-) TimerEvent: {}
+[39.122812] (-) TimerEvent: {}
+[39.223168] (-) TimerEvent: {}
+[39.323480] (-) TimerEvent: {}
+[39.423837] (-) TimerEvent: {}
+[39.524218] (-) TimerEvent: {}
+[39.624607] (-) TimerEvent: {}
+[39.724973] (-) TimerEvent: {}
+[39.825352] (-) TimerEvent: {}
+[39.925713] (-) TimerEvent: {}
+[40.026078] (-) TimerEvent: {}
+[40.126437] (-) TimerEvent: {}
+[40.226784] (-) TimerEvent: {}
+[40.327042] (-) TimerEvent: {}
+[40.427389] (-) TimerEvent: {}
+[40.527765] (-) TimerEvent: {}
+[40.628105] (-) TimerEvent: {}
+[40.728473] (-) TimerEvent: {}
+[40.828862] (-) TimerEvent: {}
+[40.929205] (-) TimerEvent: {}
+[41.029553] (-) TimerEvent: {}
+[41.129924] (-) TimerEvent: {}
+[41.230316] (-) TimerEvent: {}
+[41.330671] (-) TimerEvent: {}
+[41.431176] (-) TimerEvent: {}
+[41.531507] (-) TimerEvent: {}
+[41.631853] (-) TimerEvent: {}
+[41.732112] (-) TimerEvent: {}
+[41.832398] (-) TimerEvent: {}
+[41.932754] (-) TimerEvent: {}
+[42.033099] (-) TimerEvent: {}
+[42.133470] (-) TimerEvent: {}
+[42.233882] (-) TimerEvent: {}
+[42.334297] (-) TimerEvent: {}
+[42.434709] (-) TimerEvent: {}
+[42.535655] (-) TimerEvent: {}
+[42.636146] (-) TimerEvent: {}
+[42.736556] (-) TimerEvent: {}
+[42.837017] (-) TimerEvent: {}
+[42.937401] (-) TimerEvent: {}
+[43.037844] (-) TimerEvent: {}
+[43.138218] (-) TimerEvent: {}
+[43.238583] (-) TimerEvent: {}
+[43.338992] (-) TimerEvent: {}
+[43.439419] (-) TimerEvent: {}
+[43.539729] (-) TimerEvent: {}
+[43.640041] (-) TimerEvent: {}
+[43.740393] (-) TimerEvent: {}
+[43.840775] (-) TimerEvent: {}
+[43.941078] (-) TimerEvent: {}
+[44.041449] (-) TimerEvent: {}
+[44.141899] (-) TimerEvent: {}
+[44.242287] (-) TimerEvent: {}
+[44.342707] (-) TimerEvent: {}
+[44.443134] (-) TimerEvent: {}
+[44.543500] (-) TimerEvent: {}
+[44.643927] (-) TimerEvent: {}
+[44.744362] (-) TimerEvent: {}
+[44.844674] (-) TimerEvent: {}
+[44.945048] (-) TimerEvent: {}
+[45.045444] (-) TimerEvent: {}
+[45.145715] (-) TimerEvent: {}
+[45.245998] (-) TimerEvent: {}
+[45.346415] (-) TimerEvent: {}
+[45.446831] (-) TimerEvent: {}
+[45.547193] (-) TimerEvent: {}
+[45.647525] (-) TimerEvent: {}
+[45.747880] (-) TimerEvent: {}
+[45.848330] (-) TimerEvent: {}
+[45.948683] (-) TimerEvent: {}
+[46.049060] (-) TimerEvent: {}
+[46.149394] (-) TimerEvent: {}
+[46.249742] (-) TimerEvent: {}
+[46.350311] (-) TimerEvent: {}
+[46.450863] (-) TimerEvent: {}
+[46.551283] (-) TimerEvent: {}
+[46.651709] (-) TimerEvent: {}
+[46.752139] (-) TimerEvent: {}
+[46.852568] (-) TimerEvent: {}
+[46.953008] (-) TimerEvent: {}
+[47.053429] (-) TimerEvent: {}
+[47.153830] (-) TimerEvent: {}
+[47.254208] (-) TimerEvent: {}
+[47.354584] (-) TimerEvent: {}
+[47.454893] (-) TimerEvent: {}
+[47.555264] (-) TimerEvent: {}
+[47.655590] (-) TimerEvent: {}
+[47.755898] (-) TimerEvent: {}
+[47.856257] (-) TimerEvent: {}
+[47.956568] (-) TimerEvent: {}
+[48.056799] (-) TimerEvent: {}
+[48.157291] (-) TimerEvent: {}
+[48.257583] (-) TimerEvent: {}
+[48.357922] (-) TimerEvent: {}
+[48.458299] (-) TimerEvent: {}
+[48.558657] (-) TimerEvent: {}
+[48.658903] (-) TimerEvent: {}
+[48.759252] (-) TimerEvent: {}
+[48.859597] (-) TimerEvent: {}
+[48.959942] (-) TimerEvent: {}
+[49.060288] (-) TimerEvent: {}
+[49.160617] (-) TimerEvent: {}
+[49.260876] (-) TimerEvent: {}
+[49.361213] (-) TimerEvent: {}
+[49.461563] (-) TimerEvent: {}
+[49.561818] (-) TimerEvent: {}
+[49.662124] (-) TimerEvent: {}
+[49.762441] (-) TimerEvent: {}
+[49.862727] (-) TimerEvent: {}
+[49.962953] (-) TimerEvent: {}
+[50.063254] (-) TimerEvent: {}
+[50.163508] (-) TimerEvent: {}
+[50.263744] (-) TimerEvent: {}
+[50.363980] (-) TimerEvent: {}
+[50.464264] (-) TimerEvent: {}
+[50.564616] (-) TimerEvent: {}
+[50.665668] (-) TimerEvent: {}
+[50.766044] (-) TimerEvent: {}
+[50.866391] (-) TimerEvent: {}
+[50.966730] (-) TimerEvent: {}
+[51.066971] (-) TimerEvent: {}
+[51.167257] (-) TimerEvent: {}
+[51.267527] (-) TimerEvent: {}
+[51.367867] (-) TimerEvent: {}
+[51.468106] (-) TimerEvent: {}
+[51.568339] (-) TimerEvent: {}
+[51.668720] (-) TimerEvent: {}
+[51.768969] (-) TimerEvent: {}
+[51.869257] (-) TimerEvent: {}
+[51.969607] (-) TimerEvent: {}
+[52.069945] (-) TimerEvent: {}
+[52.170245] (-) TimerEvent: {}
+[52.270637] (-) TimerEvent: {}
+[52.370905] (-) TimerEvent: {}
+[52.471188] (-) TimerEvent: {}
+[52.571453] (-) TimerEvent: {}
+[52.671729] (-) TimerEvent: {}
+[52.771965] (-) TimerEvent: {}
+[52.872254] (-) TimerEvent: {}
+[52.972595] (-) TimerEvent: {}
+[53.072822] (-) TimerEvent: {}
+[53.173065] (-) TimerEvent: {}
+[53.273346] (-) TimerEvent: {}
+[53.373673] (-) TimerEvent: {}
+[53.474006] (-) TimerEvent: {}
+[53.574359] (-) TimerEvent: {}
+[53.674671] (-) TimerEvent: {}
+[53.775019] (-) TimerEvent: {}
+[53.875290] (-) TimerEvent: {}
+[53.975640] (-) TimerEvent: {}
+[54.075976] (-) TimerEvent: {}
+[54.176253] (-) TimerEvent: {}
+[54.276555] (-) TimerEvent: {}
+[54.376886] (-) TimerEvent: {}
+[54.477209] (-) TimerEvent: {}
+[54.577528] (-) TimerEvent: {}
+[54.677738] (-) TimerEvent: {}
+[54.778049] (-) TimerEvent: {}
+[54.878342] (-) TimerEvent: {}
+[54.978686] (-) TimerEvent: {}
+[55.079002] (-) TimerEvent: {}
+[55.179261] (-) TimerEvent: {}
+[55.279587] (-) TimerEvent: {}
+[55.379916] (-) TimerEvent: {}
+[55.480239] (-) TimerEvent: {}
+[55.580559] (-) TimerEvent: {}
+[55.680780] (-) TimerEvent: {}
+[55.781018] (-) TimerEvent: {}
+[55.881328] (-) TimerEvent: {}
+[55.981674] (-) TimerEvent: {}
+[56.081906] (-) TimerEvent: {}
+[56.182205] (-) TimerEvent: {}
+[56.282477] (-) TimerEvent: {}
+[56.382832] (-) TimerEvent: {}
+[56.483075] (-) TimerEvent: {}
+[56.583349] (-) TimerEvent: {}
+[56.683687] (-) TimerEvent: {}
+[56.783926] (-) TimerEvent: {}
+[56.884264] (-) TimerEvent: {}
+[56.984512] (-) TimerEvent: {}
+[57.084837] (-) TimerEvent: {}
+[57.185061] (-) TimerEvent: {}
+[57.285391] (-) TimerEvent: {}
+[57.385719] (-) TimerEvent: {}
+[57.486042] (-) TimerEvent: {}
+[57.586276] (-) TimerEvent: {}
+[57.686551] (-) TimerEvent: {}
+[57.786881] (-) TimerEvent: {}
+[57.887255] (-) TimerEvent: {}
+[57.987543] (-) TimerEvent: {}
+[58.087840] (-) TimerEvent: {}
+[58.188180] (-) TimerEvent: {}
+[58.288489] (-) TimerEvent: {}
+[58.388703] (-) TimerEvent: {}
+[58.489029] (-) TimerEvent: {}
+[58.589360] (-) TimerEvent: {}
+[58.689697] (-) TimerEvent: {}
+[58.789936] (-) TimerEvent: {}
+[58.890256] (-) TimerEvent: {}
+[58.990601] (-) TimerEvent: {}
+[59.090939] (-) TimerEvent: {}
+[59.191270] (-) TimerEvent: {}
+[59.291668] (-) TimerEvent: {}
+[59.392004] (-) TimerEvent: {}
+[59.492377] (-) TimerEvent: {}
+[59.592730] (-) TimerEvent: {}
+[59.693086] (-) TimerEvent: {}
+[59.793376] (-) TimerEvent: {}
+[59.893740] (-) TimerEvent: {}
+[59.993999] (-) TimerEvent: {}
+[60.094303] (-) TimerEvent: {}
+[60.150685] (marvin_sim) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable atsvi_node\x1b[0m\n'}
+[60.194442] (-) TimerEvent: {}
+[60.268000] (marvin_sim) StdoutLine: {'line': b'[100%] Built target atsvi_node\n'}
+[60.275359] (marvin_sim) CommandEnded: {'returncode': 0}
+[60.275967] (marvin_sim) JobProgress: {'identifier': 'marvin_sim', 'progress': 'install'}
+[60.276206] (marvin_sim) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/user/ros2_ws/dynamic_ws/build/marvin_sim'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/marvin_sim', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 46190 22'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('TERM_PROGRAM_VERSION', '1.115.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-69f1e4b5-0328-451d-9d4d-61bbea6e83de.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '20569'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-41dd792b5e652393e7787322889ed5fdc58bd75b/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ac9392d44c.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/marvin_sim'), ('SSH_CONNECTION', '192.168.100.41 46190 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots:')]), 'shell': False}
+[60.280292] (marvin_sim) StdoutLine: {'line': b'-- Install configuration: "Release"\n'}
+[60.280338] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/launch\n'}
+[60.280441] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/launch/replay_rviz.launch.py\n'}
+[60.280471] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/launch/sim_rviz.launch.py\n'}
+[60.280500] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/launch/display.launch.py\n'}
+[60.280528] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/urdf\n'}
+[60.280597] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/urdf/7_pendulum.urdf\n'}
+[60.280625] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/urdf/marvin_body.urdf\n'}
+[60.280651] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/urdf/marvin.urdf\n'}
+[60.280679] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes\n'}
+[60.280706] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link3_L.STL\n'}
+[60.280734] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link2_L.STL\n'}
+[60.280761] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link1_L.STL\n'}
+[60.280787] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link7_L.STL\n'}
+[60.280815] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link6_L.STL\n'}
+[60.280860] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Base_L.STL\n'}
+[60.280886] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link5_L.STL\n'}
+[60.280911] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link4_L.STL\n'}
+[60.280952] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/config\n'}
+[60.280979] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/config/plot_config.yaml\n'}
+[60.281005] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/config/vi_params.yaml\n'}
+[60.281040] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/vi_sim.py\n'}
+[60.281066] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/analyze_vi_results.py\n'}
+[60.281093] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/replay_rviz.py\n'}
+[60.281120] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/ctsvi_node\n'}
+[60.281168] (marvin_sim) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/atsvi_node\n'}
+[60.294549] (-) TimerEvent: {}
+[60.297784] (marvin_sim) StdoutLine: {'line': b'-- Set runtime path of "/home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/atsvi_node" to ""\n'}
+[60.297897] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/ament_index/resource_index/package_run_dependencies/marvin_sim\n'}
+[60.297959] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/ament_index/resource_index/parent_prefix_path/marvin_sim\n'}
+[60.298006] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/environment/ament_prefix_path.sh\n'}
+[60.298053] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/environment/ament_prefix_path.dsv\n'}
+[60.298082] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/environment/path.sh\n'}
+[60.298118] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/environment/path.dsv\n'}
+[60.298150] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/local_setup.bash\n'}
+[60.298203] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/local_setup.sh\n'}
+[60.298258] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/local_setup.zsh\n'}
+[60.298286] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/local_setup.dsv\n'}
+[60.298314] (marvin_sim) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/package.dsv\n'}
+[60.298342] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/ament_index/resource_index/packages/marvin_sim\n'}
+[60.298368] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[60.298396] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/cmake/marvin_simConfig.cmake\n'}
+[60.298423] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/cmake/marvin_simConfig-version.cmake\n'}
+[60.298450] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/package.xml\n'}
+[60.299377] (marvin_sim) CommandEnded: {'returncode': 0}
+[60.304820] (marvin_sim) JobEnded: {'identifier': 'marvin_sim', 'rc': 0}
+[60.305461] (-) EventReactorShutdown: {}

@@ -1,10 +1,11 @@
 # w10 manipulator VI integrator parameters
 /**:  # 通配符，表示所有节点都能看到下面的参数
   ros__parameters:
-    q_init: 0.2
+    q_init: 0.0
     timestep: 0.01
     duration: 10.0
     urdf_path: "~/ros2_ws/dynamic_ws/src/w10_force_sim/urdf/w10_body.urdf"
+    # urdf_path: "~/ros2_ws/dynamic_ws/src/w10_force_sim/urdf/7_pendulum.urdf"
     # If w10.urdf loading fails, will automatically fallback to 7_pendulum.urdf
     eps_diff: 1.0e-6
 
@@ -30,11 +31,11 @@
 # force_duration:   外力持续时长 [s]
   ctsvi_node:
     ros__parameters:
-      # force_enable:      false
-      force_enable:      true
-      force_magnitude:   50.0
+      force_enable:      false
+      # force_enable:      true
+      force_magnitude:   1.0
       force_dir_x:       1.0
       force_dir_y:       0.0
       force_dir_z:       0.0
-      force_start_time:  2.0
-      force_duration:    0.5
+      force_start_time:  0.0
+      force_duration:    0.1
