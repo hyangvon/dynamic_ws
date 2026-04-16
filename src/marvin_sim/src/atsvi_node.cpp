@@ -498,7 +498,7 @@ std::string fmt_double_label(double v)
 
 std::pair<double,double> read_lyap_from_config()
 {
-    std::string cfg = "src/vi/config/vi_params.yaml";
+    std::string cfg = "src/marvin_sim/config/vi_params.yaml";
     std::ifstream ifs(cfg);
     double a = 0.0, b = 0.0;
     if (!ifs) return {a,b};
@@ -787,7 +787,7 @@ int main(int argc, char** argv)
         + std::string("_T") + fmt_double_label(duration)
         + std::string("_a") + fmt_double_label(a_val)
         + std::string("_b") + fmt_double_label(b_val);
-    std::string csv_dir = std::string("src/marvin_sim/csv/") + params_label + std::string("/atsvi_ad/");
+    std::string csv_dir = std::string("src/marvin_sim/csv/") + params_label + std::string("/atsvi/");
     std::string cmd = "mkdir -p " + csv_dir; int unused = system(cmd.c_str()); (void)unused;
 
     write_csv(csv_dir + "q_history.csv", q_history);

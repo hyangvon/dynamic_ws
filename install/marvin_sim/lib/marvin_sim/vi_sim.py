@@ -118,7 +118,7 @@ def run_catsvi_force():
 
     try:
         result = subprocess.run([
-            'ros2', 'run', 'marvin_sim', 'c-atsvi_node',
+            'ros2', 'run', 'marvin_sim', 'c_atsvi_node',
             '--ros-args', '--params-file', config_file
         ], check=True)
 

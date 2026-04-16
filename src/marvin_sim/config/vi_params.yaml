@@ -3,64 +3,38 @@
   ros__parameters:
     # 各关节初始角度 [rad]，顺序对应 Joint1 ~ Joint7
     # 真实重力平衡点（|tau_g| = 3.6e-11 N·m），由 Pinocchio fsolve 数值求解
-    q_init: [0.0592968225, -1.5690860141, -1.4795687841, -0.1371321420, -1.0976802700, 0.1354472670, 0.0749668433]
+    # q_init: [0.0592968225, -1.5690860141, -1.4795687841, -0.1371321420, -1.0976802700, 0.1354472670, 0.0749668433]
+    q_init: [0.4, -1.5690860141, -1.4795687841, -0.1371321420, -1.0976802700, 0.1354472670, 0.0749668433]
     timestep: 0.01
-    duration: 60.0
+    duration: 30.0
     urdf_path: "~/ros2_ws/dynamic_ws/src/marvin_sim/urdf/marvin_body.urdf"
     # urdf_path: "~/ros2_ws/dynamic_ws/src/marvin_sim/urdf/7_pendulum.urdf"
     # If w10.urdf loading fails, will automatically fallback to 7_pendulum.urdf
     eps_diff: 1.0e-6
 
-
-  atsvi_ad_node:
-    ros__parameters:
-      h_min: 1e-6
-      h_max: 0.1
-      max_adapt_iters: 100
-
-
-  etsvi_node:
-    ros__parameters:
-      lyap_alpha: 0.4
-      lyap_beta: 0.04
-      force_enable:      false
-      force_magnitude:   5.0
-      force_dir_x:       1.0
-      force_dir_y:       0.0
-      force_dir_z:       0.0
-      force_start_time:  2.0
-      force_duration:    0.5
-
-
-# -------- 末端外力冲击激励（非保守项）--------
-# force_enable: true  => 启用外力；false => 纯保守系统
-# force_magnitude: 力的大小 [N]
-# force_dir_x/y/z:  世界坐标系中力的方向（会被自动归一化）
-# force_start_time: 外力开始时刻 [s]
-# force_duration:   外力持续时长 [s]
-  ctsvi_node:
-    ros__parameters:
-      force_enable:      false
-      # force_enable:      true
-      force_magnitude:   5.0
-      force_dir_x:       1.0
-      force_dir_y:       0.0
-      force_dir_z:       0.0
-      force_start_time:  0.0
-      force_duration:    0.1
-      
+  # -------- 末端外力冲击激励（非保守项）--------
+  # force_enable: true  => 启用外力；false => 纯保守系统
+  # force_magnitude: 力的大小 [N]
+  # force_dir_x/y/z:  世界坐标系中力的方向（会被自动归一化）
+  # force_start_time: 外力开始时刻 [s]
+  # force_duration:   外力持续时长 [s]
+    force_enable:      false
+    # force_enable:      true
+    force_magnitude:   5.0
+    force_dir_x:       1.0
+    force_dir_y:       0.0
+    force_dir_z:       0.0
+    force_start_time:  0.0
+    force_duration:    0.1
 
   atsvi_node:
     ros__parameters:
       h_min: 1e-6
       h_max: 0.1
       max_adapt_iters: 100
-      force_enable:      false
-      # force_enable:      true
-      force_magnitude:   5.0
-      force_dir_x:       1.0
-      force_dir_y:       0.0
-      force_dir_z:       0.0
-      force_start_time:  0.0
-      force_duration:    0.1
+
+  c_atsvi_node:
+    ros__parameters:
+      lyap_alpha: 0.2
+      lyap_beta: 0.0
 

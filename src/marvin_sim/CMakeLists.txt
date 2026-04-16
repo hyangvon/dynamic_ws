@@ -21,7 +21,7 @@ include_directories(${EIGEN3_INCLUDE_DIRS})
 ament_auto_add_executable(ctsvi_node src/ctsvi_node.cpp)
 ament_target_dependencies(ctsvi_node sensor_msgs)
 ament_auto_add_executable(atsvi_node src/atsvi_node.cpp)
-ament_auto_add_executable(c-atsvi_node src/c-atsvi_node.cpp)
+ament_auto_add_executable(c_atsvi_node src/c_atsvi_node.cpp)
 
 install(DIRECTORY launch urdf meshes config
   DESTINATION share/${PROJECT_NAME}

@@ -224,17 +224,17 @@ atsvi_node/fast:
 .PHONY : atsvi_node/fast
 
 #=============================================================================
-# Target rules for targets named c-atsvi_node
+# Target rules for targets named c_atsvi_node
 
 # Build rule for target.
-c-atsvi_node: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 c-atsvi_node
-.PHONY : c-atsvi_node
+c_atsvi_node: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 c_atsvi_node
+.PHONY : c_atsvi_node
 
 # fast build rule for target.
-c-atsvi_node/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-atsvi_node.dir/build.make CMakeFiles/c-atsvi_node.dir/build
-.PHONY : c-atsvi_node/fast
+c_atsvi_node/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_atsvi_node.dir/build.make CMakeFiles/c_atsvi_node.dir/build
+.PHONY : c_atsvi_node/fast
 
 src/atsvi_node.o: src/atsvi_node.cpp.o
 .PHONY : src/atsvi_node.o
@@ -260,29 +260,29 @@ src/atsvi_node.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/atsvi_node.dir/build.make CMakeFiles/atsvi_node.dir/src/atsvi_node.cpp.s
 .PHONY : src/atsvi_node.cpp.s
 
-src/c-atsvi_node.o: src/c-atsvi_node.cpp.o
-.PHONY : src/c-atsvi_node.o
+src/c_atsvi_node.o: src/c_atsvi_node.cpp.o
+.PHONY : src/c_atsvi_node.o
 
 # target to build an object file
-src/c-atsvi_node.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-atsvi_node.dir/build.make CMakeFiles/c-atsvi_node.dir/src/c-atsvi_node.cpp.o
-.PHONY : src/c-atsvi_node.cpp.o
+src/c_atsvi_node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_atsvi_node.dir/build.make CMakeFiles/c_atsvi_node.dir/src/c_atsvi_node.cpp.o
+.PHONY : src/c_atsvi_node.cpp.o
 
-src/c-atsvi_node.i: src/c-atsvi_node.cpp.i
-.PHONY : src/c-atsvi_node.i
+src/c_atsvi_node.i: src/c_atsvi_node.cpp.i
+.PHONY : src/c_atsvi_node.i
 
 # target to preprocess a source file
-src/c-atsvi_node.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-atsvi_node.dir/build.make CMakeFiles/c-atsvi_node.dir/src/c-atsvi_node.cpp.i
-.PHONY : src/c-atsvi_node.cpp.i
+src/c_atsvi_node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_atsvi_node.dir/build.make CMakeFiles/c_atsvi_node.dir/src/c_atsvi_node.cpp.i
+.PHONY : src/c_atsvi_node.cpp.i
 
-src/c-atsvi_node.s: src/c-atsvi_node.cpp.s
-.PHONY : src/c-atsvi_node.s
+src/c_atsvi_node.s: src/c_atsvi_node.cpp.s
+.PHONY : src/c_atsvi_node.s
 
 # target to generate assembly for a file
-src/c-atsvi_node.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-atsvi_node.dir/build.make CMakeFiles/c-atsvi_node.dir/src/c-atsvi_node.cpp.s
-.PHONY : src/c-atsvi_node.cpp.s
+src/c_atsvi_node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_atsvi_node.dir/build.make CMakeFiles/c_atsvi_node.dir/src/c_atsvi_node.cpp.s
+.PHONY : src/c_atsvi_node.cpp.s
 
 src/ctsvi_node.o: src/ctsvi_node.cpp.o
 .PHONY : src/ctsvi_node.o
@@ -324,14 +324,14 @@ help:
 	@echo "... marvin_sim_uninstall"
 	@echo "... uninstall"
 	@echo "... atsvi_node"
-	@echo "... c-atsvi_node"
+	@echo "... c_atsvi_node"
 	@echo "... ctsvi_node"
 	@echo "... src/atsvi_node.o"
 	@echo "... src/atsvi_node.i"
 	@echo "... src/atsvi_node.s"
-	@echo "... src/c-atsvi_node.o"
-	@echo "... src/c-atsvi_node.i"
-	@echo "... src/c-atsvi_node.s"
+	@echo "... src/c_atsvi_node.o"
+	@echo "... src/c_atsvi_node.i"
+	@echo "... src/c_atsvi_node.s"
 	@echo "... src/ctsvi_node.o"
 	@echo "... src/ctsvi_node.i"
 	@echo "... src/ctsvi_node.s"
