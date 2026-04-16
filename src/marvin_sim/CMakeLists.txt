@@ -31,6 +31,7 @@ install(PROGRAMS
         scripts/vi_sim.py
         scripts/analyze_vi_results.py
         scripts/replay_rviz.py
+        scripts/tune_c_atsvi.py
         DESTINATION lib/${PROJECT_NAME}
 )
 
