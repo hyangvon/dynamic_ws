@@ -56,6 +56,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/user/ros2_ws/dynamic_ws/src/marvin_sim/scripts/vi_sim.py"
     "/home/user/ros2_ws/dynamic_ws/src/marvin_sim/scripts/analyze_vi_results.py"
     "/home/user/ros2_ws/dynamic_ws/src/marvin_sim/scripts/replay_rviz.py"
+    "/home/user/ros2_ws/dynamic_ws/src/marvin_sim/scripts/tune_c_atsvi.py"
     )
 endif()
 

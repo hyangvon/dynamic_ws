@@ -278,6 +278,7 @@ std::pair<Vec, SolverInfo> solve_q_next(const ModelAD &model_ad,
     for (int it = 0; it < max_iters; ++it)
     {
         Vec D2 = D_2(model_ad, data_ad, q_prev, q_curr, h_prev);  // 用上一步的 h
+        // Vec D2 = D_2(model_ad, data_ad, q_prev, q_curr, h_curr);  // 用本步的 h
         Vec D1 = D_1(model_ad, data_ad, q_curr, q_next, h_curr);  // 用本步的 h
         Vec R = D2 + D1 - h_curr * tau_k;
         double normR = R.norm();
@@ -523,11 +524,11 @@ int main(int argc, char** argv)
     // 用 discrete_energy_numeric（双点公式）作为能量参考，与后续步骤公式一致
     // 避免 T+U 单点公式与双点中点公式的 O(h²) 差异在图上产生尖峰
     double E_curr = discrete_energy_numeric(model, data, q_prev, q_curr, timestep);
-    double E_d = E_curr;   // Lyapunov 跟踪目标：与测量公式完全一致，初始误差 = 0
-    energy_history.push_back(E_d);   // t=0 能量（用双点公式回溯，无公式不匹配）
-    energy_history.push_back(E_curr);// t=dt 能量
+    double E_prev = E_curr;  // 增量式误差：上一步能量，每步滚动更新
+    energy_history.push_back(E_prev);  // t=0 能量（双点公式回溯）
+    energy_history.push_back(E_curr);  // t=dt 能量
     delta_energy_history.push_back(0.0);   // 初始时刻漂移 = 0（定义）
-    delta_energy_history.push_back(0.0);   // 第一步漂移 = 0（E_d 来自本步）
+    delta_energy_history.push_back(0.0);   // 第一步漂移 = 0
     auto [ee_pos1, _ee_rot1] = compute_end_effector_pose(model, data, link_tcp_id, q_curr);
     ee_history.push_back(ee_pos1);
 
@@ -561,9 +562,9 @@ int main(int argc, char** argv)
         tau_k = get_tau_at(t_cur, q_next);
         force_torque_history.push_back(tau_k);
 
-        // Lyapunov 反馈控制计算
+        // Lyapunov 反馈控制计算（增量式误差：与上一步能量比较）
         E_curr = discrete_energy_numeric(model, data, q_history[q_history.size()-1], q_next, h_next);
-        double e_k = E_curr - E_d;
+        double e_k = E_curr - E_prev;  // 逐步增量误差
         xi += e_k; // 更新内模积分项
 
         double de_dh = compute_energy_gradient(model_ad, data_ad, q_history[q_history.size()-1], q_next, h_next);
@@ -583,6 +584,7 @@ int main(int argc, char** argv)
 
         energy_history.push_back(E_curr);
         delta_energy_history.push_back(energy_history.back() - energy_history.front());
+        E_prev = E_curr;  // 滚动更新上一步能量
 
         auto [ee_pos, ee_rot] = compute_end_effector_pose(model, data, link_tcp_id, q_next);
         ee_history.push_back(ee_pos);
