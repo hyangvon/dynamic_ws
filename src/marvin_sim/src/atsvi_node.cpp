@@ -328,7 +328,11 @@ std::tuple<Vec, double, SolverInfo> solve_q_next_sem_ad(
 
         Vec gvec = h_prev * D2 + h_next * D1 - h_next * tau_k; // discrete Lagrange-d'Alembert with force
         double E_next = discrete_energy_numeric(model, data, q_curr, q_next, h_next, eps_h);
-        double fval = E_prev - E_next;
+        
+        // 【核心修改 1】：引入外力做功项 W = tau^T * \Delta q
+        double W = tau_k.dot(q_next - q_curr);
+        // fval 约束修改为: E_prev + W - E_next = 0 (允许能量根据外力做功而改变)
+        double fval = E_prev + W - E_next;
 
         for (int i=0;i<n;++i) Rvec(i) = gvec(i);
         Rvec(n) = fval;
@@ -353,7 +357,9 @@ std::tuple<Vec, double, SolverInfo> solve_q_next_sem_ad(
 
             double Ep = discrete_energy_numeric(model, data, q_curr, q_next + dq, h_next, eps_h);
             double Em = discrete_energy_numeric(model, data, q_curr, q_next - dq, h_next, eps_h);
-            double df_dqj = - (Ep - Em) / (2.0 * eps_q);
+            
+            // 【核心修改 2】：由于 fval 中加入了 tau_k^T * q_next，因此 fval 对 q_{next,j} 的偏导数需要加上 tau_k(j)
+            double df_dqj = tau_k(j) - (Ep - Em) / (2.0 * eps_q);
             J(n, j) = df_dqj;
         }
 
@@ -367,6 +373,8 @@ std::tuple<Vec, double, SolverInfo> solve_q_next_sem_ad(
 
         double Ep_h = discrete_energy_numeric(model, data, q_curr, q_next, h_next + dh, eps_h);
         double Em_h = discrete_energy_numeric(model, data, q_curr, q_next, h_next - dh, eps_h);
+        
+        // 【无需修改】：W = tau_k^T*(q_next - q_curr) 不显式包含 h_next，偏导数为 0
         double dEd_dh = (Ep_h - Em_h) / (2.0 * dh);
         J(n, n) = - dEd_dh;
 
@@ -396,7 +404,10 @@ std::tuple<Vec, double, SolverInfo> solve_q_next_sem_ad(
             Vec D1_trial = D_1_ad(model_ad, data_ad, q_curr, q_trial, h_trial);
             Vec g_trial = h_prev * D2 + h_trial * D1_trial - h_trial * tau_k;
             double E_trial = discrete_energy_numeric(model, data, q_curr, q_trial, h_trial, eps_h);
-            double f_trial = E_prev - E_trial;
+            
+            // 【核心修改 3】：线搜索时同样必须考虑 Trial 状态下的做功
+            double W_trial = tau_k.dot(q_trial - q_curr);
+            double f_trial = E_prev + W_trial - E_trial;
 
             Vec Rtrial(n+1);
             for (int i=0;i<n;++i) Rtrial(i) = g_trial(i);
@@ -426,6 +437,139 @@ std::tuple<Vec, double, SolverInfo> solve_q_next_sem_ad(
     info.reason = "max_iters";
     return {q_next, h_next, info};
 }
+
+// // ---------- SEM adaptive-step solver (Newton on [q_next, h_next]) ----------
+// std::tuple<Vec, double, SolverInfo> solve_q_next_sem_ad(
+//     const Model &model, Data &data,
+//     const ModelAD &model_ad, DataAD &data_ad,
+//     const Vec &q_prev, const Vec &q_curr,
+//     double h_prev,
+//     const Vec &qdot_guess,
+//     const Vec &tau_k,
+//     double eps_q = 1e-6,
+//     double eps_h = 1e-6,
+//     int max_iters = 80,
+//     double tol = 1e-8,
+//     double h_min = 1e-6,
+//     double h_max = 0.1)
+// {
+//     int n = q_curr.size();
+//     Vec q_next = q_curr + h_prev * qdot_guess;
+//     double h_next = h_prev;
+
+//     // E_prev computed via double model (numeric)
+//     double E_prev = discrete_energy_numeric(model, data, q_prev, q_curr, h_prev, eps_h);
+
+//     SolverInfo info{false, "", 0, 0.0};
+//     Vec Rvec = Vec::Zero(n+1);
+
+//     for (int it=0; it<max_iters; ++it)
+//     {
+//         // D2 depends on q_prev, q_curr, h_prev
+//         Vec D2 = D_2_ad(model_ad, data_ad, q_prev, q_curr, h_prev);
+//         // D1 depends on q_curr, q_next, h_next
+//         Vec D1 = D_1_ad(model_ad, data_ad, q_curr, q_next, h_next);
+
+//         Vec gvec = h_prev * D2 + h_next * D1 - h_next * tau_k; // discrete Lagrange-d'Alembert with force
+//         double E_next = discrete_energy_numeric(model, data, q_curr, q_next, h_next, eps_h);
+//         double fval = E_prev - E_next;
+
+//         for (int i=0;i<n;++i) Rvec(i) = gvec(i);
+//         Rvec(n) = fval;
+
+//         double normR = Rvec.norm();
+//         info.iterations = it;
+//         info.residual_norm = normR;
+//         if (normR < tol) { info.converged = true; return {q_next, h_next, info}; }
+
+//         // Build Jacobian J (n+1 x n+1)
+//         Mat J = Mat::Zero(n+1, n+1);
+
+//         // columns 0..n-1: derivatives wrt q_next_j (numeric diffs of D1 and Ed)
+//         for (int j=0;j<n;++j)
+//         {
+//             Vec dq = Vec::Zero(n);
+//             dq(j) = eps_q;
+//             Vec D1p = D_1_ad(model_ad, data_ad, q_curr, q_next + dq, h_next);
+//             Vec D1m = D_1_ad(model_ad, data_ad, q_curr, q_next - dq, h_next);
+//             Vec col = h_next * (D1p - D1m) / (2.0 * eps_q);
+//             for (int i=0;i<n;++i) J(i, j) = col(i);
+
+//             double Ep = discrete_energy_numeric(model, data, q_curr, q_next + dq, h_next, eps_h);
+//             double Em = discrete_energy_numeric(model, data, q_curr, q_next - dq, h_next, eps_h);
+//             double df_dqj = - (Ep - Em) / (2.0 * eps_q);
+//             J(n, j) = df_dqj;
+//         }
+
+//         // column n: derivative wrt h_next (numeric)
+//         double dh = eps_h;
+//         Vec D1p_h = D_1_ad(model_ad, data_ad, q_curr, q_next, h_next + dh);
+//         Vec D1m_h = D_1_ad(model_ad, data_ad, q_curr, q_next, h_next - dh);
+//         Vec dD1_dh = (D1p_h - D1m_h) / (2.0 * dh);
+//         Vec col_h = D1 + h_next * dD1_dh - tau_k; // ∂g/∂h_next (force term: -tau_k from -h_next*tau_k)
+//         for (int i=0;i<n;++i) J(i, n) = col_h(i);
+
+//         double Ep_h = discrete_energy_numeric(model, data, q_curr, q_next, h_next + dh, eps_h);
+//         double Em_h = discrete_energy_numeric(model, data, q_curr, q_next, h_next - dh, eps_h);
+//         double dEd_dh = (Ep_h - Em_h) / (2.0 * dh);
+//         J(n, n) = - dEd_dh;
+
+//         // Solve linear system
+//         Mat Jreg = J + 1e-9 * Mat::Identity(n+1, n+1);
+//         Eigen::ColPivHouseholderQR<Mat> solver(Jreg);
+//         if (solver.rank() < n+1)
+//         {
+//             info.converged = false;
+//             info.reason = "singular_jacobian";
+//             return {q_next, h_next, info};
+//         }
+
+//         Vec delta = solver.solve(-Rvec);
+//         Vec dq = delta.head(n);
+//         double dh_scalar = delta(n);
+
+//         // Backtracking line search
+//         double alpha = 1.0;
+//         bool accept = false;
+//         for (int ls=0; ls<10; ++ls)
+//         {
+//             Vec q_trial = q_next + alpha * dq;
+//             double h_trial = h_next + alpha * dh_scalar;
+//             if (h_trial <= h_min || h_trial >= h_max) { alpha *= 0.5; continue; }
+
+//             Vec D1_trial = D_1_ad(model_ad, data_ad, q_curr, q_trial, h_trial);
+//             Vec g_trial = h_prev * D2 + h_trial * D1_trial - h_trial * tau_k;
+//             double E_trial = discrete_energy_numeric(model, data, q_curr, q_trial, h_trial, eps_h);
+//             double f_trial = E_prev - E_trial;
+
+//             Vec Rtrial(n+1);
+//             for (int i=0;i<n;++i) Rtrial(i) = g_trial(i);
+//             Rtrial(n) = f_trial;
+
+//             if (Rtrial.norm() < (1.0 - 1e-4 * alpha) * normR || alpha < 1e-3)
+//             {
+//                 q_next = q_trial;
+//                 h_next = h_trial;
+//                 accept = true;
+//                 break;
+//             }
+//             alpha *= 0.5;
+//         }
+
+//         if (!accept)
+//         {
+//             info.converged = false;
+//             info.reason = "line_search_failed";
+//             info.iterations = it;
+//             info.residual_norm = normR;
+//             return {q_next, h_next, info};
+//         }
+//     }
+
+//     info.converged = false;
+//     info.reason = "max_iters";
+//     return {q_next, h_next, info};
+// }
 
 // Optional: ABA dynamics step helper
 std::pair<Vec, Vec> pinocchio_dynamics_step(const Model &model, Data &data, const Vec &q, const Vec &v, const Vec &tau, double h)
@@ -646,35 +790,12 @@ int main(int argc, char** argv)
     auto [ee_pos0, ee_rot0] = compute_end_effector_pose(model, data, link_tcp_id, q_prev);
     ee_history.push_back(ee_pos0);
 
-    // initial implicit VI step (use VI_init_ad)
-    // auto [q_curr, info_init] = VI_init_ad(model, data, model_ad, data_ad, q_prev, v_prev, tau_k, timestep, eps_diff);
-    // if (!info_init.converged) {
-    //     RCLCPP_WARN(node->get_logger(), "VI_init did not converge (reason=%s). Proceeding with initial guess.", info_init.reason.c_str());
-    // }
-    // q_history.push_back(q_curr);
-    //
-    // double T = kinetic_energy(model, data, (q_curr + q_prev) / 2.0, (q_curr - q_prev)/timestep);
-    // double U = potential_energy(model, data, (q_curr + q_prev) / 2.0);
-    // total_energy = T + U;
-    // energy_history.push_back(total_energy);
-    // delta_energy_history.push_back(energy_history.back() - energy_history.front());
-    
+    // 初始步使用 VI_init_ad: M(q0)*v0 + D1(q0,q1,h) = h*tau（与 c_atsvi 一致）
     tau_k = get_tau_at(0.0, q_prev);
     force_torque_history.push_back(tau_k);
-    auto [q_curr, h_next, info_adapt] = solve_q_next_sem_ad(
-            model, data, model_ad, data_ad,
-            q_prev,
-            q_prev + v_prev * timestep,
-            timestep,
-            v_prev,
-            tau_k,
-            /*eps_q=*/eps_diff,
-            /*eps_h=*/eps_diff,
-            /*max_iters=*/max_adapt_iters,
-            /*tol=*/1e-8,
-            h_min,
-            h_max
-        );
+    auto [q_curr, info_init] = VI_init_ad(model, data, model_ad, data_ad, q_prev, v_prev, tau_k, timestep, eps_diff);
+    if (!info_init.converged)
+        RCLCPP_WARN(node->get_logger(), "VI_init did not converge (reason=%s)", info_init.reason.c_str());
         
     q_history.push_back(q_curr);
     
@@ -691,6 +812,7 @@ int main(int argc, char** argv)
     t_cur += timestep; // we have advanced to q_curr at t = timestep
     time_history.push_back(timestep);
     h_history.push_back(timestep);
+    int step_count = 1; // 用乘法 step_count*timestep 计算力采样时刻，避免浮点累加误差
 
     // int max_steps = std::max((int)(duration / h_min) + 10, 1000);
     for (int step=0; step < n_steps -1  && t_cur < duration - 1e-12; ++step)
@@ -698,7 +820,7 @@ int main(int argc, char** argv)
         auto t0 = high_resolution_clock::now();
 
         Vec qdot_guess = (q_history.back() - q_history[q_history.size()-2]) / h_history.back();
-        tau_k = get_tau_at(t_cur, q_history.back());
+        tau_k = get_tau_at(static_cast<double>(step_count) * timestep, q_history.back());
 
         auto [q_next, h_next, info_adapt] = solve_q_next_sem_ad(
             model, data, model_ad, data_ad,
@@ -728,6 +850,7 @@ int main(int argc, char** argv)
         h_history.push_back(h_next);
         t_cur += h_next;
         time_history.push_back(t_cur);
+        ++step_count;
 
         T = kinetic_energy(model, data, (q_history.back() + q_history[q_history.size()-2]) / 2.0, (q_history.back() - q_history[q_history.size()-2]) / h_next);
         U = potential_energy(model, data, (q_history.back() + q_history[q_history.size()-2]) / 2.0);

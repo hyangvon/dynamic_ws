@@ -251,6 +251,43 @@ std::pair<Vec, SolverInfo> solve_q_next(const ModelAD &model_ad,
     return {q_next, info};
 }
 
+// VI_init: 正确的初始步求解器
+// 残差: M(q0)*v0 + D1(q0, q1, h) - h*tau = 0
+std::pair<Vec, SolverInfo> VI_init(const Model &model, Data &data,
+                                   const ModelAD &model_ad, DataAD &data_ad,
+                                   const Vec &q0, const Vec &v0,
+                                   const Vec &tau_k, double h,
+                                   double eps=1e-6, int max_iters=50, double tol=1e-8)
+{
+    int n = q0.size();
+    Vec q1 = q0 + h * v0;  // initial guess
+    SolverInfo info{false, "", 0, 0.0};
+    for (int it = 0; it < max_iters; ++it)
+    {
+        Mat M = inertia_matrix(model, data, q0);
+        Vec D1 = D_1(model_ad, data_ad, q0, q1, h);
+        Vec R = M * v0 + D1 - h * tau_k;
+        double normR = R.norm();
+        info.iterations = it;
+        info.residual_norm = normR;
+        if (normR < tol) { info.converged = true; return {q1, info}; }
+        Mat J = Mat::Zero(n, n);
+        for (int j = 0; j < n; ++j)
+        {
+            Vec dq = Vec::Zero(n); dq(j) = eps;
+            Vec D1p = D_1(model_ad, data_ad, q0, q1 + dq, h);
+            Vec D1m = D_1(model_ad, data_ad, q0, q1 - dq, h);
+            J.col(j) = (D1p - D1m) / (2.0 * eps);
+        }
+        Mat A = J + 1e-9 * Mat::Identity(n, n);
+        Eigen::ColPivHouseholderQR<Mat> ls(A);
+        if (ls.rank() < n) { info.converged = false; info.reason = "singular_jacobian"; return {q1, info}; }
+        q1 += ls.solve(-R);
+    }
+    info.converged = false; info.reason = "max_iters";
+    return {q1, info};
+}
+
 // ---------- CSV 输出 ----------
 void write_csv(const std::string &filename, const std::vector<Vec> &rows)
 {
@@ -471,10 +508,12 @@ int main(int argc, char** argv)
     auto [ee_pos0, ee_rot0] = compute_end_effector_pose(model, data, link_tcp_id, q_prev);
     ee_history.push_back(ee_pos0);
 
-    // initial VI step  (t = 0)
+    // initial VI step  (t = 0) — 使用 VI_init: M(q0)*v0 + D1(q0,q1,h) = h*tau（与 c_atsvi 一致）
     tau_k = get_tau_at(0.0, q_prev);
     force_torque_history.push_back(tau_k);
-    auto [q_curr, info_init] = solve_q_next(model_ad, data_ad, q_prev, q_prev + v_prev * timestep, tau_k, timestep);
+    auto [q_curr, info_init] = VI_init(model, data, model_ad, data_ad, q_prev, v_prev, tau_k, timestep);
+    if (!info_init.converged)
+        RCLCPP_WARN(node->get_logger(), "VI_init did not converge (reason=%s)", info_init.reason.c_str());
     q_history.push_back(q_curr);
 
     double T = kinetic_energy(model, data, (q_curr + q_prev) / 2.0, (q_curr - q_prev)/timestep);

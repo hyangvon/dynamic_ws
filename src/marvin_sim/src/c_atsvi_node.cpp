@@ -521,25 +521,41 @@ int main(int argc, char** argv)
     time_history.push_back(timestep);
     h_history.push_back(timestep);
 
-    // 用 discrete_energy_numeric（双点公式）作为能量参考，与后续步骤公式一致
-    // 避免 T+U 单点公式与双点中点公式的 O(h²) 差异在图上产生尖峰
+    // t=0: 单点公式 T0+U0（与 atsvi 一致，作为能量基线）
+    Mat M0 = inertia_matrix(model, data, q_prev);
+    double T0 = 0.5 * v_prev.dot(M0 * v_prev);
+    double U0 = potential_energy(model, data, q_prev);
+    energy_history.push_back(T0 + U0);    // t=0 能量基线（单点公式）
+    delta_energy_history.push_back(0.0);  // t=0 漂移 = 0（定义）
+
+    // t=h: 中点公式（与主循环一致），用作 Lyapunov 控制器的初始能量参考
     double E_curr = discrete_energy_numeric(model, data, q_prev, q_curr, timestep);
     double E_prev = E_curr;  // 增量式误差：上一步能量，每步滚动更新
-    energy_history.push_back(E_prev);  // t=0 能量（双点公式回溯）
-    energy_history.push_back(E_curr);  // t=dt 能量
-    delta_energy_history.push_back(0.0);   // 初始时刻漂移 = 0（定义）
-    delta_energy_history.push_back(0.0);   // 第一步漂移 = 0
+    energy_history.push_back(E_curr);     // t=dt 能量（中点公式）
+    delta_energy_history.push_back(E_curr - energy_history.front());
     auto [ee_pos1, _ee_rot1] = compute_end_effector_pose(model, data, link_tcp_id, q_curr);
     ee_history.push_back(ee_pos1);
 
     double t_cur = timestep; // we have advanced to q_curr at t = timestep
     double h_next = timestep;
     double xi = 0.0; // 能量误差积分项
+    bool force_was_active = false; // 外力状态跟踪，用于检测外力关断瞬间
+    int step_count = 1; // 用乘法 step_count*timestep 计算力采样时刻，避免浮点累加误差
 
     // int max_steps = std::max((int)(duration / h_min) + 10, 1000);
     for (int step=0; step < n_steps -1  && t_cur < duration - 1e-12; ++step)
     {
         auto t0 = high_resolution_clock::now();
+
+        // 先更新本步广义外力（用 step_count*timestep 计算时刻，避免浮点累加漂移）
+        double t_step = static_cast<double>(step_count) * timestep;
+        tau_k = get_tau_at(t_step, q_history[q_history.size()-1]);
+        force_torque_history.push_back(tau_k);
+        bool force_active_now = force_enable && (t_step >= force_start) && (t_step < force_start + force_dur);
+
+        // 外力关断瞬间：重置积分项和能量基准，防止 windup 导致步长飙升
+        bool force_just_turned_off = (force_was_active && !force_active_now);
+        force_was_active = force_active_now;
 
         // h_history.back() = 上一步实际使用的步长 (h_prev), h_next = 本步计划步长 (h_curr)
         auto [q_next, info_adapt] = solve_q_next(
@@ -558,29 +574,39 @@ int main(int argc, char** argv)
             continue;
         }
 
-        // 在下一步时刻处更新广义外力
-        tau_k = get_tau_at(t_cur, q_next);
-        force_torque_history.push_back(tau_k);
-
-        // Lyapunov 反馈控制计算（增量式误差：与上一步能量比较）
+        // 计算当前步离散能量
         E_curr = discrete_energy_numeric(model, data, q_history[q_history.size()-1], q_next, h_next);
-        double e_k = E_curr - E_prev;  // 逐步增量误差
-        xi += e_k; // 更新内模积分项
 
-        double de_dh = compute_energy_gradient(model_ad, data_ad, q_history[q_history.size()-1], q_next, h_next);
-
-        // 控制律: u = (de/dh)^+ * (-alpha * e - beta * xi)
-        double reg = 1e-8; // 正则化
-        double u_k = (de_dh / (de_dh * de_dh + reg)) * (-alpha * e_k - beta * xi);
-
-        // 保存本步实际使用的步长，再更新 h_next 供下步使用
+        // 本步实际使用的步长（solve_q_next 已使用 h_next，先保存再决定是否更新）
         double h_cur = h_next;
-        h_next = std::clamp(h_next + u_k, 1e-5, 0.05);
+
+        if (force_active_now) {
+            // 固定步长段：外力期间 h_next 保持不变，不运行 Lyapunov
+        } else {
+            // 变步长段：Lyapunov 步长控制
+            if (force_just_turned_off) {
+                // 外力刚结束：重置积分项，将当前步能量设为新基准
+                // 令 E_prev = E_curr，使第一个自由步 e_k = 0，平滑衔接
+                xi = 0.0;
+                E_prev = E_curr;
+                RCLCPP_INFO(node->get_logger(),
+                    "Force OFF at t=%.4f: reset controller, E_base=%.6f", t_cur, E_curr);
+            }
+            double e_k = E_curr - E_prev;
+            xi += e_k;
+            double de_dh = compute_energy_gradient(model_ad, data_ad,
+                q_history[q_history.size()-1], q_next, h_next);
+            // 控制律: u = (de/dh)^+ * (-alpha * e - beta * xi)
+            double reg = 1e-8;
+            double u_k = (de_dh / (de_dh * de_dh + reg)) * (-alpha * e_k - beta * xi);
+            h_next = std::clamp(h_next + u_k, 1e-5, 0.05);
+        }
 
         q_history.push_back(q_next);
         h_history.push_back(h_cur);   // 记录本步实际步长（非下步预测值）
         t_cur += h_cur;               // 时间轴推进本步实际步长
         time_history.push_back(t_cur);
+        ++step_count;
 
         energy_history.push_back(E_curr);
         delta_energy_history.push_back(energy_history.back() - energy_history.front());

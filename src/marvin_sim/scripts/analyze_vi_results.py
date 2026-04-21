@@ -115,6 +115,14 @@ def load_data(csv_dir):
     if clm_file.exists():
         data['centroidal_lin_momentum'] = np.loadtxt(clm_file, delimiter=',')
     
+    # 加载力矩
+    ft_file = csv_dir / 'force_torque_history.csv'
+    if ft_file.exists():
+        ft_raw = np.loadtxt(ft_file, delimiter=',')
+        if ft_raw.ndim == 1:
+            ft_raw = ft_raw.reshape(-1, 1)
+        data['force_torque'] = ft_raw
+    
     # 加载执行时间
     rt_file = csv_dir / 'avg_runtime.txt'
     if rt_file.exists():
@@ -147,9 +155,32 @@ def print_summary(data, csv_dir, subfolder_name=None):
     
     if 'delta_energy' in data:
         de = data['delta_energy']
-        print(f"\nEnergy Drift:")
-        print(f"  Max Drift:          {np.max(np.abs(de)):>15.6f} J")
+        print(f"\nEnergy Drift (overall):")
+        print(f"  Max |ΔE|:           {np.max(np.abs(de)):>15.6f} J")
         print(f"  Relative Drift:     {np.max(np.abs(de))/np.max(np.abs(data['energy']))*100:>14.4f} %")
+
+        # 施力后数值漂移：剔除外力做功引起的能量抬升
+        force_off_idx = None
+        if 'force_torque' in data:
+            ft = data['force_torque']
+            norms = np.linalg.norm(ft, axis=1)
+            threshold = 1e-6 * (np.max(norms) if np.max(norms) > 0 else 1.0)
+            active = norms > threshold
+            if active.any():
+                last_active = int(np.where(active)[0][-1])
+                # 对齐 force_torque 与 delta_energy 长度（time_history 可能多一行）
+                de_len = len(de)
+                ft_len = len(ft)
+                offset = de_len - ft_len  # ctsvi 初始步多一个能量点时 offset=1，否则=0
+                force_off_idx = last_active + 1 + offset  # delta_energy 中施力后第一步
+                force_off_idx = min(force_off_idx, de_len)
+
+        if force_off_idx is not None and force_off_idx < len(de) - 1:
+            post_de = de[force_off_idx:] - de[force_off_idx]  # 以施力结束时刻为新基准
+            print(f"\nPost-force Numerical Drift (from force-off at step {force_off_idx}):")
+            print(f"  Max |ΔE|:           {np.max(np.abs(post_de)):>15.6f} J")
+            print(f"  Std Dev:            {np.std(post_de):>15.6f} J")
+            print(f"  Relative Drift:     {np.max(np.abs(post_de))/np.max(np.abs(data['energy']))*100:>14.4f} %")
     
     if 'energy_T' in data and 'energy_U' in data:
         T = data['energy_T']
@@ -220,13 +251,34 @@ def plot_results(data, config=None):
     if 'delta_energy' in data:
         ax2 = plt.subplot(3, 3, 2)
         de = data['delta_energy']
-        ax2.plot(time, de, 'r-', linewidth=1)
-        ax2.fill_between(time, de, alpha=0.3)
+        ax2.plot(time, de, 'r-', linewidth=1, label='ΔE (from t=0)')
+        ax2.fill_between(time, de, alpha=0.2, color='red')
+
+        # 叠加施力后数值漂移曲线（以施力结束时刻为新零点）
+        force_off_idx = None
+        if 'force_torque' in data:
+            ft = data['force_torque']
+            norms = np.linalg.norm(ft, axis=1)
+            threshold = 1e-6 * (np.max(norms) if np.max(norms) > 0 else 1.0)
+            active = norms > threshold
+            if active.any():
+                last_active = int(np.where(active)[0][-1])
+                offset = len(de) - len(ft)
+                force_off_idx = min(last_active + 1 + offset, len(de))
+        if force_off_idx is not None and force_off_idx < len(de) - 1:
+            post_t = time[force_off_idx:]
+            post_de = de[force_off_idx:] - de[force_off_idx]
+            ax2.plot(post_t, post_de, 'b-', linewidth=1.5,
+                     label='Post-force ΔE (re-zeroed)')
+            ax2.axvline(x=time[force_off_idx], color='gray', linestyle='--',
+                        linewidth=1, alpha=0.7, label='Force off')
+            ax2.legend(fontsize=7)
+
         ax2.set_ylabel('ΔE [J]')
         ax2.set_xlabel('Time [s]')
         ax2.set_title('Energy Drift')
         ax2.grid(True, alpha=0.3)
-        
+
         # 应用配置范围
         if cfg_delta_e.get('xlim'):
             ax2.set_xlim(cfg_delta_e['xlim'])

@@ -1,0 +1,16 @@
+[0.007s] Invoking command in '/home/user/ros2_ws/dynamic_ws/build/marvin_sim': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/marvin_sim -- -j32 -l32
+[0.064s] Consolidate compiler generated dependencies of target ctsvi_node
+[0.065s] Consolidate compiler generated dependencies of target atsvi_node
+[0.065s] Consolidate compiler generated dependencies of target c_atsvi_node
+[0.081s] [ 33%] Built target ctsvi_node
+[0.082s] [ 66%] Built target c_atsvi_node
+[0.082s] [ 83%] Building CXX object CMakeFiles/atsvi_node.dir/src/atsvi_node.cpp.o
+[4.198s] /home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/atsvi_node.cpp: In function ‘int main(int, char**)’:
+[4.198s] /home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/atsvi_node.cpp:932:77: error: ‘numerical_delta_energy_history’ was not declared in this scope; did you mean ‘delta_energy_history’?
+[4.198s]   932 |     write_csv_scalar_series(csv_dir + "numerical_delta_energy_history.csv", numerical_delta_energy_history);
+[4.198s]       |                                                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[4.198s]       |                                                                             delta_energy_history
+[56.912s] gmake[2]: *** [CMakeFiles/atsvi_node.dir/build.make:76: CMakeFiles/atsvi_node.dir/src/atsvi_node.cpp.o] Error 1
+[56.912s] gmake[1]: *** [CMakeFiles/Makefile2:167: CMakeFiles/atsvi_node.dir/all] Error 2
+[56.912s] gmake: *** [Makefile:146: all] Error 2
+[56.914s] Invoked command in '/home/user/ros2_ws/dynamic_ws/build/marvin_sim' returned '2': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/marvin_sim -- -j32 -l32

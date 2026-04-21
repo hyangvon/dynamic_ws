@@ -1,0 +1,16 @@
+[ 16%] Building CXX object CMakeFiles/c_atsvi_node.dir/src/c_atsvi_node.cpp.o
+[ 33%] Building CXX object CMakeFiles/atsvi_node.dir/src/atsvi_node.cpp.o
+[ 50%] Building CXX object CMakeFiles/ctsvi_node.dir/src/ctsvi_node.cpp.o
+/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/atsvi_node.cpp: In function ‘int main(int, char**)’:
+/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/atsvi_node.cpp:932:77: error: ‘numerical_delta_energy_history’ was not declared in this scope; did you mean ‘delta_energy_history’?
+  932 |     write_csv_scalar_series(csv_dir + "numerical_delta_energy_history.csv", numerical_delta_energy_history);
+      |                                                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                             delta_energy_history
+[ 66%] Linking CXX executable c_atsvi_node
+[ 66%] Built target c_atsvi_node
+gmake[2]: *** [CMakeFiles/atsvi_node.dir/build.make:76: CMakeFiles/atsvi_node.dir/src/atsvi_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:167: CMakeFiles/atsvi_node.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+[ 83%] Linking CXX executable ctsvi_node
+[ 83%] Built target ctsvi_node
+gmake: *** [Makefile:146: all] Error 2

@@ -1,0 +1,638 @@
+[0.000000] (-) TimerEvent: {}
+[0.000058] (-) JobUnselected: {'identifier': 'show_urdf'}
+[0.000177] (-) JobUnselected: {'identifier': 'vi'}
+[0.000337] (-) JobUnselected: {'identifier': 'vi_2p'}
+[0.000434] (-) JobUnselected: {'identifier': 'w10_force_sim'}
+[0.000520] (-) JobUnselected: {'identifier': 'w10_kinematics'}
+[0.000552] (-) JobUnselected: {'identifier': 'w10_moveit_kinematics'}
+[0.000609] (-) JobUnselected: {'identifier': 'w10_sim'}
+[0.000641] (marvin_sim) JobQueued: {'identifier': 'marvin_sim', 'dependencies': OrderedDict()}
+[0.000673] (marvin_sim) JobStarted: {'identifier': 'marvin_sim'}
+[0.006084] (marvin_sim) JobProgress: {'identifier': 'marvin_sim', 'progress': 'cmake'}
+[0.006519] (marvin_sim) JobProgress: {'identifier': 'marvin_sim', 'progress': 'build'}
+[0.007112] (marvin_sim) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/user/ros2_ws/dynamic_ws/build/marvin_sim', '--', '-j32', '-l32'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/marvin_sim', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 52698 22'), ('GIT_EDITOR', ':'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-560a9dba96f961efea7b1612916f89e5d5d4d679/server/extensions/git/dist/askpass.sh'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-560a9dba96f961efea7b1612916f89e5d5d4d679/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('OLDPWD', '/home/user/ros2_ws/dynamic_ws'), ('TERM_PROGRAM_VERSION', '1.116.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-75d5bbb3-dd9b-485b-925e-a70ea4061404.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-560a9dba96f961efea7b1612916f89e5d5d4d679/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-560a9dba96f961efea7b1612916f89e5d5d4d679/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '28317'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '2144'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignorespace'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-560a9dba96f961efea7b1612916f89e5d5d4d679/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ac9392d44c.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('GIT_PAGER', 'cat'), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/marvin_sim'), ('GIT_MERGE_AUTOEDIT', 'no'), ('SSH_CONNECTION', '192.168.100.41 52698 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots:')]), 'shell': False}
+[0.056655] (marvin_sim) StdoutLine: {'line': b'[ 16%] Building CXX object CMakeFiles/c_atsvi_node.dir/src/c_atsvi_node.cpp.o\n'}
+[0.056849] (marvin_sim) StdoutLine: {'line': b'[ 50%] Built target ctsvi_node\n'}
+[0.064684] (marvin_sim) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target atsvi_node\n'}
+[0.080095] (marvin_sim) StdoutLine: {'line': b'[ 83%] Built target atsvi_node\n'}
+[0.099816] (-) TimerEvent: {}
+[0.199981] (-) TimerEvent: {}
+[0.300188] (-) TimerEvent: {}
+[0.400370] (-) TimerEvent: {}
+[0.500554] (-) TimerEvent: {}
+[0.600748] (-) TimerEvent: {}
+[0.700946] (-) TimerEvent: {}
+[0.801151] (-) TimerEvent: {}
+[0.901340] (-) TimerEvent: {}
+[1.001530] (-) TimerEvent: {}
+[1.101751] (-) TimerEvent: {}
+[1.201936] (-) TimerEvent: {}
+[1.302129] (-) TimerEvent: {}
+[1.402332] (-) TimerEvent: {}
+[1.502529] (-) TimerEvent: {}
+[1.602745] (-) TimerEvent: {}
+[1.702939] (-) TimerEvent: {}
+[1.803131] (-) TimerEvent: {}
+[1.903313] (-) TimerEvent: {}
+[2.003509] (-) TimerEvent: {}
+[2.103673] (-) TimerEvent: {}
+[2.203829] (-) TimerEvent: {}
+[2.304009] (-) TimerEvent: {}
+[2.404178] (-) TimerEvent: {}
+[2.504382] (-) TimerEvent: {}
+[2.604602] (-) TimerEvent: {}
+[2.704780] (-) TimerEvent: {}
+[2.804959] (-) TimerEvent: {}
+[2.905118] (-) TimerEvent: {}
+[3.005326] (-) TimerEvent: {}
+[3.105484] (-) TimerEvent: {}
+[3.205668] (-) TimerEvent: {}
+[3.305858] (-) TimerEvent: {}
+[3.406021] (-) TimerEvent: {}
+[3.506204] (-) TimerEvent: {}
+[3.606354] (-) TimerEvent: {}
+[3.706520] (-) TimerEvent: {}
+[3.806671] (-) TimerEvent: {}
+[3.906821] (-) TimerEvent: {}
+[4.006971] (-) TimerEvent: {}
+[4.107107] (-) TimerEvent: {}
+[4.207309] (-) TimerEvent: {}
+[4.307503] (-) TimerEvent: {}
+[4.407686] (-) TimerEvent: {}
+[4.507910] (-) TimerEvent: {}
+[4.608109] (-) TimerEvent: {}
+[4.708321] (-) TimerEvent: {}
+[4.808494] (-) TimerEvent: {}
+[4.908701] (-) TimerEvent: {}
+[5.008873] (-) TimerEvent: {}
+[5.109083] (-) TimerEvent: {}
+[5.209259] (-) TimerEvent: {}
+[5.309493] (-) TimerEvent: {}
+[5.409672] (-) TimerEvent: {}
+[5.509860] (-) TimerEvent: {}
+[5.610027] (-) TimerEvent: {}
+[5.710231] (-) TimerEvent: {}
+[5.810431] (-) TimerEvent: {}
+[5.910687] (-) TimerEvent: {}
+[6.010850] (-) TimerEvent: {}
+[6.111018] (-) TimerEvent: {}
+[6.211179] (-) TimerEvent: {}
+[6.311376] (-) TimerEvent: {}
+[6.411608] (-) TimerEvent: {}
+[6.511816] (-) TimerEvent: {}
+[6.612071] (-) TimerEvent: {}
+[6.712252] (-) TimerEvent: {}
+[6.812461] (-) TimerEvent: {}
+[6.912684] (-) TimerEvent: {}
+[7.012880] (-) TimerEvent: {}
+[7.113080] (-) TimerEvent: {}
+[7.213281] (-) TimerEvent: {}
+[7.313484] (-) TimerEvent: {}
+[7.413686] (-) TimerEvent: {}
+[7.513883] (-) TimerEvent: {}
+[7.614138] (-) TimerEvent: {}
+[7.714365] (-) TimerEvent: {}
+[7.814578] (-) TimerEvent: {}
+[7.914830] (-) TimerEvent: {}
+[8.014991] (-) TimerEvent: {}
+[8.115154] (-) TimerEvent: {}
+[8.215420] (-) TimerEvent: {}
+[8.315625] (-) TimerEvent: {}
+[8.415843] (-) TimerEvent: {}
+[8.516003] (-) TimerEvent: {}
+[8.616204] (-) TimerEvent: {}
+[8.716402] (-) TimerEvent: {}
+[8.816600] (-) TimerEvent: {}
+[8.916802] (-) TimerEvent: {}
+[9.017001] (-) TimerEvent: {}
+[9.117189] (-) TimerEvent: {}
+[9.217393] (-) TimerEvent: {}
+[9.317609] (-) TimerEvent: {}
+[9.417867] (-) TimerEvent: {}
+[9.518070] (-) TimerEvent: {}
+[9.618269] (-) TimerEvent: {}
+[9.718471] (-) TimerEvent: {}
+[9.818673] (-) TimerEvent: {}
+[9.918921] (-) TimerEvent: {}
+[10.019116] (-) TimerEvent: {}
+[10.119311] (-) TimerEvent: {}
+[10.219525] (-) TimerEvent: {}
+[10.319758] (-) TimerEvent: {}
+[10.419955] (-) TimerEvent: {}
+[10.520152] (-) TimerEvent: {}
+[10.620350] (-) TimerEvent: {}
+[10.720551] (-) TimerEvent: {}
+[10.820752] (-) TimerEvent: {}
+[10.920947] (-) TimerEvent: {}
+[11.021146] (-) TimerEvent: {}
+[11.121353] (-) TimerEvent: {}
+[11.221514] (-) TimerEvent: {}
+[11.321745] (-) TimerEvent: {}
+[11.421948] (-) TimerEvent: {}
+[11.522115] (-) TimerEvent: {}
+[11.622289] (-) TimerEvent: {}
+[11.722455] (-) TimerEvent: {}
+[11.822624] (-) TimerEvent: {}
+[11.922782] (-) TimerEvent: {}
+[12.022977] (-) TimerEvent: {}
+[12.123137] (-) TimerEvent: {}
+[12.223299] (-) TimerEvent: {}
+[12.323467] (-) TimerEvent: {}
+[12.423663] (-) TimerEvent: {}
+[12.523852] (-) TimerEvent: {}
+[12.624024] (-) TimerEvent: {}
+[12.724181] (-) TimerEvent: {}
+[12.824337] (-) TimerEvent: {}
+[12.924500] (-) TimerEvent: {}
+[13.024663] (-) TimerEvent: {}
+[13.124813] (-) TimerEvent: {}
+[13.224992] (-) TimerEvent: {}
+[13.325201] (-) TimerEvent: {}
+[13.425413] (-) TimerEvent: {}
+[13.525625] (-) TimerEvent: {}
+[13.625795] (-) TimerEvent: {}
+[13.725975] (-) TimerEvent: {}
+[13.826143] (-) TimerEvent: {}
+[13.926304] (-) TimerEvent: {}
+[14.026523] (-) TimerEvent: {}
+[14.126672] (-) TimerEvent: {}
+[14.226851] (-) TimerEvent: {}
+[14.327051] (-) TimerEvent: {}
+[14.427250] (-) TimerEvent: {}
+[14.527442] (-) TimerEvent: {}
+[14.627646] (-) TimerEvent: {}
+[14.727852] (-) TimerEvent: {}
+[14.828092] (-) TimerEvent: {}
+[14.928344] (-) TimerEvent: {}
+[15.028560] (-) TimerEvent: {}
+[15.128781] (-) TimerEvent: {}
+[15.229020] (-) TimerEvent: {}
+[15.329214] (-) TimerEvent: {}
+[15.429440] (-) TimerEvent: {}
+[15.529644] (-) TimerEvent: {}
+[15.629838] (-) TimerEvent: {}
+[15.730730] (-) TimerEvent: {}
+[15.830988] (-) TimerEvent: {}
+[15.931160] (-) TimerEvent: {}
+[16.031362] (-) TimerEvent: {}
+[16.131558] (-) TimerEvent: {}
+[16.231760] (-) TimerEvent: {}
+[16.332001] (-) TimerEvent: {}
+[16.432194] (-) TimerEvent: {}
+[16.532416] (-) TimerEvent: {}
+[16.632653] (-) TimerEvent: {}
+[16.732851] (-) TimerEvent: {}
+[16.833069] (-) TimerEvent: {}
+[16.933335] (-) TimerEvent: {}
+[17.033586] (-) TimerEvent: {}
+[17.133765] (-) TimerEvent: {}
+[17.233925] (-) TimerEvent: {}
+[17.334088] (-) TimerEvent: {}
+[17.434265] (-) TimerEvent: {}
+[17.534496] (-) TimerEvent: {}
+[17.634820] (-) TimerEvent: {}
+[17.735020] (-) TimerEvent: {}
+[17.835228] (-) TimerEvent: {}
+[17.935419] (-) TimerEvent: {}
+[18.035631] (-) TimerEvent: {}
+[18.135800] (-) TimerEvent: {}
+[18.235996] (-) TimerEvent: {}
+[18.336184] (-) TimerEvent: {}
+[18.436353] (-) TimerEvent: {}
+[18.536540] (-) TimerEvent: {}
+[18.636669] (-) TimerEvent: {}
+[18.736888] (-) TimerEvent: {}
+[18.837107] (-) TimerEvent: {}
+[18.937269] (-) TimerEvent: {}
+[19.037430] (-) TimerEvent: {}
+[19.137664] (-) TimerEvent: {}
+[19.237885] (-) TimerEvent: {}
+[19.338067] (-) TimerEvent: {}
+[19.438230] (-) TimerEvent: {}
+[19.538392] (-) TimerEvent: {}
+[19.638553] (-) TimerEvent: {}
+[19.738672] (-) TimerEvent: {}
+[19.838839] (-) TimerEvent: {}
+[19.939011] (-) TimerEvent: {}
+[20.039169] (-) TimerEvent: {}
+[20.139366] (-) TimerEvent: {}
+[20.239542] (-) TimerEvent: {}
+[20.339741] (-) TimerEvent: {}
+[20.439915] (-) TimerEvent: {}
+[20.540075] (-) TimerEvent: {}
+[20.640265] (-) TimerEvent: {}
+[20.740432] (-) TimerEvent: {}
+[20.840698] (-) TimerEvent: {}
+[20.940976] (-) TimerEvent: {}
+[21.041175] (-) TimerEvent: {}
+[21.141375] (-) TimerEvent: {}
+[21.241593] (-) TimerEvent: {}
+[21.341794] (-) TimerEvent: {}
+[21.441993] (-) TimerEvent: {}
+[21.542219] (-) TimerEvent: {}
+[21.642431] (-) TimerEvent: {}
+[21.742702] (-) TimerEvent: {}
+[21.842919] (-) TimerEvent: {}
+[21.943081] (-) TimerEvent: {}
+[22.043246] (-) TimerEvent: {}
+[22.143440] (-) TimerEvent: {}
+[22.243597] (-) TimerEvent: {}
+[22.343788] (-) TimerEvent: {}
+[22.444003] (-) TimerEvent: {}
+[22.544163] (-) TimerEvent: {}
+[22.644322] (-) TimerEvent: {}
+[22.744480] (-) TimerEvent: {}
+[22.844684] (-) TimerEvent: {}
+[22.944890] (-) TimerEvent: {}
+[23.045118] (-) TimerEvent: {}
+[23.145290] (-) TimerEvent: {}
+[23.245820] (-) TimerEvent: {}
+[23.345978] (-) TimerEvent: {}
+[23.446160] (-) TimerEvent: {}
+[23.546339] (-) TimerEvent: {}
+[23.646520] (-) TimerEvent: {}
+[23.746678] (-) TimerEvent: {}
+[23.846897] (-) TimerEvent: {}
+[23.947057] (-) TimerEvent: {}
+[24.047216] (-) TimerEvent: {}
+[24.147378] (-) TimerEvent: {}
+[24.247597] (-) TimerEvent: {}
+[24.347745] (-) TimerEvent: {}
+[24.447913] (-) TimerEvent: {}
+[24.548127] (-) TimerEvent: {}
+[24.648296] (-) TimerEvent: {}
+[24.748476] (-) TimerEvent: {}
+[24.848651] (-) TimerEvent: {}
+[24.948815] (-) TimerEvent: {}
+[25.048999] (-) TimerEvent: {}
+[25.149179] (-) TimerEvent: {}
+[25.249364] (-) TimerEvent: {}
+[25.349526] (-) TimerEvent: {}
+[25.449690] (-) TimerEvent: {}
+[25.549983] (-) TimerEvent: {}
+[25.650188] (-) TimerEvent: {}
+[25.750390] (-) TimerEvent: {}
+[25.850604] (-) TimerEvent: {}
+[25.950889] (-) TimerEvent: {}
+[26.051099] (-) TimerEvent: {}
+[26.151300] (-) TimerEvent: {}
+[26.251506] (-) TimerEvent: {}
+[26.351686] (-) TimerEvent: {}
+[26.451888] (-) TimerEvent: {}
+[26.552094] (-) TimerEvent: {}
+[26.652300] (-) TimerEvent: {}
+[26.752521] (-) TimerEvent: {}
+[26.852687] (-) TimerEvent: {}
+[26.952891] (-) TimerEvent: {}
+[27.053082] (-) TimerEvent: {}
+[27.153241] (-) TimerEvent: {}
+[27.253405] (-) TimerEvent: {}
+[27.353608] (-) TimerEvent: {}
+[27.453783] (-) TimerEvent: {}
+[27.553946] (-) TimerEvent: {}
+[27.654099] (-) TimerEvent: {}
+[27.754261] (-) TimerEvent: {}
+[27.854522] (-) TimerEvent: {}
+[27.954678] (-) TimerEvent: {}
+[28.054848] (-) TimerEvent: {}
+[28.155021] (-) TimerEvent: {}
+[28.255179] (-) TimerEvent: {}
+[28.355375] (-) TimerEvent: {}
+[28.455546] (-) TimerEvent: {}
+[28.555674] (-) TimerEvent: {}
+[28.655889] (-) TimerEvent: {}
+[28.756049] (-) TimerEvent: {}
+[28.856275] (-) TimerEvent: {}
+[28.956436] (-) TimerEvent: {}
+[29.056598] (-) TimerEvent: {}
+[29.156795] (-) TimerEvent: {}
+[29.256996] (-) TimerEvent: {}
+[29.357189] (-) TimerEvent: {}
+[29.457402] (-) TimerEvent: {}
+[29.557641] (-) TimerEvent: {}
+[29.657828] (-) TimerEvent: {}
+[29.758010] (-) TimerEvent: {}
+[29.858196] (-) TimerEvent: {}
+[29.958389] (-) TimerEvent: {}
+[30.058622] (-) TimerEvent: {}
+[30.158839] (-) TimerEvent: {}
+[30.259044] (-) TimerEvent: {}
+[30.359312] (-) TimerEvent: {}
+[30.459522] (-) TimerEvent: {}
+[30.559690] (-) TimerEvent: {}
+[30.659978] (-) TimerEvent: {}
+[30.760190] (-) TimerEvent: {}
+[30.860382] (-) TimerEvent: {}
+[30.960563] (-) TimerEvent: {}
+[31.060728] (-) TimerEvent: {}
+[31.160890] (-) TimerEvent: {}
+[31.261056] (-) TimerEvent: {}
+[31.361233] (-) TimerEvent: {}
+[31.461405] (-) TimerEvent: {}
+[31.561577] (-) TimerEvent: {}
+[31.661779] (-) TimerEvent: {}
+[31.761959] (-) TimerEvent: {}
+[31.862125] (-) TimerEvent: {}
+[31.962288] (-) TimerEvent: {}
+[32.062453] (-) TimerEvent: {}
+[32.162621] (-) TimerEvent: {}
+[32.262796] (-) TimerEvent: {}
+[32.362974] (-) TimerEvent: {}
+[32.463150] (-) TimerEvent: {}
+[32.563317] (-) TimerEvent: {}
+[32.663491] (-) TimerEvent: {}
+[32.763748] (-) TimerEvent: {}
+[32.864294] (-) TimerEvent: {}
+[32.964676] (-) TimerEvent: {}
+[33.064841] (-) TimerEvent: {}
+[33.165003] (-) TimerEvent: {}
+[33.265169] (-) TimerEvent: {}
+[33.365331] (-) TimerEvent: {}
+[33.465504] (-) TimerEvent: {}
+[33.565679] (-) TimerEvent: {}
+[33.665847] (-) TimerEvent: {}
+[33.766019] (-) TimerEvent: {}
+[33.866192] (-) TimerEvent: {}
+[33.966371] (-) TimerEvent: {}
+[34.066632] (-) TimerEvent: {}
+[34.166856] (-) TimerEvent: {}
+[34.267058] (-) TimerEvent: {}
+[34.367260] (-) TimerEvent: {}
+[34.467707] (-) TimerEvent: {}
+[34.567958] (-) TimerEvent: {}
+[34.668212] (-) TimerEvent: {}
+[34.768422] (-) TimerEvent: {}
+[34.868620] (-) TimerEvent: {}
+[34.968841] (-) TimerEvent: {}
+[35.069040] (-) TimerEvent: {}
+[35.169241] (-) TimerEvent: {}
+[35.269427] (-) TimerEvent: {}
+[35.369645] (-) TimerEvent: {}
+[35.469817] (-) TimerEvent: {}
+[35.569981] (-) TimerEvent: {}
+[35.671702] (-) TimerEvent: {}
+[35.771936] (-) TimerEvent: {}
+[35.872154] (-) TimerEvent: {}
+[35.972320] (-) TimerEvent: {}
+[36.072489] (-) TimerEvent: {}
+[36.172670] (-) TimerEvent: {}
+[36.272826] (-) TimerEvent: {}
+[36.373010] (-) TimerEvent: {}
+[36.473171] (-) TimerEvent: {}
+[36.573334] (-) TimerEvent: {}
+[36.673512] (-) TimerEvent: {}
+[36.773677] (-) TimerEvent: {}
+[36.873861] (-) TimerEvent: {}
+[36.974063] (-) TimerEvent: {}
+[37.074263] (-) TimerEvent: {}
+[37.174460] (-) TimerEvent: {}
+[37.274653] (-) TimerEvent: {}
+[37.374933] (-) TimerEvent: {}
+[37.475131] (-) TimerEvent: {}
+[37.575335] (-) TimerEvent: {}
+[37.675601] (-) TimerEvent: {}
+[37.775857] (-) TimerEvent: {}
+[37.876034] (-) TimerEvent: {}
+[37.976193] (-) TimerEvent: {}
+[38.076355] (-) TimerEvent: {}
+[38.176516] (-) TimerEvent: {}
+[38.276727] (-) TimerEvent: {}
+[38.377008] (-) TimerEvent: {}
+[38.477271] (-) TimerEvent: {}
+[38.577478] (-) TimerEvent: {}
+[38.677687] (-) TimerEvent: {}
+[38.777891] (-) TimerEvent: {}
+[38.878096] (-) TimerEvent: {}
+[38.978282] (-) TimerEvent: {}
+[39.078450] (-) TimerEvent: {}
+[39.178672] (-) TimerEvent: {}
+[39.278884] (-) TimerEvent: {}
+[39.379079] (-) TimerEvent: {}
+[39.479269] (-) TimerEvent: {}
+[39.579562] (-) TimerEvent: {}
+[39.679821] (-) TimerEvent: {}
+[39.780103] (-) TimerEvent: {}
+[39.880305] (-) TimerEvent: {}
+[39.980521] (-) TimerEvent: {}
+[40.080739] (-) TimerEvent: {}
+[40.180938] (-) TimerEvent: {}
+[40.281121] (-) TimerEvent: {}
+[40.381313] (-) TimerEvent: {}
+[40.481517] (-) TimerEvent: {}
+[40.581789] (-) TimerEvent: {}
+[40.682016] (-) TimerEvent: {}
+[40.782743] (-) TimerEvent: {}
+[40.883023] (-) TimerEvent: {}
+[40.983235] (-) TimerEvent: {}
+[41.083370] (-) TimerEvent: {}
+[41.183535] (-) TimerEvent: {}
+[41.283672] (-) TimerEvent: {}
+[41.383851] (-) TimerEvent: {}
+[41.484040] (-) TimerEvent: {}
+[41.584223] (-) TimerEvent: {}
+[41.684396] (-) TimerEvent: {}
+[41.784656] (-) TimerEvent: {}
+[41.884815] (-) TimerEvent: {}
+[41.984977] (-) TimerEvent: {}
+[42.085140] (-) TimerEvent: {}
+[42.185302] (-) TimerEvent: {}
+[42.285468] (-) TimerEvent: {}
+[42.385855] (-) TimerEvent: {}
+[42.486047] (-) TimerEvent: {}
+[42.586218] (-) TimerEvent: {}
+[42.686382] (-) TimerEvent: {}
+[42.786548] (-) TimerEvent: {}
+[42.886765] (-) TimerEvent: {}
+[42.986933] (-) TimerEvent: {}
+[43.087112] (-) TimerEvent: {}
+[43.187340] (-) TimerEvent: {}
+[43.287666] (-) TimerEvent: {}
+[43.387877] (-) TimerEvent: {}
+[43.488073] (-) TimerEvent: {}
+[43.588272] (-) TimerEvent: {}
+[43.688473] (-) TimerEvent: {}
+[43.788731] (-) TimerEvent: {}
+[43.888940] (-) TimerEvent: {}
+[43.989134] (-) TimerEvent: {}
+[44.089392] (-) TimerEvent: {}
+[44.189645] (-) TimerEvent: {}
+[44.289849] (-) TimerEvent: {}
+[44.390084] (-) TimerEvent: {}
+[44.490283] (-) TimerEvent: {}
+[44.590472] (-) TimerEvent: {}
+[44.690688] (-) TimerEvent: {}
+[44.790905] (-) TimerEvent: {}
+[44.891064] (-) TimerEvent: {}
+[44.991226] (-) TimerEvent: {}
+[45.091403] (-) TimerEvent: {}
+[45.191578] (-) TimerEvent: {}
+[45.291734] (-) TimerEvent: {}
+[45.391898] (-) TimerEvent: {}
+[45.492068] (-) TimerEvent: {}
+[45.592234] (-) TimerEvent: {}
+[45.692446] (-) TimerEvent: {}
+[45.792604] (-) TimerEvent: {}
+[45.892775] (-) TimerEvent: {}
+[45.992960] (-) TimerEvent: {}
+[46.093142] (-) TimerEvent: {}
+[46.193301] (-) TimerEvent: {}
+[46.293454] (-) TimerEvent: {}
+[46.393847] (-) TimerEvent: {}
+[46.494107] (-) TimerEvent: {}
+[46.594316] (-) TimerEvent: {}
+[46.694550] (-) TimerEvent: {}
+[46.794766] (-) TimerEvent: {}
+[46.894960] (-) TimerEvent: {}
+[46.995159] (-) TimerEvent: {}
+[47.095339] (-) TimerEvent: {}
+[47.195545] (-) TimerEvent: {}
+[47.295746] (-) TimerEvent: {}
+[47.395901] (-) TimerEvent: {}
+[47.496100] (-) TimerEvent: {}
+[47.596327] (-) TimerEvent: {}
+[47.696492] (-) TimerEvent: {}
+[47.796734] (-) TimerEvent: {}
+[47.896907] (-) TimerEvent: {}
+[47.997075] (-) TimerEvent: {}
+[48.097294] (-) TimerEvent: {}
+[48.197460] (-) TimerEvent: {}
+[48.297612] (-) TimerEvent: {}
+[48.397833] (-) TimerEvent: {}
+[48.498044] (-) TimerEvent: {}
+[48.598242] (-) TimerEvent: {}
+[48.698451] (-) TimerEvent: {}
+[48.798690] (-) TimerEvent: {}
+[48.898878] (-) TimerEvent: {}
+[48.999142] (-) TimerEvent: {}
+[49.099334] (-) TimerEvent: {}
+[49.199552] (-) TimerEvent: {}
+[49.299713] (-) TimerEvent: {}
+[49.399872] (-) TimerEvent: {}
+[49.500030] (-) TimerEvent: {}
+[49.600188] (-) TimerEvent: {}
+[49.700373] (-) TimerEvent: {}
+[49.800566] (-) TimerEvent: {}
+[49.900792] (-) TimerEvent: {}
+[50.000976] (-) TimerEvent: {}
+[50.101208] (-) TimerEvent: {}
+[50.201413] (-) TimerEvent: {}
+[50.301616] (-) TimerEvent: {}
+[50.401811] (-) TimerEvent: {}
+[50.502003] (-) TimerEvent: {}
+[50.602202] (-) TimerEvent: {}
+[50.702395] (-) TimerEvent: {}
+[50.802706] (-) TimerEvent: {}
+[50.902939] (-) TimerEvent: {}
+[51.003138] (-) TimerEvent: {}
+[51.103341] (-) TimerEvent: {}
+[51.203537] (-) TimerEvent: {}
+[51.303748] (-) TimerEvent: {}
+[51.403935] (-) TimerEvent: {}
+[51.504116] (-) TimerEvent: {}
+[51.604282] (-) TimerEvent: {}
+[51.704441] (-) TimerEvent: {}
+[51.804598] (-) TimerEvent: {}
+[51.904778] (-) TimerEvent: {}
+[52.004938] (-) TimerEvent: {}
+[52.105097] (-) TimerEvent: {}
+[52.205278] (-) TimerEvent: {}
+[52.305484] (-) TimerEvent: {}
+[52.405685] (-) TimerEvent: {}
+[52.505887] (-) TimerEvent: {}
+[52.606094] (-) TimerEvent: {}
+[52.706335] (-) TimerEvent: {}
+[52.806523] (-) TimerEvent: {}
+[52.906688] (-) TimerEvent: {}
+[53.006871] (-) TimerEvent: {}
+[53.107044] (-) TimerEvent: {}
+[53.207250] (-) TimerEvent: {}
+[53.307442] (-) TimerEvent: {}
+[53.407624] (-) TimerEvent: {}
+[53.507822] (-) TimerEvent: {}
+[53.608010] (-) TimerEvent: {}
+[53.708207] (-) TimerEvent: {}
+[53.808408] (-) TimerEvent: {}
+[53.908598] (-) TimerEvent: {}
+[54.008814] (-) TimerEvent: {}
+[54.109016] (-) TimerEvent: {}
+[54.209212] (-) TimerEvent: {}
+[54.309414] (-) TimerEvent: {}
+[54.409620] (-) TimerEvent: {}
+[54.509920] (-) TimerEvent: {}
+[54.610085] (-) TimerEvent: {}
+[54.710205] (-) TimerEvent: {}
+[54.810375] (-) TimerEvent: {}
+[54.910552] (-) TimerEvent: {}
+[55.010676] (-) TimerEvent: {}
+[55.110854] (-) TimerEvent: {}
+[55.211027] (-) TimerEvent: {}
+[55.311196] (-) TimerEvent: {}
+[55.411359] (-) TimerEvent: {}
+[55.511567] (-) TimerEvent: {}
+[55.611733] (-) TimerEvent: {}
+[55.711895] (-) TimerEvent: {}
+[55.812059] (-) TimerEvent: {}
+[55.912220] (-) TimerEvent: {}
+[56.012409] (-) TimerEvent: {}
+[56.112587] (-) TimerEvent: {}
+[56.212798] (-) TimerEvent: {}
+[56.312983] (-) TimerEvent: {}
+[56.413150] (-) TimerEvent: {}
+[56.513359] (-) TimerEvent: {}
+[56.613529] (-) TimerEvent: {}
+[56.713676] (-) TimerEvent: {}
+[56.810612] (marvin_sim) StdoutLine: {'line': b'[100%] Linking CXX executable c_atsvi_node\n'}
+[56.813763] (-) TimerEvent: {}
+[56.913906] (-) TimerEvent: {}
+[56.930217] (marvin_sim) StdoutLine: {'line': b'[100%] Built target c_atsvi_node\n'}
+[56.935528] (marvin_sim) CommandEnded: {'returncode': 0}
+[56.935938] (marvin_sim) JobProgress: {'identifier': 'marvin_sim', 'progress': 'install'}
+[56.939546] (marvin_sim) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/user/ros2_ws/dynamic_ws/build/marvin_sim'], 'cwd': '/home/user/ros2_ws/dynamic_ws/build/marvin_sim', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('no_proxy', 'localhost,127.0.0.1'), ('USER', 'user'), ('SSH_CLIENT', '192.168.100.41 52698 22'), ('GIT_EDITOR', ':'), ('all_proxy', 'socks5://192.168.100.1:7891'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/user/.vscode-server/cli/servers/Stable-560a9dba96f961efea7b1612916f89e5d5d4d679/server/extensions/git/dist/askpass.sh'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/opt/openrobots/lib:/opt/openrobots/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/user/.vscode-server/cli/servers/Stable-560a9dba96f961efea7b1612916f89e5d5d4d679/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/user'), ('OLDPWD', '/home/user/ros2_ws/dynamic_ws'), ('TERM_PROGRAM_VERSION', '1.116.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-75d5bbb3-dd9b-485b-925e-a70ea4061404.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/user/.vscode-server/cli/servers/Stable-560a9dba96f961efea7b1612916f89e5d5d4d679/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/user/.vscode-server/cli/servers/Stable-560a9dba96f961efea7b1612916f89e5d5d4d679/server/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('https_proxy', 'http://192.168.100.1:7890'), ('COLCON_PREFIX_PATH', '/home/user/ros2_ws/w10_ws/install:/home/user/ros2_ws/dynamic_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'user'), ('http_proxy', 'http://192.168.100.1:7890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/openrobots/lib/pkgconfig:/opt/openrobots/lib/pkgconfig:'), ('CLAUDE_CODE_SSE_PORT', '28317'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '2144'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignorespace'), ('PATH', '/opt/openrobots/bin:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/user/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/user/.vscode-server/cli/servers/Stable-560a9dba96f961efea7b1612916f89e5d5d4d679/server/bin/remote-cli:/opt/openrobots/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ac9392d44c.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('GIT_PAGER', 'cat'), ('PWD', '/home/user/ros2_ws/dynamic_ws/build/marvin_sim'), ('GIT_MERGE_AUTOEDIT', 'no'), ('SSH_CONNECTION', '192.168.100.41 52698 192.168.100.41 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/openrobots/lib/python3.10/site-packages:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/local/lib/python3.10/dist-packages:/opt/openrobots/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots:')]), 'shell': False}
+[56.944179] (marvin_sim) StdoutLine: {'line': b'-- Install configuration: "Release"\n'}
+[56.944357] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/launch\n'}
+[56.944542] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/launch/replay_rviz.launch.py\n'}
+[56.944619] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/launch/sim_rviz.launch.py\n'}
+[56.944668] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/launch/display.launch.py\n'}
+[56.944699] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/urdf\n'}
+[56.944865] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/urdf/7_pendulum.urdf\n'}
+[56.944995] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/urdf/marvin_body.urdf\n'}
+[56.945079] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/urdf/marvin.urdf\n'}
+[56.945148] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes\n'}
+[56.945208] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link3_L.STL\n'}
+[56.945468] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link2_L.STL\n'}
+[56.945553] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link1_L.STL\n'}
+[56.945617] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link7_L.STL\n'}
+[56.945976] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link6_L.STL\n'}
+[56.946066] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Base_L.STL\n'}
+[56.946132] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link5_L.STL\n'}
+[56.946192] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link4_L.STL\n'}
+[56.946251] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/config\n'}
+[56.946327] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/config/plot_config.yaml\n'}
+[56.946391] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/config/vi_params.yaml\n'}
+[56.946450] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/vi_sim.py\n'}
+[56.946520] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/analyze_vi_results.py\n'}
+[56.946583] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/replay_rviz.py\n'}
+[56.946656] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/tune_c_atsvi.py\n'}
+[56.946720] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/ctsvi_node\n'}
+[56.946784] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/atsvi_node\n'}
+[56.946845] (marvin_sim) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/c_atsvi_node\n'}
+[56.956387] (marvin_sim) StdoutLine: {'line': b'-- Set runtime path of "/home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/c_atsvi_node" to ""\n'}
+[56.956611] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/ament_index/resource_index/package_run_dependencies/marvin_sim\n'}
+[56.956721] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/ament_index/resource_index/parent_prefix_path/marvin_sim\n'}
+[56.956862] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/environment/ament_prefix_path.sh\n'}
+[56.956934] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/environment/ament_prefix_path.dsv\n'}
+[56.957028] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/environment/path.sh\n'}
+[56.957080] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/environment/path.dsv\n'}
+[56.957118] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/local_setup.bash\n'}
+[56.957146] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/local_setup.sh\n'}
+[56.957172] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/local_setup.zsh\n'}
+[56.957199] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/local_setup.dsv\n'}
+[56.957232] (marvin_sim) StdoutLine: {'line': b'-- Installing: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/package.dsv\n'}
+[56.957257] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/ament_index/resource_index/packages/marvin_sim\n'}
+[56.957283] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[56.957310] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/cmake/marvin_simConfig.cmake\n'}
+[56.957336] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/cmake/marvin_simConfig-version.cmake\n'}
+[56.957364] (marvin_sim) StdoutLine: {'line': b'-- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/package.xml\n'}
+[56.957825] (marvin_sim) CommandEnded: {'returncode': 0}
+[56.967438] (marvin_sim) JobEnded: {'identifier': 'marvin_sim', 'rc': 0}
+[56.967696] (-) EventReactorShutdown: {}
