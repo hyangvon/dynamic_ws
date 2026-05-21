@@ -105,6 +105,24 @@ double potential_energy(const Model &model, Data &data, const Vec &q)
     return pinocchio::computePotentialEnergy(model, data, q);
 }
 
+// double 版离散拉格朗日量（用于 discrete_energy_numeric）
+double discrete_lagrangian_double(const Model &model, Data &data, const Vec &q0, const Vec &q1, double h)
+{
+    const Vec q_mid = 0.5 * (q0 + q1);
+    const Vec dq = (q1 - q0) / h;
+    const double T = kinetic_energy(model, data, q_mid, dq);
+    const double U = potential_energy(model, data, q_mid);
+    return h * (T - U);
+}
+
+// 数值离散能量 Ed = -dLd/dh（中心差分）
+double discrete_energy_numeric(const Model &model, Data &data, const Vec &q0, const Vec &q1, double h, double eps_h = 1e-8)
+{
+    double Lp = discrete_lagrangian_double(model, data, q0, q1, h + eps_h);
+    double Lm = discrete_lagrangian_double(model, data, q0, q1, h - eps_h);
+    return -(Lp - Lm) / (2.0 * eps_h);
+}
+
 // ------------------ 离散拉格朗日函数（AD 版） ------------------
 ADScalar discreteLagrangian(const ModelAD &model, DataAD &data,
                             const VecAD &q0, const VecAD &q1, double h)
@@ -499,10 +517,10 @@ int main(int argc, char** argv)
     Vec qdot0 = v_prev;
     double T0 = 0.5 * qdot0.transpose() * M0 * qdot0;
     double U0 = potential_energy(model, data, q_prev);
-    double total_energy = T0 + U0;
+    double E_0 = T0 + U0;
     energy_T_history.push_back(T0);
     energy_U_history.push_back(U0);
-    energy_history.push_back(total_energy);
+    energy_history.push_back(E_0);
     delta_energy_history.push_back(energy_history.back() - energy_history.front());
 
     auto [ee_pos0, ee_rot0] = compute_end_effector_pose(model, data, link_tcp_id, q_prev);
@@ -520,8 +538,9 @@ int main(int argc, char** argv)
     double U = potential_energy(model, data, (q_curr + q_prev) / 2.0);
     energy_T_history.push_back(T);
     energy_U_history.push_back(U);
-    energy_history.push_back(T+U);
-    delta_energy_history.push_back(energy_history.back() - energy_history.front());
+    double E_ref = discrete_energy_numeric(model, data, q_prev, q_curr, timestep);
+    energy_history.push_back(E_ref);       // t=h 离散能量（与 c_atsvi 一致）
+    delta_energy_history.push_back(0.0);  // t=h 漂移 = 0（E[1] 定义为新基准）
 
     auto [ee_pos1, _ee_rot1] = compute_end_effector_pose(model, data, link_tcp_id, q_curr);
     ee_history.push_back(ee_pos1);
@@ -552,8 +571,9 @@ int main(int argc, char** argv)
         U = potential_energy(model, data, (q_history.back() + q_history[q_history.size()-2]) / 2.0);
         energy_T_history.push_back(T);
         energy_U_history.push_back(U);
-        energy_history.push_back(T+U);
-        delta_energy_history.push_back(energy_history.back() - energy_history.front());
+        double E_step = discrete_energy_numeric(model, data, q_history[q_history.size()-2], q_history.back(), timestep);
+        energy_history.push_back(E_step);
+        delta_energy_history.push_back(E_step - E_0);
 
         auto [ee_pos, ee_rot] = compute_end_effector_pose(model, data, link_tcp_id, q_next);
         ee_history.push_back(ee_pos);

@@ -122,7 +122,12 @@ def load_data(csv_dir):
         if ft_raw.ndim == 1:
             ft_raw = ft_raw.reshape(-1, 1)
         data['force_torque'] = ft_raw
-    
+
+    # 加载步长历史
+    h_file = csv_dir / 'h_history.csv'
+    if h_file.exists():
+        data['h_history'] = np.loadtxt(h_file)
+
     # 加载执行时间
     rt_file = csv_dir / 'avg_runtime.txt'
     if rt_file.exists():
@@ -203,6 +208,206 @@ def print_summary(data, csv_dir, subfolder_name=None):
     
     print(f"\n{'='*60}\n")
 
+
+# ---------------------------------------------------------------------------
+# 多积分器对比图（风格与 vi_compare_sim.py 保持一致）
+# ---------------------------------------------------------------------------
+
+_COMP_STYLE = {
+    'ctsvi':   {'color': '#9467BD', 'linestyle': ':',  'linewidth': 1.5, 'label': 'CTSVI'},
+    'atsvi':   {'color': '#000000', 'linestyle': '-',  'linewidth': 1.2, 'label': 'ATSVI'},
+    'c_atsvi': {'color': '#D62728', 'linestyle': '-',  'linewidth': 2.0, 'label': 'C-ATSVI'},
+}
+_SUBFOLDER_ORDER = ['ctsvi', 'atsvi', 'c_atsvi']
+
+
+def _init_comparison_style():
+    """统一对比图字体与样式（与 vi_compare_sim.py 一致）"""
+    plt.rcParams.update({
+        'font.family': 'DejaVu Sans',
+        'axes.titlesize': 20,
+        'axes.titleweight': 'bold',
+        'axes.labelsize': 18,
+        'legend.fontsize': 18,
+        'xtick.labelsize': 18,
+        'ytick.labelsize': 18,
+        'legend.frameon': True,
+    })
+
+
+def _save_comparison_fig(fig, parent_dir, plot_name):
+    """将对比图保存到 fig/<parent_name>/comparison/ 目录"""
+    parent_dir = Path(parent_dir)
+    parts = parent_dir.parts
+    if 'marvin_sim' in parts:
+        idx = parts.index('marvin_sim')
+        fig_base = Path(*parts[:idx + 1]) / 'fig'
+    else:
+        fig_base = parent_dir.parent / 'fig'
+    fig_dir = fig_base / parent_dir.name / 'comparison'
+    fig_dir.mkdir(parents=True, exist_ok=True)
+    save_path = fig_dir / f"{plot_name}.png"
+    fig.savefig(save_path, dpi=200)
+    print(f"Comparison plot saved to: {save_path}")
+    return save_path
+
+
+def plot_comparison(all_data, parent_dir, config=None, show=False):
+    """
+    绘制多积分器对比图：能量漂移、时间步长、末端位置 Z 分量。
+    风格与 vi_compare_sim.py 保持一致。
+
+    参数：
+        all_data: dict {subfolder_name: data_dict}
+        parent_dir: Path，CSV 数据的父目录（用于推断保存路径）
+        config: 绘图配置字典（xlim/ylim 等）
+        show: 是否调用 plt.show()
+    """
+    # *** 重要：rcParams 必须在创建 figure 之前设置 ***
+    _init_comparison_style()
+    
+    if not all_data:
+        return
+    if config is None:
+        config = {}
+    cfg_de = config.get('delta_energy', {}) or {}
+    cfg_ee = config.get('end_effector_position', {}) or {}
+
+    # 绘图顺序：预设顺序优先，其余按名称排序追加
+    ordered = [k for k in _SUBFOLDER_ORDER if k in all_data]
+    for k in sorted(all_data):
+        if k not in ordered:
+            ordered.append(k)
+
+    def _style(name):
+        return _COMP_STYLE.get(name, {
+            'color': None, 'linestyle': '-', 'linewidth': 1.5, 'label': name
+        })
+
+    # ---- 1. 能量漂移对比 ----
+    fig1, ax1 = plt.subplots(figsize=(10, 5))
+    plotted = False
+    for name in ordered:
+        d = all_data[name]
+        if 'delta_energy' not in d or 'time' not in d:
+            continue
+        s = _style(name)
+        ax1.plot(d['time'], d['delta_energy'],
+                 label=f'ΔEnergy of {s["label"]}',
+                 color=s['color'], linestyle=s['linestyle'], linewidth=s['linewidth'])
+        plotted = True
+    if plotted:
+        ax1.ticklabel_format(style='sci', scilimits=(0, 0), axis='y', useMathText=True)
+        ax1.set_xlabel('Time [s]')
+        ax1.set_ylabel('Energy [J]')
+        ax1.set_title('Energy Evolution')
+        ax1.legend(loc='upper left')
+        ax1.grid(True, alpha=0.3)
+        ax1.set_xlim([0, 20])
+        # ax1.set_xlim([0, 40])
+        if cfg_de.get('ylim'):
+            ax1.set_ylim(cfg_de['ylim'])
+        # fig1.subplots_adjust(left=0.11, right=0.98, top=0.9, bottom=0.15)
+        fig1.subplots_adjust(left=0.14, right=0.96, top=0.9, bottom=0.15)
+        _save_comparison_fig(fig1, parent_dir, 'energy_comparison')
+        if show:
+            plt.show()
+    plt.close(fig1)
+
+    # ---- 2. 时间步长对比 ----
+    fig2, ax2 = plt.subplots(figsize=(10, 5))
+    plotted = False
+    for name in ordered:
+        d = all_data[name]
+        if 'h_history' not in d or 'time' not in d:
+            continue
+        s = _style(name)
+        ax2.plot(d['time'], d['h_history'],
+                 label=f'Time Step of {s["label"]}',
+                 color=s['color'], linestyle=s['linestyle'], linewidth=s['linewidth'])
+        plotted = True
+    if plotted:
+        ax2.ticklabel_format(style='sci', scilimits=(0, 0), axis='y', useMathText=True)
+        ax2.set_xlabel('Time [s]')
+        ax2.set_ylabel('Step [s]')
+        ax2.set_title('Adaptive Time Step')
+        ax2.legend()
+        ax2.grid(True, alpha=0.3)
+        ax2.set_xlim([0, 20])
+        # ax2.set_xlim([0, 40])
+        # fig2.subplots_adjust(left=0.11, right=0.98, top=0.9, bottom=0.15)
+        fig2.subplots_adjust(left=0.14, right=0.96, top=0.9, bottom=0.15)
+        _save_comparison_fig(fig2, parent_dir, 'step_comparison')
+        if show:
+            plt.show()
+    plt.close(fig2)
+
+    # ---- 3. 末端位置 Z 分量对比 ----
+    fig3, ax3 = plt.subplots(figsize=(10, 5))
+    plotted = False
+    for name in ordered:
+        d = all_data[name]
+        if 'ee' not in d or 'time' not in d:
+            continue
+        ee = d['ee']
+        if ee.ndim < 2 or ee.shape[1] < 3:
+            continue
+        s = _style(name)
+        ax3.plot(d['time'], ee[:, 2],
+                 label=f'Position Z of {s["label"]}',
+                 color=s['color'], linestyle=s['linestyle'], linewidth=s['linewidth'])
+        plotted = True
+    if plotted:
+        ax3.ticklabel_format(style='sci', scilimits=(0, 0), axis='y', useMathText=True)
+        ax3.set_xlabel('Time [s]')
+        ax3.set_ylabel('Position [m]')
+        ax3.set_title('Tip Position')
+        ax3.legend(loc='upper left')
+        ax3.grid(True, alpha=0.3)
+        ax3.set_xlim([0, 20])
+        # ax3.set_xlim([0, 40])
+        if cfg_ee.get('ylim'):
+            ax3.set_ylim(cfg_ee['ylim'])
+        # fig3.subplots_adjust(left=0.11, right=0.98, top=0.9, bottom=0.15)
+        fig3.subplots_adjust(left=0.14, right=0.96, top=0.9, bottom=0.15)
+        _save_comparison_fig(fig3, parent_dir, 'position_comparison')
+        if show:
+            plt.show()
+    plt.close(fig3)
+
+    # ---- 4. 系统总动量 Z 分量对比 ----
+    fig4, ax4 = plt.subplots(figsize=(10, 5))
+    plotted = False
+    for name in ordered:
+        d = all_data[name]
+        clm = d.get('centroidal_lin_momentum')
+        if clm is None or 'time' not in d:
+            continue
+        if clm.ndim < 2 or clm.shape[1] < 3:
+            continue
+        s = _style(name)
+        t = d['time'][:len(clm)]
+        ax4.plot(t, clm[:, 2],
+                 label=f'Momentum Z of {s["label"]}',
+                 color=s['color'], linestyle=s['linestyle'], linewidth=s['linewidth'])
+        plotted = True
+    if plotted:
+        ax4.ticklabel_format(style='sci', scilimits=(0, 0), axis='y', useMathText=True)
+        ax4.set_xlabel('Time [s]')
+        ax4.set_ylabel('Momentum [kg·m/s]')
+        ax4.set_title('System Linear Momentum')
+        ax4.legend(loc='upper left')
+        ax4.grid(True, alpha=0.3)
+        ax4.set_xlim([0, 20])
+        # ax4.set_xlim([0, 40])
+        # fig4.subplots_adjust(left=0.11, right=0.98, top=0.9, bottom=0.15)
+        fig4.subplots_adjust(left=0.14, right=0.96, top=0.9, bottom=0.15)
+        _save_comparison_fig(fig4, parent_dir, 'momentum_z_comparison')
+        if show:
+            plt.show()
+    plt.close(fig4)
+
+
 def plot_results(data, config=None):
     """绘制仿真结果
     
@@ -212,6 +417,18 @@ def plot_results(data, config=None):
     """
     if config is None:
         config = {}
+    
+    # 应用统一样式
+    plt.rcParams.update({
+        'font.family': 'DejaVu Sans',
+        'axes.titlesize': 20,
+        'axes.titleweight': 'bold',
+        'axes.labelsize': 18,
+        'legend.fontsize': 18,
+        'xtick.labelsize': 18,
+        'ytick.labelsize': 18,
+        'legend.frameon': True,
+    })
     
     time = data.get('time', np.arange(len(data.get('energy', []))))
     
@@ -441,6 +658,7 @@ def main():
         parent_dir_name = csv_path.name
         print(f"Parent directory: {parent_dir_name}")
         
+        all_data = {}
         success_count = 0
         for subfolder in sorted(subfolders):
             subfolder_name = subfolder.name
@@ -451,6 +669,7 @@ def main():
                 print(f"  Warning: No CSV files found in {subfolder}, skipping...")
                 continue
             
+            all_data[subfolder_name] = data
             print_summary(data, subfolder, subfolder_name)
             fig = plot_results(data, config)
             _save_plot(fig, subfolder, args.save_plot, subfolder_name, parent_dir_name)
@@ -460,7 +679,12 @@ def main():
             
             plt.close(fig)
             success_count += 1
-        
+
+        # 绘制多积分器对比图
+        if all_data:
+            print(f"\nGenerating comparison plots...")
+            plot_comparison(all_data, csv_path, config, show=args.plot)
+
         print(f"\n{'='*60}")
         print(f"Completed: {success_count}/{len(subfolders)} subfolders processed successfully")
         print(f"{'='*60}\n")
@@ -531,7 +755,7 @@ def _save_plot(fig, csv_dir, custom_save_path, subfolder_name=None, parent_name=
     
     # 保存图表
     save_path.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(save_path, dpi=150, bbox_inches='tight')
+    fig.savefig(save_path, dpi=200, bbox_inches='tight')
     print(f"Plot saved to: {save_path}")
 
 if __name__ == '__main__':

@@ -1,0 +1,68 @@
+[0.006s] Invoking command in '/home/user/ros2_ws/dynamic_ws/build/marvin_sim': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/marvin_sim -- -j32 -l32
+[0.054s] [ 16%] Building CXX object CMakeFiles/ctsvi_node.dir/src/ctsvi_node.cpp.o
+[0.054s] [ 50%] Building CXX object CMakeFiles/atsvi_node.dir/src/atsvi_node.cpp.o
+[0.054s] [ 50%] Building CXX object CMakeFiles/c_atsvi_node.dir/src/c_atsvi_node.cpp.o
+[4.945s] /home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/c_atsvi_node.cpp: In function ‘std::pair<Eigen::Matrix<double, -1, 1>, SolverInfo> solve_q_next(const ModelAD&, DataAD&, const Vec&, const Vec&, const Vec&, double, double, int, double)’:
+[4.945s] /home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/c_atsvi_node.cpp:269:48: warning: unused parameter ‘h_prev’ [-Wunused-parameter]
+[4.945s]   269 |                                         double h_prev,    // q_prev→q_curr 区间的步长
+[4.945s]       |                                         ~~~~~~~^~~~~~
+[4.998s] /home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/c_atsvi_node.cpp: In function ‘int main(int, char**)’:
+[4.998s] /home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/c_atsvi_node.cpp:534:12: warning: variable ‘E_prev’ set but not used [-Wunused-but-set-variable]
+[4.998s]   534 |     double E_prev = E_curr;  // 用于 force-off 之后的重置
+[4.998s]       |            ^~~~~~
+[72.702s] [ 66%] Linking CXX executable c_atsvi_node
+[72.860s] [ 66%] Built target c_atsvi_node
+[75.884s] [ 83%] Linking CXX executable ctsvi_node
+[76.041s] [ 83%] Built target ctsvi_node
+[105.452s] [100%] Linking CXX executable atsvi_node
+[105.596s] [100%] Built target atsvi_node
+[105.604s] Invoked command in '/home/user/ros2_ws/dynamic_ws/build/marvin_sim' returned '0': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/marvin_sim -- -j32 -l32
+[105.609s] Invoking command in '/home/user/ros2_ws/dynamic_ws/build/marvin_sim': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --install /home/user/ros2_ws/dynamic_ws/build/marvin_sim
+[105.614s] -- Install configuration: "Release"
+[105.614s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/launch
+[105.614s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/launch/replay_rviz.launch.py
+[105.614s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/launch/sim_rviz.launch.py
+[105.614s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/launch/display.launch.py
+[105.614s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/urdf
+[105.614s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/urdf/7_pendulum.urdf
+[105.614s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/urdf/marvin_body.urdf
+[105.614s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/urdf/marvin.urdf
+[105.615s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes
+[105.615s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link3_L.STL
+[105.615s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link2_L.STL
+[105.615s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link1_L.STL
+[105.615s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link7_L.STL
+[105.615s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link6_L.STL
+[105.615s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Base_L.STL
+[105.615s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link5_L.STL
+[105.615s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/meshes/Link4_L.STL
+[105.615s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/config
+[105.615s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/config/plot_config.yaml
+[105.615s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/config/vi_params.yaml
+[105.615s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/vi_sim.py
+[105.615s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/analyze_vi_results.py
+[105.616s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/replay_rviz.py
+[105.616s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/tune_c_atsvi.py
+[105.616s] -- Installing: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/ctsvi_node
+[105.616s] -- Set runtime path of "/home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/ctsvi_node" to ""
+[105.616s] -- Installing: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/atsvi_node
+[105.636s] -- Set runtime path of "/home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/atsvi_node" to ""
+[105.636s] -- Installing: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/c_atsvi_node
+[105.637s] -- Set runtime path of "/home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/marvin_sim/c_atsvi_node" to ""
+[105.637s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/ament_index/resource_index/package_run_dependencies/marvin_sim
+[105.637s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/ament_index/resource_index/parent_prefix_path/marvin_sim
+[105.637s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/environment/ament_prefix_path.sh
+[105.637s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/environment/ament_prefix_path.dsv
+[105.637s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/environment/path.sh
+[105.637s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/environment/path.dsv
+[105.637s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/local_setup.bash
+[105.637s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/local_setup.sh
+[105.637s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/local_setup.zsh
+[105.637s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/local_setup.dsv
+[105.638s] -- Installing: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/package.dsv
+[105.638s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/ament_index/resource_index/packages/marvin_sim
+[105.638s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/cmake/ament_cmake_export_dependencies-extras.cmake
+[105.638s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/cmake/marvin_simConfig.cmake
+[105.638s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/cmake/marvin_simConfig-version.cmake
+[105.638s] -- Up-to-date: /home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/package.xml
+[105.639s] Invoked command in '/home/user/ros2_ws/dynamic_ws/build/marvin_sim' returned '0': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --install /home/user/ros2_ws/dynamic_ws/build/marvin_sim

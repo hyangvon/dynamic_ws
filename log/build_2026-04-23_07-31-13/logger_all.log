@@ -1,0 +1,588 @@
+[0.085s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.085s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=32, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7f0728f3bc10>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f07290e8fd0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f07290e8fd0>>)
+[0.665s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.666s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.666s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.666s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.666s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.666s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.666s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/user/ros2_ws/dynamic_ws'
+[0.666s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.666s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.666s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.666s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.666s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.666s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.666s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.666s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.666s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.674s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src/marvin_sim) by extensions ['ignore', 'ignore_ament_install']
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(src/marvin_sim) by extension 'ignore'
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(src/marvin_sim) by extension 'ignore_ament_install'
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(src/marvin_sim) by extensions ['colcon_pkg']
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(src/marvin_sim) by extension 'colcon_pkg'
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(src/marvin_sim) by extensions ['colcon_meta']
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(src/marvin_sim) by extension 'colcon_meta'
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(src/marvin_sim) by extensions ['ros']
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(src/marvin_sim) by extension 'ros'
+[0.681s] DEBUG:colcon.colcon_core.package_identification:Package 'src/marvin_sim' with type 'ros.ament_cmake' and name 'marvin_sim'
+[0.681s] Level 1:colcon.colcon_core.package_identification:_identify(src/show_urdf) by extensions ['ignore', 'ignore_ament_install']
+[0.681s] Level 1:colcon.colcon_core.package_identification:_identify(src/show_urdf) by extension 'ignore'
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(src/show_urdf) by extension 'ignore_ament_install'
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(src/show_urdf) by extensions ['colcon_pkg']
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(src/show_urdf) by extension 'colcon_pkg'
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(src/show_urdf) by extensions ['colcon_meta']
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(src/show_urdf) by extension 'colcon_meta'
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(src/show_urdf) by extensions ['ros']
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(src/show_urdf) by extension 'ros'
+[0.682s] DEBUG:colcon.colcon_core.package_identification:Package 'src/show_urdf' with type 'ros.ament_cmake' and name 'show_urdf'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(src/vi) by extensions ['ignore', 'ignore_ament_install']
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(src/vi) by extension 'ignore'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(src/vi) by extension 'ignore_ament_install'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(src/vi) by extensions ['colcon_pkg']
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(src/vi) by extension 'colcon_pkg'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(src/vi) by extensions ['colcon_meta']
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(src/vi) by extension 'colcon_meta'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(src/vi) by extensions ['ros']
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(src/vi) by extension 'ros'
+[0.683s] DEBUG:colcon.colcon_core.package_identification:Package 'src/vi' with type 'ros.ament_cmake' and name 'vi'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(src/vi_2p) by extensions ['ignore', 'ignore_ament_install']
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(src/vi_2p) by extension 'ignore'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(src/vi_2p) by extension 'ignore_ament_install'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(src/vi_2p) by extensions ['colcon_pkg']
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(src/vi_2p) by extension 'colcon_pkg'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(src/vi_2p) by extensions ['colcon_meta']
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(src/vi_2p) by extension 'colcon_meta'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(src/vi_2p) by extensions ['ros']
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(src/vi_2p) by extension 'ros'
+[0.684s] DEBUG:colcon.colcon_core.package_identification:Package 'src/vi_2p' with type 'ros.ament_cmake' and name 'vi_2p'
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_force_sim) by extensions ['ignore', 'ignore_ament_install']
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_force_sim) by extension 'ignore'
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_force_sim) by extension 'ignore_ament_install'
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_force_sim) by extensions ['colcon_pkg']
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_force_sim) by extension 'colcon_pkg'
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_force_sim) by extensions ['colcon_meta']
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_force_sim) by extension 'colcon_meta'
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_force_sim) by extensions ['ros']
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_force_sim) by extension 'ros'
+[0.684s] DEBUG:colcon.colcon_core.package_identification:Package 'src/w10_force_sim' with type 'ros.ament_cmake' and name 'w10_force_sim'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_kinematics) by extensions ['ignore', 'ignore_ament_install']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_kinematics) by extension 'ignore'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_kinematics) by extension 'ignore_ament_install'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_kinematics) by extensions ['colcon_pkg']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_kinematics) by extension 'colcon_pkg'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_kinematics) by extensions ['colcon_meta']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_kinematics) by extension 'colcon_meta'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_kinematics) by extensions ['ros']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_kinematics) by extension 'ros'
+[0.685s] DEBUG:colcon.colcon_core.package_identification:Package 'src/w10_kinematics' with type 'ros.ament_cmake' and name 'w10_kinematics'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_moveit_kinematics) by extensions ['ignore', 'ignore_ament_install']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_moveit_kinematics) by extension 'ignore'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_moveit_kinematics) by extension 'ignore_ament_install'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_moveit_kinematics) by extensions ['colcon_pkg']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_moveit_kinematics) by extension 'colcon_pkg'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_moveit_kinematics) by extensions ['colcon_meta']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_moveit_kinematics) by extension 'colcon_meta'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_moveit_kinematics) by extensions ['ros']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_moveit_kinematics) by extension 'ros'
+[0.686s] DEBUG:colcon.colcon_core.package_identification:Package 'src/w10_moveit_kinematics' with type 'ros.ament_cmake' and name 'w10_moveit_kinematics'
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_sim) by extensions ['ignore', 'ignore_ament_install']
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_sim) by extension 'ignore'
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_sim) by extension 'ignore_ament_install'
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_sim) by extensions ['colcon_pkg']
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_sim) by extension 'colcon_pkg'
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_sim) by extensions ['colcon_meta']
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_sim) by extension 'colcon_meta'
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_sim) by extensions ['ros']
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(src/w10_sim) by extension 'ros'
+[0.686s] DEBUG:colcon.colcon_core.package_identification:Package 'src/w10_sim' with type 'ros.ament_cmake' and name 'w10_sim'
+[0.686s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.687s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.687s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.687s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.687s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.706s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.706s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.709s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 8 installed packages in /home/user/ros2_ws/dynamic_ws/install
+[0.709s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 4 installed packages in /home/user/ros2_ws/w10_ws/install
+[0.710s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 320 installed packages in /opt/ros/humble
+[0.710s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'marvin_sim' build argument 'cmake_args' from command line to 'None'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'marvin_sim' build argument 'cmake_target' from command line to 'None'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'marvin_sim' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'marvin_sim' build argument 'cmake_clean_cache' from command line to 'False'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'marvin_sim' build argument 'cmake_clean_first' from command line to 'False'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'marvin_sim' build argument 'cmake_force_configure' from command line to 'False'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'marvin_sim' build argument 'ament_cmake_args' from command line to 'None'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'marvin_sim' build argument 'catkin_cmake_args' from command line to 'None'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'marvin_sim' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.759s] DEBUG:colcon.colcon_core.verb:Building package 'marvin_sim' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/user/ros2_ws/dynamic_ws/build/marvin_sim', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/user/ros2_ws/dynamic_ws/install/marvin_sim', 'merge_install': False, 'path': '/home/user/ros2_ws/dynamic_ws/src/marvin_sim', 'symlink_install': False, 'test_result_base': None}
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'show_urdf' build argument 'cmake_args' from command line to 'None'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'show_urdf' build argument 'cmake_target' from command line to 'None'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'show_urdf' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'show_urdf' build argument 'cmake_clean_cache' from command line to 'False'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'show_urdf' build argument 'cmake_clean_first' from command line to 'False'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'show_urdf' build argument 'cmake_force_configure' from command line to 'False'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'show_urdf' build argument 'ament_cmake_args' from command line to 'None'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'show_urdf' build argument 'catkin_cmake_args' from command line to 'None'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'show_urdf' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.759s] DEBUG:colcon.colcon_core.verb:Building package 'show_urdf' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/user/ros2_ws/dynamic_ws/build/show_urdf', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/user/ros2_ws/dynamic_ws/install/show_urdf', 'merge_install': False, 'path': '/home/user/ros2_ws/dynamic_ws/src/show_urdf', 'symlink_install': False, 'test_result_base': None}
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'vi' build argument 'cmake_args' from command line to 'None'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'vi' build argument 'cmake_target' from command line to 'None'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'vi' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'vi' build argument 'cmake_clean_cache' from command line to 'False'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'vi' build argument 'cmake_clean_first' from command line to 'False'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'vi' build argument 'cmake_force_configure' from command line to 'False'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'vi' build argument 'ament_cmake_args' from command line to 'None'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'vi' build argument 'catkin_cmake_args' from command line to 'None'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'vi' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.759s] DEBUG:colcon.colcon_core.verb:Building package 'vi' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/user/ros2_ws/dynamic_ws/build/vi', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/user/ros2_ws/dynamic_ws/install/vi', 'merge_install': False, 'path': '/home/user/ros2_ws/dynamic_ws/src/vi', 'symlink_install': False, 'test_result_base': None}
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'vi_2p' build argument 'cmake_args' from command line to 'None'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'vi_2p' build argument 'cmake_target' from command line to 'None'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'vi_2p' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'vi_2p' build argument 'cmake_clean_cache' from command line to 'False'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'vi_2p' build argument 'cmake_clean_first' from command line to 'False'
+[0.759s] Level 5:colcon.colcon_core.verb:set package 'vi_2p' build argument 'cmake_force_configure' from command line to 'False'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'vi_2p' build argument 'ament_cmake_args' from command line to 'None'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'vi_2p' build argument 'catkin_cmake_args' from command line to 'None'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'vi_2p' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.760s] DEBUG:colcon.colcon_core.verb:Building package 'vi_2p' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/user/ros2_ws/dynamic_ws/build/vi_2p', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/user/ros2_ws/dynamic_ws/install/vi_2p', 'merge_install': False, 'path': '/home/user/ros2_ws/dynamic_ws/src/vi_2p', 'symlink_install': False, 'test_result_base': None}
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_force_sim' build argument 'cmake_args' from command line to 'None'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_force_sim' build argument 'cmake_target' from command line to 'None'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_force_sim' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_force_sim' build argument 'cmake_clean_cache' from command line to 'False'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_force_sim' build argument 'cmake_clean_first' from command line to 'False'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_force_sim' build argument 'cmake_force_configure' from command line to 'False'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_force_sim' build argument 'ament_cmake_args' from command line to 'None'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_force_sim' build argument 'catkin_cmake_args' from command line to 'None'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_force_sim' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.760s] DEBUG:colcon.colcon_core.verb:Building package 'w10_force_sim' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/user/ros2_ws/dynamic_ws/build/w10_force_sim', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim', 'merge_install': False, 'path': '/home/user/ros2_ws/dynamic_ws/src/w10_force_sim', 'symlink_install': False, 'test_result_base': None}
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_sim' build argument 'cmake_args' from command line to 'None'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_sim' build argument 'cmake_target' from command line to 'None'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_sim' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_sim' build argument 'cmake_clean_cache' from command line to 'False'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_sim' build argument 'cmake_clean_first' from command line to 'False'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_sim' build argument 'cmake_force_configure' from command line to 'False'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_sim' build argument 'ament_cmake_args' from command line to 'None'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_sim' build argument 'catkin_cmake_args' from command line to 'None'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_sim' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.760s] DEBUG:colcon.colcon_core.verb:Building package 'w10_sim' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/user/ros2_ws/dynamic_ws/build/w10_sim', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/user/ros2_ws/dynamic_ws/install/w10_sim', 'merge_install': False, 'path': '/home/user/ros2_ws/dynamic_ws/src/w10_sim', 'symlink_install': False, 'test_result_base': None}
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_kinematics' build argument 'cmake_args' from command line to 'None'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_kinematics' build argument 'cmake_target' from command line to 'None'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_kinematics' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_kinematics' build argument 'cmake_clean_cache' from command line to 'False'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_kinematics' build argument 'cmake_clean_first' from command line to 'False'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_kinematics' build argument 'cmake_force_configure' from command line to 'False'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_kinematics' build argument 'ament_cmake_args' from command line to 'None'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_kinematics' build argument 'catkin_cmake_args' from command line to 'None'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_kinematics' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.760s] DEBUG:colcon.colcon_core.verb:Building package 'w10_kinematics' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/user/ros2_ws/dynamic_ws/build/w10_kinematics', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics', 'merge_install': False, 'path': '/home/user/ros2_ws/dynamic_ws/src/w10_kinematics', 'symlink_install': False, 'test_result_base': None}
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_moveit_kinematics' build argument 'cmake_args' from command line to 'None'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_moveit_kinematics' build argument 'cmake_target' from command line to 'None'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_moveit_kinematics' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_moveit_kinematics' build argument 'cmake_clean_cache' from command line to 'False'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_moveit_kinematics' build argument 'cmake_clean_first' from command line to 'False'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_moveit_kinematics' build argument 'cmake_force_configure' from command line to 'False'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_moveit_kinematics' build argument 'ament_cmake_args' from command line to 'None'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_moveit_kinematics' build argument 'catkin_cmake_args' from command line to 'None'
+[0.760s] Level 5:colcon.colcon_core.verb:set package 'w10_moveit_kinematics' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.760s] DEBUG:colcon.colcon_core.verb:Building package 'w10_moveit_kinematics' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/user/ros2_ws/dynamic_ws/build/w10_moveit_kinematics', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics', 'merge_install': False, 'path': '/home/user/ros2_ws/dynamic_ws/src/w10_moveit_kinematics', 'symlink_install': False, 'test_result_base': None}
+[0.761s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.761s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.761s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/user/ros2_ws/dynamic_ws/src/w10_sim' with build type 'ament_cmake'
+[0.761s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/user/ros2_ws/dynamic_ws/src/w10_sim'
+[0.763s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.764s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.764s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.766s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/user/ros2_ws/dynamic_ws/src/marvin_sim' with build type 'ament_cmake'
+[0.766s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/user/ros2_ws/dynamic_ws/src/marvin_sim'
+[0.766s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.766s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.768s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/user/ros2_ws/dynamic_ws/src/show_urdf' with build type 'ament_cmake'
+[0.768s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/user/ros2_ws/dynamic_ws/src/show_urdf'
+[0.768s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.768s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.770s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/user/ros2_ws/dynamic_ws/src/vi' with build type 'ament_cmake'
+[0.770s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/user/ros2_ws/dynamic_ws/src/vi'
+[0.770s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.770s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.772s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/user/ros2_ws/dynamic_ws/src/vi_2p' with build type 'ament_cmake'
+[0.772s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/user/ros2_ws/dynamic_ws/src/vi_2p'
+[0.772s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.772s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.774s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/user/ros2_ws/dynamic_ws/src/w10_force_sim' with build type 'ament_cmake'
+[0.774s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/user/ros2_ws/dynamic_ws/src/w10_force_sim'
+[0.774s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.774s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.779s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/user/ros2_ws/dynamic_ws/build/w10_sim': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/w10_sim -- -j32 -l32
+[0.780s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/user/ros2_ws/dynamic_ws/build/marvin_sim': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/marvin_sim -- -j32 -l32
+[0.781s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/user/ros2_ws/dynamic_ws/build/show_urdf': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/show_urdf -- -j32 -l32
+[0.784s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/user/ros2_ws/dynamic_ws/build/vi': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/vi -- -j32 -l32
+[0.785s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/user/ros2_ws/dynamic_ws/build/vi_2p': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/vi_2p -- -j32 -l32
+[0.787s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/user/ros2_ws/dynamic_ws/build/w10_force_sim': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/w10_force_sim -- -j32 -l32
+[0.808s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/user/ros2_ws/dynamic_ws/build/show_urdf' returned '0': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/show_urdf -- -j32 -l32
+[0.821s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/user/ros2_ws/dynamic_ws/build/show_urdf': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --install /home/user/ros2_ws/dynamic_ws/build/show_urdf
+[0.825s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(show_urdf)
+[0.826s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/user/ros2_ws/dynamic_ws/build/show_urdf' returned '0': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --install /home/user/ros2_ws/dynamic_ws/build/show_urdf
+[0.829s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/show_urdf' for CMake module files
+[0.829s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/show_urdf' for CMake config files
+[0.829s] Level 1:colcon.colcon_core.shell:create_environment_hook('show_urdf', 'cmake_prefix_path')
+[0.829s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/hook/cmake_prefix_path.ps1'
+[0.830s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/hook/cmake_prefix_path.dsv'
+[0.830s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/hook/cmake_prefix_path.sh'
+[0.830s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/show_urdf/bin'
+[0.830s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/show_urdf/lib/pkgconfig/show_urdf.pc'
+[0.830s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/show_urdf/lib/python3.10/site-packages'
+[0.831s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/show_urdf/bin'
+[0.831s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/package.ps1'
+[0.831s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/package.dsv'
+[0.832s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/package.sh'
+[0.832s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/package.bash'
+[0.833s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/package.zsh'
+[0.833s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/user/ros2_ws/dynamic_ws/install/show_urdf/share/colcon-core/packages/show_urdf)
+[0.833s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(show_urdf)
+[0.833s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/show_urdf' for CMake module files
+[0.834s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/show_urdf' for CMake config files
+[0.834s] Level 1:colcon.colcon_core.shell:create_environment_hook('show_urdf', 'cmake_prefix_path')
+[0.834s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/hook/cmake_prefix_path.ps1'
+[0.834s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/hook/cmake_prefix_path.dsv'
+[0.834s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/hook/cmake_prefix_path.sh'
+[0.835s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/show_urdf/bin'
+[0.835s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/show_urdf/lib/pkgconfig/show_urdf.pc'
+[0.835s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/show_urdf/lib/python3.10/site-packages'
+[0.835s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/show_urdf/bin'
+[0.835s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/package.ps1'
+[0.835s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/package.dsv'
+[0.835s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/package.sh'
+[0.835s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/package.bash'
+[0.836s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/show_urdf/share/show_urdf/package.zsh'
+[0.836s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/user/ros2_ws/dynamic_ws/install/show_urdf/share/colcon-core/packages/show_urdf)
+[0.855s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/user/ros2_ws/dynamic_ws/build/vi' returned '0': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/vi -- -j32 -l32
+[0.856s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/user/ros2_ws/dynamic_ws/build/vi': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --install /home/user/ros2_ws/dynamic_ws/build/vi
+[0.857s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/user/ros2_ws/dynamic_ws/build/marvin_sim' returned '0': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/marvin_sim -- -j32 -l32
+[0.859s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/user/ros2_ws/dynamic_ws/build/marvin_sim': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --install /home/user/ros2_ws/dynamic_ws/build/marvin_sim
+[0.859s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/user/ros2_ws/dynamic_ws/build/vi_2p' returned '0': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/vi_2p -- -j32 -l32
+[0.860s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/user/ros2_ws/dynamic_ws/build/vi_2p': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --install /home/user/ros2_ws/dynamic_ws/build/vi_2p
+[0.860s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/user/ros2_ws/dynamic_ws/build/w10_force_sim' returned '0': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/w10_force_sim -- -j32 -l32
+[0.861s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/user/ros2_ws/dynamic_ws/build/w10_force_sim': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --install /home/user/ros2_ws/dynamic_ws/build/w10_force_sim
+[0.862s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/user/ros2_ws/dynamic_ws/build/w10_sim' returned '0': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/w10_sim -- -j32 -l32
+[0.863s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(vi)
+[0.863s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi' for CMake module files
+[0.864s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/user/ros2_ws/dynamic_ws/build/w10_sim': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --install /home/user/ros2_ws/dynamic_ws/build/w10_sim
+[0.865s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi' for CMake config files
+[0.865s] Level 1:colcon.colcon_core.shell:create_environment_hook('vi', 'cmake_prefix_path')
+[0.865s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/vi/share/vi/hook/cmake_prefix_path.ps1'
+[0.866s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_ws/dynamic_ws/install/vi/share/vi/hook/cmake_prefix_path.dsv'
+[0.867s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/vi/share/vi/hook/cmake_prefix_path.sh'
+[0.867s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/user/ros2_ws/dynamic_ws/build/vi' returned '0': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --install /home/user/ros2_ws/dynamic_ws/build/vi
+[0.868s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi/lib'
+[0.868s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi/bin'
+[0.868s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi/lib/pkgconfig/vi.pc'
+[0.868s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi/lib/python3.10/site-packages'
+[0.869s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi/bin'
+[0.869s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/vi/share/vi/package.ps1'
+[0.869s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/user/ros2_ws/dynamic_ws/install/vi/share/vi/package.dsv'
+[0.870s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/vi/share/vi/package.sh'
+[0.870s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/vi/share/vi/package.bash'
+[0.870s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/vi/share/vi/package.zsh'
+[0.870s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/user/ros2_ws/dynamic_ws/install/vi/share/colcon-core/packages/vi)
+[0.871s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(vi)
+[0.871s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi' for CMake module files
+[0.871s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi' for CMake config files
+[0.872s] Level 1:colcon.colcon_core.shell:create_environment_hook('vi', 'cmake_prefix_path')
+[0.872s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/vi/share/vi/hook/cmake_prefix_path.ps1'
+[0.872s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_ws/dynamic_ws/install/vi/share/vi/hook/cmake_prefix_path.dsv'
+[0.873s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/vi/share/vi/hook/cmake_prefix_path.sh'
+[0.873s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi/lib'
+[0.873s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi/bin'
+[0.874s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi/lib/pkgconfig/vi.pc'
+[0.874s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi/lib/python3.10/site-packages'
+[0.874s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi/bin'
+[0.874s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/vi/share/vi/package.ps1'
+[0.875s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/user/ros2_ws/dynamic_ws/install/vi/share/vi/package.dsv'
+[0.875s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/vi/share/vi/package.sh'
+[0.876s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/vi/share/vi/package.bash'
+[0.876s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/vi/share/vi/package.zsh'
+[0.877s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/user/ros2_ws/dynamic_ws/install/vi/share/colcon-core/packages/vi)
+[0.878s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(marvin_sim)
+[0.879s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/marvin_sim' for CMake module files
+[0.882s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/marvin_sim' for CMake config files
+[0.884s] Level 1:colcon.colcon_core.shell:create_environment_hook('marvin_sim', 'cmake_prefix_path')
+[0.884s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/hook/cmake_prefix_path.ps1'
+[0.884s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/hook/cmake_prefix_path.dsv'
+[0.885s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/hook/cmake_prefix_path.sh'
+[0.885s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib'
+[0.886s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/bin'
+[0.886s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/pkgconfig/marvin_sim.pc'
+[0.886s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/python3.10/site-packages'
+[0.886s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/bin'
+[0.886s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/package.ps1'
+[0.886s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/package.dsv'
+[0.887s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/package.sh'
+[0.887s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/package.bash'
+[0.887s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/package.zsh'
+[0.887s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/colcon-core/packages/marvin_sim)
+[0.888s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(marvin_sim)
+[0.888s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/marvin_sim' for CMake module files
+[0.889s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/marvin_sim' for CMake config files
+[0.889s] Level 1:colcon.colcon_core.shell:create_environment_hook('marvin_sim', 'cmake_prefix_path')
+[0.890s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/hook/cmake_prefix_path.ps1'
+[0.890s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/hook/cmake_prefix_path.dsv'
+[0.890s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/hook/cmake_prefix_path.sh'
+[0.890s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib'
+[0.891s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/bin'
+[0.891s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/pkgconfig/marvin_sim.pc'
+[0.891s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/lib/python3.10/site-packages'
+[0.891s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/bin'
+[0.891s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/package.ps1'
+[0.891s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/package.dsv'
+[0.892s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/user/ros2_ws/dynamic_ws/build/marvin_sim' returned '0': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --install /home/user/ros2_ws/dynamic_ws/build/marvin_sim
+[0.892s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/package.sh'
+[0.892s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/package.bash'
+[0.892s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/marvin_sim/package.zsh'
+[0.892s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/user/ros2_ws/dynamic_ws/install/marvin_sim/share/colcon-core/packages/marvin_sim)
+[0.892s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(w10_force_sim)
+[0.893s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim' for CMake module files
+[0.893s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/user/ros2_ws/dynamic_ws/build/w10_force_sim' returned '0': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --install /home/user/ros2_ws/dynamic_ws/build/w10_force_sim
+[0.893s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim' for CMake config files
+[0.894s] Level 1:colcon.colcon_core.shell:create_environment_hook('w10_force_sim', 'cmake_prefix_path')
+[0.894s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/hook/cmake_prefix_path.ps1'
+[0.894s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/hook/cmake_prefix_path.dsv'
+[0.894s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/hook/cmake_prefix_path.sh'
+[0.894s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/lib'
+[0.894s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/bin'
+[0.894s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/lib/pkgconfig/w10_force_sim.pc'
+[0.894s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/lib/python3.10/site-packages'
+[0.895s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/bin'
+[0.895s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/package.ps1'
+[0.895s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/package.dsv'
+[0.895s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/package.sh'
+[0.895s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/package.bash'
+[0.895s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/package.zsh'
+[0.896s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/colcon-core/packages/w10_force_sim)
+[0.896s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(w10_force_sim)
+[0.896s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim' for CMake module files
+[0.896s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim' for CMake config files
+[0.896s] Level 1:colcon.colcon_core.shell:create_environment_hook('w10_force_sim', 'cmake_prefix_path')
+[0.896s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/hook/cmake_prefix_path.ps1'
+[0.897s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/hook/cmake_prefix_path.dsv'
+[0.897s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/hook/cmake_prefix_path.sh'
+[0.897s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/lib'
+[0.897s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/bin'
+[0.897s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/lib/pkgconfig/w10_force_sim.pc'
+[0.897s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/lib/python3.10/site-packages'
+[0.897s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/bin'
+[0.897s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/package.ps1'
+[0.898s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/package.dsv'
+[0.898s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/package.sh'
+[0.898s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/package.bash'
+[0.898s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/w10_force_sim/package.zsh'
+[0.899s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/user/ros2_ws/dynamic_ws/install/w10_force_sim/share/colcon-core/packages/w10_force_sim)
+[0.899s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(vi_2p)
+[0.899s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi_2p' for CMake module files
+[0.899s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/user/ros2_ws/dynamic_ws/build/vi_2p' returned '0': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --install /home/user/ros2_ws/dynamic_ws/build/vi_2p
+[0.899s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi_2p' for CMake config files
+[0.900s] Level 1:colcon.colcon_core.shell:create_environment_hook('vi_2p', 'cmake_prefix_path')
+[0.900s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/hook/cmake_prefix_path.ps1'
+[0.900s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/hook/cmake_prefix_path.dsv'
+[0.900s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/hook/cmake_prefix_path.sh'
+[0.900s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi_2p/lib'
+[0.900s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi_2p/bin'
+[0.900s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi_2p/lib/pkgconfig/vi_2p.pc'
+[0.900s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi_2p/lib/python3.10/site-packages'
+[0.901s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi_2p/bin'
+[0.901s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/package.ps1'
+[0.901s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/package.dsv'
+[0.901s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/package.sh'
+[0.901s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/package.bash'
+[0.901s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/package.zsh'
+[0.902s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/user/ros2_ws/dynamic_ws/install/vi_2p/share/colcon-core/packages/vi_2p)
+[0.902s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(vi_2p)
+[0.902s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi_2p' for CMake module files
+[0.902s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi_2p' for CMake config files
+[0.902s] Level 1:colcon.colcon_core.shell:create_environment_hook('vi_2p', 'cmake_prefix_path')
+[0.902s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/hook/cmake_prefix_path.ps1'
+[0.902s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/hook/cmake_prefix_path.dsv'
+[0.903s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/hook/cmake_prefix_path.sh'
+[0.903s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi_2p/lib'
+[0.903s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi_2p/bin'
+[0.903s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi_2p/lib/pkgconfig/vi_2p.pc'
+[0.903s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi_2p/lib/python3.10/site-packages'
+[0.903s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/vi_2p/bin'
+[0.903s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/package.ps1'
+[0.904s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/package.dsv'
+[0.904s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/package.sh'
+[0.904s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/package.bash'
+[0.904s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/vi_2p/share/vi_2p/package.zsh'
+[0.904s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/user/ros2_ws/dynamic_ws/install/vi_2p/share/colcon-core/packages/vi_2p)
+[0.904s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(w10_sim)
+[0.905s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_sim' for CMake module files
+[0.905s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/user/ros2_ws/dynamic_ws/build/w10_sim' returned '0': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --install /home/user/ros2_ws/dynamic_ws/build/w10_sim
+[0.905s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_sim' for CMake config files
+[0.905s] Level 1:colcon.colcon_core.shell:create_environment_hook('w10_sim', 'cmake_prefix_path')
+[0.906s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/hook/cmake_prefix_path.ps1'
+[0.906s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/hook/cmake_prefix_path.dsv'
+[0.906s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/hook/cmake_prefix_path.sh'
+[0.906s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_sim/lib'
+[0.906s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_sim/bin'
+[0.906s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_sim/lib/pkgconfig/w10_sim.pc'
+[0.906s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_sim/lib/python3.10/site-packages'
+[0.906s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_sim/bin'
+[0.907s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/package.ps1'
+[0.907s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/package.dsv'
+[0.907s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/package.sh'
+[0.907s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/package.bash'
+[0.907s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/package.zsh'
+[0.907s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/user/ros2_ws/dynamic_ws/install/w10_sim/share/colcon-core/packages/w10_sim)
+[0.908s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(w10_sim)
+[0.908s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_sim' for CMake module files
+[0.908s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_sim' for CMake config files
+[0.909s] Level 1:colcon.colcon_core.shell:create_environment_hook('w10_sim', 'cmake_prefix_path')
+[0.909s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/hook/cmake_prefix_path.ps1'
+[0.909s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/hook/cmake_prefix_path.dsv'
+[0.910s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/hook/cmake_prefix_path.sh'
+[0.910s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_sim/lib'
+[0.910s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_sim/bin'
+[0.910s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_sim/lib/pkgconfig/w10_sim.pc'
+[0.910s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_sim/lib/python3.10/site-packages'
+[0.911s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_sim/bin'
+[0.911s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/package.ps1'
+[0.911s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/package.dsv'
+[0.912s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/package.sh'
+[0.912s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/package.bash'
+[0.912s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_sim/share/w10_sim/package.zsh'
+[0.912s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/user/ros2_ws/dynamic_ws/install/w10_sim/share/colcon-core/packages/w10_sim)
+[0.913s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/user/ros2_ws/dynamic_ws/src/w10_kinematics' with build type 'ament_cmake'
+[0.913s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/user/ros2_ws/dynamic_ws/src/w10_kinematics'
+[0.913s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.913s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.917s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/user/ros2_ws/dynamic_ws/src/w10_moveit_kinematics' with build type 'ament_cmake'
+[0.917s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/user/ros2_ws/dynamic_ws/src/w10_moveit_kinematics'
+[0.917s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.917s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.923s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/user/ros2_ws/dynamic_ws/build/w10_kinematics': CMAKE_PREFIX_PATH=/home/user/ros2_ws/dynamic_ws/install/w10_sim:/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/w10_kinematics -- -j32 -l32
+[0.925s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/user/ros2_ws/dynamic_ws/build/w10_moveit_kinematics': CMAKE_PREFIX_PATH=/home/user/ros2_ws/dynamic_ws/install/w10_sim:/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/w10_moveit_kinematics -- -j32 -l32
+[1.000s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/user/ros2_ws/dynamic_ws/build/w10_kinematics' returned '0': CMAKE_PREFIX_PATH=/home/user/ros2_ws/dynamic_ws/install/w10_sim:/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/w10_kinematics -- -j32 -l32
+[1.002s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/user/ros2_ws/dynamic_ws/build/w10_kinematics': CMAKE_PREFIX_PATH=/home/user/ros2_ws/dynamic_ws/install/w10_sim:/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots /usr/bin/cmake --install /home/user/ros2_ws/dynamic_ws/build/w10_kinematics
+[1.013s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(w10_kinematics)
+[1.013s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics' for CMake module files
+[1.013s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/user/ros2_ws/dynamic_ws/build/w10_kinematics' returned '0': CMAKE_PREFIX_PATH=/home/user/ros2_ws/dynamic_ws/install/w10_sim:/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots /usr/bin/cmake --install /home/user/ros2_ws/dynamic_ws/build/w10_kinematics
+[1.014s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics' for CMake config files
+[1.014s] Level 1:colcon.colcon_core.shell:create_environment_hook('w10_kinematics', 'cmake_prefix_path')
+[1.014s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/hook/cmake_prefix_path.ps1'
+[1.015s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/hook/cmake_prefix_path.dsv'
+[1.015s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/hook/cmake_prefix_path.sh'
+[1.015s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/lib'
+[1.015s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/bin'
+[1.015s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/lib/pkgconfig/w10_kinematics.pc'
+[1.015s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/lib/python3.10/site-packages'
+[1.015s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/bin'
+[1.016s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/package.ps1'
+[1.016s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/package.dsv'
+[1.016s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/package.sh'
+[1.016s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/package.bash'
+[1.016s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/package.zsh'
+[1.016s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/colcon-core/packages/w10_kinematics)
+[1.017s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(w10_kinematics)
+[1.017s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics' for CMake module files
+[1.017s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics' for CMake config files
+[1.017s] Level 1:colcon.colcon_core.shell:create_environment_hook('w10_kinematics', 'cmake_prefix_path')
+[1.017s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/hook/cmake_prefix_path.ps1'
+[1.017s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/hook/cmake_prefix_path.dsv'
+[1.017s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/hook/cmake_prefix_path.sh'
+[1.018s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/lib'
+[1.018s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/bin'
+[1.018s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/lib/pkgconfig/w10_kinematics.pc'
+[1.018s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/lib/python3.10/site-packages'
+[1.018s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/bin'
+[1.018s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/package.ps1'
+[1.018s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/package.dsv'
+[1.018s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/package.sh'
+[1.019s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/package.bash'
+[1.019s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/w10_kinematics/package.zsh'
+[1.019s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/user/ros2_ws/dynamic_ws/install/w10_kinematics/share/colcon-core/packages/w10_kinematics)
+[1.117s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/user/ros2_ws/dynamic_ws/build/w10_moveit_kinematics' returned '0': CMAKE_PREFIX_PATH=/home/user/ros2_ws/dynamic_ws/install/w10_sim:/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/w10_moveit_kinematics -- -j32 -l32
+[1.118s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/user/ros2_ws/dynamic_ws/build/w10_moveit_kinematics': CMAKE_PREFIX_PATH=/home/user/ros2_ws/dynamic_ws/install/w10_sim:/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots /usr/bin/cmake --install /home/user/ros2_ws/dynamic_ws/build/w10_moveit_kinematics
+[1.361s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(w10_moveit_kinematics)
+[1.361s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/user/ros2_ws/dynamic_ws/build/w10_moveit_kinematics' returned '0': CMAKE_PREFIX_PATH=/home/user/ros2_ws/dynamic_ws/install/w10_sim:/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots /usr/bin/cmake --install /home/user/ros2_ws/dynamic_ws/build/w10_moveit_kinematics
+[1.361s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics' for CMake module files
+[1.362s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics' for CMake config files
+[1.362s] Level 1:colcon.colcon_core.shell:create_environment_hook('w10_moveit_kinematics', 'cmake_prefix_path')
+[1.362s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/hook/cmake_prefix_path.ps1'
+[1.363s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/hook/cmake_prefix_path.dsv'
+[1.363s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/hook/cmake_prefix_path.sh'
+[1.363s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/lib'
+[1.363s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/bin'
+[1.364s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/lib/pkgconfig/w10_moveit_kinematics.pc'
+[1.364s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/lib/python3.10/site-packages'
+[1.364s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/bin'
+[1.364s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/package.ps1'
+[1.364s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/package.dsv'
+[1.365s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/package.sh'
+[1.365s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/package.bash'
+[1.365s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/package.zsh'
+[1.365s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/colcon-core/packages/w10_moveit_kinematics)
+[1.365s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(w10_moveit_kinematics)
+[1.365s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics' for CMake module files
+[1.366s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics' for CMake config files
+[1.366s] Level 1:colcon.colcon_core.shell:create_environment_hook('w10_moveit_kinematics', 'cmake_prefix_path')
+[1.366s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/hook/cmake_prefix_path.ps1'
+[1.366s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/hook/cmake_prefix_path.dsv'
+[1.366s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/hook/cmake_prefix_path.sh'
+[1.366s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/lib'
+[1.366s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/bin'
+[1.366s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/lib/pkgconfig/w10_moveit_kinematics.pc'
+[1.366s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/lib/python3.10/site-packages'
+[1.367s] Level 1:colcon.colcon_core.environment:checking '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/bin'
+[1.367s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/package.ps1'
+[1.367s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/package.dsv'
+[1.367s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/package.sh'
+[1.367s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/package.bash'
+[1.367s] INFO:colcon.colcon_core.shell:Creating package script '/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/w10_moveit_kinematics/package.zsh'
+[1.368s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics/share/colcon-core/packages/w10_moveit_kinematics)
+[1.368s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.368s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.368s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[1.368s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.381s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.381s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.382s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[1.389s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.389s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/user/ros2_ws/dynamic_ws/install/local_setup.ps1'
+[1.593s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/user/ros2_ws/dynamic_ws/install/_local_setup_util_ps1.py'
+[1.593s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/user/ros2_ws/dynamic_ws/install/setup.ps1'
+[1.597s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/user/ros2_ws/dynamic_ws/install/local_setup.sh'
+[1.598s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/user/ros2_ws/dynamic_ws/install/_local_setup_util_sh.py'
+[1.598s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/user/ros2_ws/dynamic_ws/install/setup.sh'
+[1.599s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/user/ros2_ws/dynamic_ws/install/local_setup.bash'
+[1.797s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/user/ros2_ws/dynamic_ws/install/setup.bash'
+[1.799s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/user/ros2_ws/dynamic_ws/install/local_setup.zsh'
+[1.802s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/user/ros2_ws/dynamic_ws/install/setup.zsh'

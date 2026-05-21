@@ -277,8 +277,8 @@ std::pair<Vec, SolverInfo> solve_q_next(const ModelAD &model_ad,
 
     for (int it = 0; it < max_iters; ++it)
     {
-        Vec D2 = D_2(model_ad, data_ad, q_prev, q_curr, h_prev);  // 用上一步的 h
-        // Vec D2 = D_2(model_ad, data_ad, q_prev, q_curr, h_curr);  // 用本步的 h
+        // Vec D2 = D_2(model_ad, data_ad, q_prev, q_curr, h_prev);  // 用上一步的 h
+        Vec D2 = D_2(model_ad, data_ad, q_prev, q_curr, h_curr);  // 用本步的 h
         Vec D1 = D_1(model_ad, data_ad, q_curr, q_next, h_curr);  // 用本步的 h
         Vec R = D2 + D1 - h_curr * tau_k;
         double normR = R.norm();
@@ -521,18 +521,20 @@ int main(int argc, char** argv)
     time_history.push_back(timestep);
     h_history.push_back(timestep);
 
-    // t=0: 单点公式 T0+U0（与 atsvi 一致，作为能量基线）
+    // t=0: 单点公式 T0+U0（仅用于 energy_history 记录，不作为控制器参考）
     Mat M0 = inertia_matrix(model, data, q_prev);
     double T0 = 0.5 * v_prev.dot(M0 * v_prev);
     double U0 = potential_energy(model, data, q_prev);
-    energy_history.push_back(T0 + U0);    // t=0 能量基线（单点公式）
+    double E_0 = T0 + U0;
+    energy_history.push_back(E_0);    // t=0 能量（单点公式）
     delta_energy_history.push_back(0.0);  // t=0 漂移 = 0（定义）
 
-    // t=h: 中点公式（与主循环一致），用作 Lyapunov 控制器的初始能量参考
+    // t=h: 中点公式（与主循环一致）
     double E_curr = discrete_energy_numeric(model, data, q_prev, q_curr, timestep);
-    double E_prev = E_curr;  // 增量式误差：上一步能量，每步滚动更新
+    double E_d    = E_curr;  // 以第一步离散能量（中点公式）为 Lyapunov 控制器参考基线
+    double E_prev = E_curr;  // 用于 force-off 之后的重置
     energy_history.push_back(E_curr);     // t=dt 能量（中点公式）
-    delta_energy_history.push_back(E_curr - energy_history.front());
+    delta_energy_history.push_back(0.0);  // t=h 漂移 = 0（E[1] 定义为新基准）
     auto [ee_pos1, _ee_rot1] = compute_end_effector_pose(model, data, link_tcp_id, q_curr);
     ee_history.push_back(ee_pos1);
 
@@ -580,6 +582,30 @@ int main(int argc, char** argv)
         // 本步实际使用的步长（solve_q_next 已使用 h_next，先保存再决定是否更新）
         double h_cur = h_next;
 
+        // 改进版
+        // if (force_active_now) {
+        //     // 固定步长段：外力期间 h_next 保持不变，不运行 Lyapunov
+        // } else {
+        //     // 变步长段：Lyapunov 步长控制
+        //     if (force_just_turned_off) {
+        //         // 外力刚结束：重置积分项，将当前步能量设为新基准
+        //         // 令 E_prev = E_curr，使第一个自由步 e_k = 0，平滑衔接
+        //         xi = 0.0;
+        //         E_prev = E_curr;
+        //         RCLCPP_INFO(node->get_logger(),
+        //             "Force OFF at t=%.4f: reset controller, E_base=%.6f", t_cur, E_curr);
+        //     }
+        //     double e_k = E_curr - E_prev;
+        //     xi += e_k;
+        //     double de_dh = compute_energy_gradient(model_ad, data_ad,
+        //         q_history[q_history.size()-1], q_next, h_next);
+        //     // 控制律: u = (de/dh)^+ * (-alpha * e - beta * xi)
+        //     double reg = 1e-8;
+        //     double u_k = (de_dh / (de_dh * de_dh + reg)) * (-alpha * e_k - beta * xi);
+        //     h_next = std::clamp(h_next + u_k, 1e-5, 0.05);
+        // }
+
+        // 原版逻辑
         if (force_active_now) {
             // 固定步长段：外力期间 h_next 保持不变，不运行 Lyapunov
         } else {
@@ -588,11 +614,12 @@ int main(int argc, char** argv)
                 // 外力刚结束：重置积分项，将当前步能量设为新基准
                 // 令 E_prev = E_curr，使第一个自由步 e_k = 0，平滑衔接
                 xi = 0.0;
-                E_prev = E_curr;
+                // E_prev = E_curr;
+                E_d = E_curr; // 以外力结束时的能量作为新的 Lyapunov 参考基线
                 RCLCPP_INFO(node->get_logger(),
                     "Force OFF at t=%.4f: reset controller, E_base=%.6f", t_cur, E_curr);
             }
-            double e_k = E_curr - E_prev;
+            double e_k = E_curr - E_d;
             xi += e_k;
             double de_dh = compute_energy_gradient(model_ad, data_ad,
                 q_history[q_history.size()-1], q_next, h_next);
@@ -609,8 +636,8 @@ int main(int argc, char** argv)
         ++step_count;
 
         energy_history.push_back(E_curr);
-        delta_energy_history.push_back(energy_history.back() - energy_history.front());
-        E_prev = E_curr;  // 滚动更新上一步能量
+        delta_energy_history.push_back(E_curr - E_0);  // 相对第一步离散能量的漂移
+        // E_prev = E_curr;  // 滚动更新上一步能量
 
         auto [ee_pos, ee_rot] = compute_end_effector_pose(model, data, link_tcp_id, q_next);
         ee_history.push_back(ee_pos);

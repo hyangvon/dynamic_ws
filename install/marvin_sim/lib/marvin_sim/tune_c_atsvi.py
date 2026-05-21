@@ -70,27 +70,54 @@ def get_csv_dir(q_init_0: float, dt: float, dur: float,
     return Path(f"src/marvin_sim/csv/{label}/c_atsvi")
 
 
-def compute_relative_drift(csv_dir: Path) -> float | None:
+def compute_drift_metrics(csv_dir: Path) -> tuple[float | None, float | None]:
     """
-    计算相对能量漂移（单位 %）。
-    = max|ΔE| / max|E| × 100，与 analyze_vi_results.py 中的定义一致。
-    失败或数据不足时返回 None。
+    计算施力后能量漂移指标，与 analyze_vi_results.py 的 Post-force Numerical Drift 逻辑一致。
+    返回 (max_drift%, std_dev%) 两个指标，失败时返回 (None, None)。
     """
     energy_file = csv_dir / "energy_history.csv"
     if not energy_file.exists():
-        return None
+        return None, None
     try:
         energy = np.loadtxt(energy_file)
         if energy.ndim == 0 or len(energy) < 2:
-            return None
-        delta = energy - energy[0]
-        max_drift = np.max(np.abs(delta))
+            return None, None
+        de = energy - energy[0]
         max_e = np.max(np.abs(energy))
         if max_e < 1e-15:
-            return None
-        return float(max_drift / max_e * 100.0)
+            return None, None
+
+        # --- 施力后数值漂移（与 analyze_vi_results.py 相同逻辑）---
+        ft_file = csv_dir / "force_torque_history.csv"
+        force_off_idx = None
+        if ft_file.exists():
+            ft_raw = np.loadtxt(ft_file, delimiter=',')
+            if ft_raw.ndim == 1:
+                ft_raw = ft_raw.reshape(-1, 1)
+            norms = np.linalg.norm(ft_raw, axis=1)
+            threshold = 1e-6 * (np.max(norms) if np.max(norms) > 0 else 1.0)
+            active = norms > threshold
+            if active.any():
+                last_active = int(np.where(active)[0][-1])
+                offset = len(de) - len(ft_raw)
+                force_off_idx = min(last_active + 1 + offset, len(de))
+
+        if force_off_idx is not None and force_off_idx < len(de) - 1:
+            post_de = de[force_off_idx:] - de[force_off_idx]
+        else:
+            post_de = de
+
+        max_drift = float(np.max(np.abs(post_de)) / max_e * 100.0)
+        std_dev   = float(np.std(post_de) / max_e * 100.0)
+        return max_drift, std_dev
     except Exception:
-        return None
+        return None, None
+
+
+def compute_relative_drift(csv_dir: Path) -> float | None:
+    """向后兼容包装，返回 max_drift%。"""
+    drift, _ = compute_drift_metrics(csv_dir)
+    return drift
 
 
 def run_simulation(alpha: float, beta: float,
@@ -164,12 +191,27 @@ def fmt_eta(n_total_run: int, n_done_run: int, elapsed_s: float) -> str:
     return f"{h:02d}h{m:02d}m{s:02d}s"
 
 
+def find_ctsvi_ref_dir(q_init_0: float, dt_base: float,
+                       base_dir: Path = Path('src/marvin_sim/csv')) -> Path | None:
+    """在已有 CSV 目录中查找与当前参数匹配的 ctsvi 参考数据目录。"""
+    q_label  = fmt_double_label(q_init_0)
+    dt_label = fmt_double_label(dt_base)
+    prefix   = f"q{q_label}_dt{dt_label}_T"
+    for parent in sorted(base_dir.glob(f"{prefix}*")):
+        candidate = parent / 'ctsvi'
+        if (candidate / 'energy_history.csv').exists():
+            return candidate
+    return None
+
+
 # ---------------------------------------------------------------------------
 # 热力图
 # ---------------------------------------------------------------------------
 
 def plot_heatmap(alphas: np.ndarray, betas: np.ndarray,
-                 results: dict, output_dir: Path, tag: str) -> Path | None:
+                 results: dict, output_dir: Path, tag: str,
+                 std_results: dict | None = None,
+                 ref_std: float | None = None) -> Path | None:
     try:
         import matplotlib.pyplot as plt
         import matplotlib.colors as mcolors
@@ -177,58 +219,95 @@ def plot_heatmap(alphas: np.ndarray, betas: np.ndarray,
         print("警告: matplotlib 未安装，跳过热力图绘制")
         return None
 
+    # 与对比图保持一致的全局样式
+    plt.rcParams.update({
+        'font.family': 'DejaVu Sans',
+        'axes.titlesize': 20,
+        'axes.titleweight': 'bold',
+        'axes.labelsize': 18,
+        'legend.fontsize': 14,
+        'xtick.labelsize': 16,
+        'ytick.labelsize': 16,
+        'legend.frameon': True,
+    })
+
     a_step = float(alphas[1] - alphas[0]) if len(alphas) > 1 else 0.05
     b_step = float(betas[1]  - betas[0])  if len(betas)  > 1 else 0.01
     extent = [betas[0]  - b_step * 0.5, betas[-1]  + b_step * 0.5,
               alphas[0] - a_step * 0.5, alphas[-1] + a_step * 0.5]
-    Z = np.full((len(alphas), len(betas)), np.nan)
-    for i, a in enumerate(alphas):
-        for j, b in enumerate(betas):
-            key = (round(float(a), 6), round(float(b), 6))
-            if key in results:
-                Z[i, j] = results[key]
 
-    fig, axes = plt.subplots(1, 2, figsize=(18, 7))
+    def _build_grid(data: dict) -> np.ndarray:
+        Z = np.full((len(alphas), len(betas)), np.nan)
+        for i, a in enumerate(alphas):
+            for j, b in enumerate(betas):
+                key = (round(float(a), 6), round(float(b), 6))
+                if key in data:
+                    Z[i, j] = data[key]
+        return Z
 
-    # --- 子图 1：线性色阶 ---
-    ax = axes[0]
-    valid = Z[~np.isnan(Z)]
-    im = ax.imshow(
-        Z, aspect='auto', origin='lower',
-        extent=extent,
-        cmap='RdYlGn_r',
-    )
-    plt.colorbar(im, ax=ax, label='Relative Drift [%]')
-    ax.set_xlabel('beta')
-    ax.set_ylabel('alpha')
-    ax.set_title('Relative Energy Drift [%] (linear)')
+    Z_drift = _build_grid(results)
+    Z_std   = _build_grid(std_results) if std_results else None
 
-    # --- 子图 2：对数色阶（更易看出细节）---
-    ax2 = axes[1]
-    if len(valid) > 0 and valid.min() > 0:
-        norm2 = mcolors.LogNorm(vmin=max(valid.min(), 1e-12), vmax=valid.max())
-    else:
-        norm2 = None
-    im2 = ax2.imshow(
-        Z, aspect='auto', origin='lower', norm=norm2,
-        extent=extent,
-        cmap='RdYlGn_r',
-    )
-    plt.colorbar(im2, ax=ax2, label='Relative Drift [%] (log)')
-    ax2.set_xlabel('beta')
-    ax2.set_ylabel('alpha')
-    ax2.set_title('Relative Energy Drift [%] (log scale)')
+    # # --- 子图 1：Max Drift 对数色阶 ---
+    # n_cols = 2 if Z_std is not None else 1
+    # fig, axes = plt.subplots(1, n_cols, figsize=(9 * n_cols, 7))
+    # if n_cols == 1:
+    #     axes = [axes]
+    # ax1 = axes[0]
+    # valid1 = Z_drift[~np.isnan(Z_drift)]
+    # norm1 = (mcolors.LogNorm(vmin=max(valid1.min(), 1e-12), vmax=valid1.max())
+    #          if len(valid1) > 0 and valid1.min() > 0 else None)
+    # im1 = ax1.imshow(Z_drift, aspect='auto', origin='lower', norm=norm1,
+    #                  extent=extent, cmap='RdYlGn_r')
+    # plt.colorbar(im1, ax=ax1, label='Max Drift [%] (log)')
+    # ax1.set_xlabel('beta')
+    # ax1.set_ylabel('alpha')
+    # ax1.set_title('Max Relative Energy Drift [%] (log scale)')
 
-    # 标注最优点
-    if len(valid) > 0:
-        bi, bj = np.unravel_index(np.nanargmin(Z), Z.shape)
-        label_str = f"Best: α={alphas[bi]:.4f} β={betas[bj]:.4f}\ndrift={Z[bi,bj]:.4e}%"
-        for ax_ in axes:
-            ax_.scatter(betas[bj], alphas[bi], c='cyan', s=250, marker='*',
-                        zorder=5, label=label_str)
-            ax_.legend(fontsize=9)
+    # --- 单图：Std Dev 对数色阶 ---
+    fig, ax2 = plt.subplots(1, 1, figsize=(9, 7))
+    norm2 = None
+    if Z_std is not None:
+        valid2 = Z_std[~np.isnan(Z_std)]
+        norm2 = (mcolors.LogNorm(vmin=max(valid2.min(), 1e-12), vmax=valid2.max())
+                 if len(valid2) > 0 and valid2.min() > 0 else None)
+        im2 = ax2.imshow(Z_std, aspect='auto', origin='lower', norm=norm2,
+                         extent=extent, cmap='RdYlGn_r')
+        cbar2 = plt.colorbar(im2, ax=ax2, label='Std Dev [%] (log)')
+        cbar2.ax.tick_params(labelsize=14)
+        cbar2.set_label('Std Dev [%] (log)', fontsize=16)
+        ax2.set_xlabel('beta')
+        ax2.set_ylabel('alpha')
+        ax2.set_title('C-ATSVI Energy Drift Std Dev [%] (log scale)')
+        # # --- 在 colorbar 上标出 CTSVI 参考标记 ---
+        # if ref_std is not None and norm2 is not None:
+        #     try:
+        #         y_pos = float(norm2(ref_std))
+        #         if 0.0 <= y_pos <= 1.0:
+        #             cbar2.ax.scatter(0.5, y_pos, marker='*', s=300,
+        #                              color='black', zorder=5,
+        #                              transform=cbar2.ax.transAxes)
+        #             cbar2.ax.text(-0.05, y_pos, f'CTSVI\n{ref_std:.2e}%',
+        #                           transform=cbar2.ax.transAxes, color='black',
+        #                           fontsize=14, fontweight='bold',
+        #                           va='center', ha='right',
+        #                           bbox=dict(boxstyle='round,pad=0.2',
+        #                                     facecolor='white', alpha=0.6,
+        #                                     edgecolor='none'))
+        #     except Exception:
+        #         pass
+        # --- 叠加 std(C-ATSVI) = std(CTSVI) 的等值线 ---
+        if ref_std is not None and ref_std > 0:
+            try:
+                cs = ax2.contour(Z_std, levels=[ref_std], colors='black',
+                                 linewidths=1.5, linestyles='--', origin='lower',
+                                 extent=extent)
+                ax2.clabel(cs, fmt={ref_std: 'C-ATSVI = CTSVI'}, fontsize=14,
+                           inline=True)
+            except Exception:
+                pass
 
-    fig.suptitle('c_atsvi Lyapunov Gain Sweep — Relative Energy Drift', fontsize=14)
+    fig.suptitle('C-ATSVI Lyapunov Gain Sweep — Relative Energy Drift', fontsize=22, fontweight='bold')
     plt.tight_layout()
 
     save_path = output_dir / f"heatmap_{tag}.png"
@@ -241,8 +320,9 @@ def plot_heatmap(alphas: np.ndarray, betas: np.ndarray,
 # 从 CSV 结果文件重建 results dict（用于 --plot-only）
 # ---------------------------------------------------------------------------
 
-def load_results_csv(results_csv: Path) -> tuple[dict, np.ndarray, np.ndarray]:
+def load_results_csv(results_csv: Path) -> tuple[dict, dict, np.ndarray, np.ndarray]:
     results = {}
+    std_results = {}
     with open(results_csv, newline='') as fp:
         reader = csv.DictReader(fp)
         for row in reader:
@@ -252,15 +332,18 @@ def load_results_csv(results_csv: Path) -> tuple[dict, np.ndarray, np.ndarray]:
                 d_str = row.get('relative_drift_%', '')
                 if d_str and d_str not in ('FAILED', ''):
                     results[(a, b)] = float(d_str)
+                s_str = row.get('std_dev_%', '')
+                if s_str and s_str not in ('FAILED', ''):
+                    std_results[(a, b)] = float(s_str)
             except (ValueError, KeyError):
                 pass
 
     if not results:
-        return results, np.array([]), np.array([])
+        return results, std_results, np.array([]), np.array([])
 
     alphas = sorted(set(k[0] for k in results))
     betas  = sorted(set(k[1] for k in results))
-    return results, np.array(alphas), np.array(betas)
+    return results, std_results, np.array(alphas), np.array(betas)
 
 
 # ---------------------------------------------------------------------------
@@ -296,6 +379,8 @@ def main() -> int:
     parser.add_argument('--output-dir',  type=str,
                         default='src/marvin_sim/sweep_results',
                         help='扫描结果保存目录（默认 src/marvin_sim/sweep_results/）')
+    parser.add_argument('--ref-dir',     type=str, default=None,
+                        help='CTSVI CSV 目录路径，用于在热力图 colorbar 上标记参考标准差（不指定则自动查找）')
 
     args = parser.parse_args()
 
@@ -307,7 +392,7 @@ def main() -> int:
         if not results_csv.exists():
             print(f"ERROR: 找不到结果文件 {results_csv}", file=sys.stderr)
             return 1
-        results, alphas, betas = load_results_csv(results_csv)
+        results, std_results, alphas, betas = load_results_csv(results_csv)
         if not results:
             print("ERROR: 结果文件为空或格式错误", file=sys.stderr)
             return 1
@@ -317,7 +402,11 @@ def main() -> int:
         print(f"\n从 {results_csv} 加载了 {len(results)} 条结果")
         print(f"最优参数: alpha={best_key[0]:.4f}  beta={best_key[1]:.4f}"
               f"  drift={results[best_key]:.6e} %")
-        plot_heatmap(alphas, betas, results, output_dir, tag)
+        ref_std = None
+        if args.ref_dir:
+            _, ref_std = compute_drift_metrics(Path(args.ref_dir))
+        plot_heatmap(alphas, betas, results, output_dir, tag,
+                     std_results=std_results or None, ref_std=ref_std)
         if args.plot:
             import matplotlib.pyplot as plt
             plt.show()
@@ -375,6 +464,14 @@ def main() -> int:
 
     print(f"q_init[0]={q_init_0:.6f}  dt={dt_base}  sweep_duration={dur_actual}")
 
+    # 查找 CTSVI 参考标准差（用于热力图 colorbar 标注）
+    ref_std = None
+    _ref_csv = Path(args.ref_dir) if args.ref_dir else find_ctsvi_ref_dir(q_init_0, dt_base)
+    if _ref_csv is not None:
+        _, ref_std = compute_drift_metrics(_ref_csv)
+        if ref_std is not None:
+            print(f"CTSVI 参考标准差: {ref_std:.6e}%  (from {_ref_csv})")
+
     # ------------------------------------------------------------------
     # 生成参数网格
     # ------------------------------------------------------------------
@@ -405,7 +502,8 @@ def main() -> int:
     # ------------------------------------------------------------------
     # 扫描主循环
     # ------------------------------------------------------------------
-    all_results: dict[tuple, float] = {}   # (alpha, beta) -> drift %
+    all_results: dict[tuple, float] = {}      # (alpha, beta) -> max_drift %
+    all_std_results: dict[tuple, float] = {}  # (alpha, beta) -> std_dev %
     best = {'alpha': None, 'beta': None, 'drift': float('inf')}
 
     n_skipped = 0   # 因 resume 跳过的数量
@@ -414,12 +512,13 @@ def main() -> int:
 
     with open(results_csv_path, 'w', newline='') as results_fp:
         writer = csv.writer(results_fp)
-        writer.writerow(['alpha', 'beta', 'relative_drift_%', 'wall_time_s', 'status'])
+        writer.writerow(['alpha', 'beta', 'relative_drift_%', 'std_dev_%', 'wall_time_s', 'status'])
         results_fp.flush()
 
-        def _write_row(a, b, drift_val, wall_t, status):
+        def _write_row(a, b, drift_val, std_val, wall_t, status):
             drift_str = f"{drift_val:.10f}" if drift_val is not None else 'FAILED'
-            writer.writerow([f"{a}", f"{b}", drift_str, f"{wall_t:.1f}", status])
+            std_str   = f"{std_val:.10f}"   if std_val   is not None else 'FAILED'
+            writer.writerow([f"{a}", f"{b}", drift_str, std_str, f"{wall_t:.1f}", status])
             results_fp.flush()
 
         def _update_best(a, b, drift):
@@ -433,10 +532,12 @@ def main() -> int:
 
             # ---- resume：已有 energy_history.csv，直接读取 ----
             if args.resume and (csv_dir / 'energy_history.csv').exists():
-                drift = compute_relative_drift(csv_dir)
+                drift, std = compute_drift_metrics(csv_dir)
                 if drift is not None:
                     all_results[key] = drift
-                    _write_row(alpha, beta, drift, 0.0, 'resume_from_csv')
+                    if std is not None:
+                        all_std_results[key] = std
+                    _write_row(alpha, beta, drift, std, 0.0, 'resume_from_csv')
                     _update_best(alpha, beta, drift)
                     n_skipped += 1
                     continue
@@ -457,20 +558,22 @@ def main() -> int:
             n_run += 1
 
             if success:
-                drift = compute_relative_drift(csv_dir)
+                drift, std = compute_drift_metrics(csv_dir)
                 if drift is not None:
                     all_results[key] = drift
-                    _write_row(alpha, beta, drift, wall_t, 'ok')
+                    if std is not None:
+                        all_std_results[key] = std
+                    _write_row(alpha, beta, drift, std, wall_t, 'ok')
                     _update_best(alpha, beta, drift)
-                    bstr = (f"  → drift={drift:.6e}%  wall={wall_t:.1f}s"
+                    bstr = (f"  → drift={drift:.6e}%  std={std:.6e}%  wall={wall_t:.1f}s"
                             f"  当前最优: α={best['alpha']:.4f} β={best['beta']:.4f}"
                             f" drift={best['drift']:.6e}%")
                     print(bstr, flush=True)
                 else:
-                    _write_row(alpha, beta, None, wall_t, 'run_ok_no_csv')
+                    _write_row(alpha, beta, None, None, wall_t, 'run_ok_no_csv')
                     print(f"  → 运行成功但未找到 CSV: {csv_dir}", flush=True)
             else:
-                _write_row(alpha, beta, None, wall_t, 'run_failed')
+                _write_row(alpha, beta, None, None, wall_t, 'run_failed')
 
     # ------------------------------------------------------------------
     # 最终汇总
@@ -516,7 +619,8 @@ def main() -> int:
     # 热力图
     # ------------------------------------------------------------------
     if (args.plot or True) and all_results:
-        save_path = plot_heatmap(alphas, betas, all_results, output_dir, timestamp)
+        save_path = plot_heatmap(alphas, betas, all_results, output_dir, timestamp,
+                                 std_results=all_std_results or None, ref_std=ref_std)
         if args.plot and save_path:
             import matplotlib.pyplot as plt
             plt.show()

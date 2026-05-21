@@ -1,0 +1,16 @@
+[0.024s] Invoking command in '/home/user/ros2_ws/dynamic_ws/build/marvin_sim': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/marvin_sim -- -j32 -l32
+[0.057s] [35m[1mConsolidate compiler generated dependencies of target ctsvi_node[0m
+[0.072s] [ 33%] Built target c_atsvi_node
+[0.076s] [ 50%] [32mBuilding CXX object CMakeFiles/atsvi_node.dir/src/atsvi_node.cpp.o[0m
+[0.112s] [ 83%] Built target ctsvi_node
+[4.848s] [01m[K/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/atsvi_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[4.848s] [01m[K/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/atsvi_node.cpp:804:5:[m[K [01;31m[Kerror: [m[K‘[01m[Ktotal_energy[m[K’ was not declared in this scope
+[4.848s]   804 |     [01;31m[Ktotal_energy[m[K = discrete_energy_numeric(model, data, q_prev, q_curr, timestep);
+[4.848s]       |     [01;31m[K^~~~~~~~~~~~[m[K
+[4.859s] [01m[K/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/atsvi_node.cpp:806:12:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KE_ref[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[4.860s]   806 |     double [01;35m[KE_ref[m[K = total_energy;          // 以第一步离散能量（中点公式）为 delta_energy 基准
+[4.860s]       |            [01;35m[K^~~~~[m[K
+[66.365s] gmake[2]: *** [CMakeFiles/atsvi_node.dir/build.make:76: CMakeFiles/atsvi_node.dir/src/atsvi_node.cpp.o] Error 1
+[66.366s] gmake[1]: *** [CMakeFiles/Makefile2:167: CMakeFiles/atsvi_node.dir/all] Error 2
+[66.366s] gmake: *** [Makefile:146: all] Error 2
+[66.368s] Invoked command in '/home/user/ros2_ws/dynamic_ws/build/marvin_sim' returned '2': CMAKE_PREFIX_PATH=/opt/openrobots:/home/user/ros2_ws/dynamic_ws/install/w10_moveit_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_kinematics:/home/user/ros2_ws/dynamic_ws/install/w10_sim:/home/user/ros2_ws/dynamic_ws/install/w10_force_sim:/home/user/ros2_ws/dynamic_ws/install/vi_2p:/home/user/ros2_ws/dynamic_ws/install/vi:/home/user/ros2_ws/dynamic_ws/install/show_urdf:/home/user/ros2_ws/dynamic_ws/install/marvin_sim:/opt/ros/humble:/home/user/ros2_ws/w10_ws/install/w10-urdf:/home/user/ros2_ws/w10_ws/install/urdf_visualization:/opt/openrobots: /usr/bin/cmake --build /home/user/ros2_ws/dynamic_ws/build/marvin_sim -- -j32 -l32

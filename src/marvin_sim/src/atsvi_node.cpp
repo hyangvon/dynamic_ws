@@ -783,8 +783,8 @@ int main(int argc, char** argv)
     Vec qdot0 = v_prev;
     double T0 = 0.5 * qdot0.transpose() * M0 * qdot0;
     double U0 = potential_energy(model, data, q_prev);
-    double total_energy = T0 + U0;
-    energy_history.push_back(total_energy);
+    double E_0 = T0 + U0;
+    energy_history.push_back(E_0);
     delta_energy_history.push_back(energy_history.back() - energy_history.front());
 
     auto [ee_pos0, ee_rot0] = compute_end_effector_pose(model, data, link_tcp_id, q_prev);
@@ -801,9 +801,10 @@ int main(int argc, char** argv)
     
     double T = kinetic_energy(model, data, (q_curr + q_prev) / 2.0, (q_curr - q_prev)/timestep);
     double U = potential_energy(model, data, (q_curr + q_prev) / 2.0);
-    total_energy = T + U;
-    energy_history.push_back(total_energy);
-    delta_energy_history.push_back(energy_history.back() - energy_history.front());
+    double total_energy = discrete_energy_numeric(model, data, q_prev, q_curr, timestep);
+    energy_history.push_back(total_energy);  // t=h 离散能量（与 c_atsvi 一致）
+    double E_ref = total_energy;          // 以第一步离散能量（中点公式）为 delta_energy 基准
+    delta_energy_history.push_back(0.0);  // t=h 漂移 = 0（E[1] 定义为新基准）
 
     auto [ee_pos1, _ee_rot1] = compute_end_effector_pose(model, data, link_tcp_id, q_curr);
     ee_history.push_back(ee_pos1);
@@ -854,9 +855,9 @@ int main(int argc, char** argv)
 
         T = kinetic_energy(model, data, (q_history.back() + q_history[q_history.size()-2]) / 2.0, (q_history.back() - q_history[q_history.size()-2]) / h_next);
         U = potential_energy(model, data, (q_history.back() + q_history[q_history.size()-2]) / 2.0);
-        total_energy = T + U;
+        total_energy = discrete_energy_numeric(model, data, q_history[q_history.size()-2], q_history.back(), h_next);
         energy_history.push_back(total_energy);
-        delta_energy_history.push_back(energy_history.back() - energy_history.front());
+        delta_energy_history.push_back(total_energy - E_0);
 
         auto [ee_pos, ee_rot] = compute_end_effector_pose(model, data, link_tcp_id, q_next);
         ee_history.push_back(ee_pos);
