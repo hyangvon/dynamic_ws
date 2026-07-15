@@ -256,6 +256,27 @@ def run_rk4():
         return False
 
 
+def run_rk4_proj():
+    """运行 RK4 投影基线仿真节点"""
+    config_file = os.path.expanduser('~/ros2_ws/dynamic_ws/src/vi_2p/config/vi_params.yaml')
+
+    print("Starting rk4 projection simulation...")
+
+    try:
+        result = subprocess.run([
+            'ros2', 'run', 'vi_2p', 'rk4_proj_node',
+            '--ros-args', '--params-file', config_file
+        ], check=True)
+
+        print("Projection RK4 simulation completed successfully")
+        return True
+    except subprocess.CalledProcessError as e:
+        print(f"Simulation failed: {e}")
+        if e.stderr:
+            print(f"Error output: {e.stderr}")
+        return False
+
+
 def run_pybullet_inline():
     """在当前 Python 进程中加载并运行 scripts/pybullet_sim.py 的 main()，便于一键生成 CSV 数据。"""
     script_path = os.path.join(os.path.dirname(__file__), 'pybullet_sim.py')
@@ -291,6 +312,7 @@ def plot_runtime_comparison(tag, dpi_set):
     algorithms = {
         'etsvi': os.path.join(params, 'etsvi', 'avg_runtime.txt'),
         'rk4': os.path.join(params, 'rk4', 'avg_runtime.txt'),
+        'rk4_proj': os.path.join(params, 'rk4_proj', 'avg_runtime.txt'),
         'pybullet': os.path.join(params, 'pybullet', 'avg_runtime.txt')
     }
 
@@ -310,8 +332,9 @@ def plot_runtime_comparison(tag, dpi_set):
 
     # 绘制柱状图（使用统一风格）
     _init_fig(figsize=(10, 6))
+    color_map = ['lightcoral', 'lightyellow', 'lightgreen', 'lightblue'][:len(labels)]
     bars = plt.bar(labels, avg_times,
-                   color=['lightcoral', 'lightyellow', 'lightblue'][:len(labels)],
+                   color=color_map,
                    alpha=0.7,
                    edgecolor='black',
                    linewidth=1)
@@ -349,22 +372,26 @@ def plot_results(tag, dpi_set):
 
     csv_dir_etsvi = os.path.join(base, params_base, 'etsvi')
     csv_dir_rk4   = os.path.join(base, params_base, 'rk4')
+    csv_dir_rk4_proj = os.path.join(base, params_base, 'rk4_proj')
     csv_dir_py    = os.path.join(base, params_base, 'pybullet')
 
-    if not os.path.exists(os.path.join(csv_dir_rk4, 'q_history.csv')):
+    if not os.path.exists(os.path.join(csv_dir_rk4, 'q_history.csv')) and not os.path.exists(os.path.join(csv_dir_rk4_proj, 'q_history.csv')):
         print("CSV files not found. Simulation may have failed.")
         return False
 
     # 读取 CSV（支持可选的 pybullet 目录）
     try:
         tcp_etsvi = np.loadtxt(os.path.join(csv_dir_etsvi, 'ee_history.csv'), delimiter=',')
-        tcp_rk4 = np.loadtxt(os.path.join(csv_dir_rk4, 'ee_history.csv'), delimiter=',')
+        tcp_rk4 = np.loadtxt(os.path.join(csv_dir_rk4, 'ee_history.csv'), delimiter=',') if os.path.exists(os.path.join(csv_dir_rk4, 'ee_history.csv')) else None
+        tcp_rk4_proj = np.loadtxt(os.path.join(csv_dir_rk4_proj, 'ee_history.csv'), delimiter=',') if os.path.exists(os.path.join(csv_dir_rk4_proj, 'ee_history.csv')) else None
 
         delta_energy_etsvi = np.loadtxt(os.path.join(csv_dir_etsvi, 'delta_energy_history.csv'), delimiter=',')
-        delta_energy_rk4 = np.loadtxt(os.path.join(csv_dir_rk4, 'delta_energy_history.csv'), delimiter=',')
+        delta_energy_rk4 = np.loadtxt(os.path.join(csv_dir_rk4, 'delta_energy_history.csv'), delimiter=',') if os.path.exists(os.path.join(csv_dir_rk4, 'delta_energy_history.csv')) else None
+        delta_energy_rk4_proj = np.loadtxt(os.path.join(csv_dir_rk4_proj, 'delta_energy_history.csv'), delimiter=',') if os.path.exists(os.path.join(csv_dir_rk4_proj, 'delta_energy_history.csv')) else None
 
         time_etsvi = np.loadtxt(os.path.join(csv_dir_etsvi, 'time_history.csv'), delimiter=',')
-        time_rk4 = np.loadtxt(os.path.join(csv_dir_rk4, 'time_history.csv'), delimiter=',')
+        time_rk4 = np.loadtxt(os.path.join(csv_dir_rk4, 'time_history.csv'), delimiter=',') if os.path.exists(os.path.join(csv_dir_rk4, 'time_history.csv')) else None
+        time_rk4_proj = np.loadtxt(os.path.join(csv_dir_rk4_proj, 'time_history.csv'), delimiter=',') if os.path.exists(os.path.join(csv_dir_rk4_proj, 'time_history.csv')) else None
 
         # optional pybullet
         tcp_py = None
@@ -401,13 +428,19 @@ def plot_results(tag, dpi_set):
         return n
 
     # RK4
-    plt.plot(time_rk4, delta_energy_rk4, label='ΔEnergy of RK4', color=c_rk4,
-             linestyle='--', linewidth=1.5)
+    if time_rk4 is not None and delta_energy_rk4 is not None:
+        plt.plot(time_rk4, delta_energy_rk4, label='ΔEnergy of RK4', color=c_rk4,
+                 linestyle='--', linewidth=1.5)
+
+    # RK4 projection baseline
+    if time_rk4_proj is not None and delta_energy_rk4_proj is not None:
+        plt.plot(time_rk4_proj, delta_energy_rk4_proj, label='ΔEnergy of RK4-Proj', color='#2ca02c',
+                 linestyle='-.', linewidth=1.5)
 
     # PyBullet (if available)
     if 'delta_energy_py' in locals() and delta_energy_py is not None and time_py is not None:
         plt.plot(time_py, delta_energy_py, label='ΔEnergy of PyBullet', color=c_py,
-                 linestyle='-.', linewidth=1.5)
+                 linestyle=':', linewidth=1.5)
     
     # ETSVI
     plt.plot(time_etsvi, delta_energy_etsvi, label='ΔEnergy of C-ATSVI', color=c_etsvi,
@@ -430,22 +463,21 @@ def plot_results(tag, dpi_set):
     # ---------- TCP 位置曲线 ----------
     _init_fig()
     # RK4
-    # plt.plot(time_rk4, tcp_rk4[:, 0], label='px_rk4', color=c_rk4, linestyle=':', linewidth=1.5,
-    #          marker='s', markersize=3, markevery=_markevery(time_rk4))
-    plt.plot(time_rk4, tcp_rk4[:, 2], label='position Z of RK4', color=c_rk4, linestyle='--', linewidth=1.5,
-             marker=None)
+    if tcp_rk4 is not None and time_rk4 is not None:
+        plt.plot(time_rk4, tcp_rk4[:, 2], label='position Z of RK4', color=c_rk4, linestyle='--', linewidth=1.5,
+                 marker=None)
+
+    # RK4 projection baseline
+    if tcp_rk4_proj is not None and time_rk4_proj is not None:
+        plt.plot(time_rk4_proj, tcp_rk4_proj[:, 2], label='position Z of RK4-Proj', color='#2ca02c', linestyle='-.', linewidth=1.5,
+                 marker=None)
 
     # PyBullet
     if 'tcp_py' in locals() and tcp_py is not None:
-        # tcp_py may be (N,3)
-        # plt.plot(time_py, tcp_py[:, 0], label='px_pybullet', color=c_py, linestyle='-.', linewidth=1.5,
-        #          marker='o', markersize=3, markevery=_markevery(time_py), alpha=0.9)
-        plt.plot(time_py, tcp_py[:, 2], label='position Z of PyBullet', color=c_py, linestyle='-.', linewidth=1.5,
+        plt.plot(time_py, tcp_py[:, 2], label='position Z of PyBullet', color=c_py, linestyle=':', linewidth=1.5,
                  marker=None)
 
     # ETSVI (TCP position)
-    # plt.plot(time_etsvi, tcp_etsvi[:, 0], label='px_etsvi', color=c_etsvi, linestyle='--', linewidth=1.5,
-    #          marker='^', markersize=3, markevery=_markevery(time_etsvi))
     plt.plot(time_etsvi, tcp_etsvi[:, 2], label='position Z of C-ATSVI', color=c_etsvi, linestyle='-', linewidth=1.5,
              marker=None)
 
@@ -474,6 +506,7 @@ def plot_results(tag, dpi_set):
     try:
         # plot_rk4_pybullet_joint_phase_separate(tag, dpi_set, joint_idx=2)
         plot_rk4_phase(tag, dpi_set, joint_idx=2)
+        plot_rk4_proj_phase(tag, dpi_set, joint_idx=2)
         plot_pybullet_phase(tag, dpi_set, joint_idx=2)
     except Exception as e:
         print(f"Warning: failed to plot separate RK4/PyBullet phase plots: {e}")
@@ -495,17 +528,19 @@ def plot_momentum_compare_joint(tag, dpi_set, joint_idx=2):
     paths = {
         'C-ATSVI': os.path.join(base, params, 'etsvi', 'momentum_history.csv'),
         'RK4': os.path.join(base, params, 'rk4', 'momentum_history.csv'),
+        'RK4-PROJ': os.path.join(base, params, 'rk4_proj', 'momentum_history.csv'),
         'PyBullet': os.path.join(base, params, 'pybullet', 'momentum_history.csv')
     }
     times = {
         'C-ATSVI': os.path.join(base, params, 'etsvi', 'time_history.csv'),
         'RK4': os.path.join(base, params, 'rk4', 'time_history.csv'),
+        'RK4-PROJ': os.path.join(base, params, 'rk4_proj', 'time_history.csv'),
         'PyBullet': os.path.join(base, params, 'pybullet', 'time_history.csv')
     }
 
     _init_fig(figsize=(7,4))
     cmap = plt.get_cmap('tab10')
-    colmap = {'C-ATSVI': cmap(2), 'RK4': cmap(0), 'PyBullet': cmap(1)}
+    colmap = {'C-ATSVI': cmap(2), 'RK4': cmap(0), 'RK4-PROJ': cmap(3), 'PyBullet': cmap(1)}
     any_plotted = False
     for name, p in paths.items():
         if not os.path.exists(p):
@@ -573,6 +608,7 @@ def plot_phase_plane(tag, dpi_set, joint_index=6):
     params = build_params_label()
     csv_dir_etsvi = os.path.join(base, params, 'etsvi')
     csv_dir_rk4   = os.path.join(base, params, 'rk4')
+    csv_dir_rk4_proj = os.path.join(base, params, 'rk4_proj')
     csv_dir_py    = os.path.join(base, params, 'pybullet')
 
     # --- RK4: load q_history and v_history if available ---
@@ -581,7 +617,6 @@ def plot_phase_plane(tag, dpi_set, joint_index=6):
     t_rk4 = None
     try:
         q_rk4 = np.loadtxt(os.path.join(csv_dir_rk4, 'q_history.csv'), delimiter=',')
-        # ensure 2D
         if q_rk4.ndim == 1:
             q_rk4 = q_rk4[:, None]
     except Exception:
@@ -598,6 +633,29 @@ def plot_phase_plane(tag, dpi_set, joint_index=6):
         t_rk4 = np.loadtxt(os.path.join(csv_dir_rk4, 'time_history.csv'), delimiter=',')
     except Exception:
         t_rk4 = None
+
+    # --- RK4 projection baseline: load q_history and v_history if available ---
+    q_rk4_proj = None
+    v_rk4_proj = None
+    t_rk4_proj = None
+    try:
+        q_rk4_proj = np.loadtxt(os.path.join(csv_dir_rk4_proj, 'q_history.csv'), delimiter=',')
+        if q_rk4_proj.ndim == 1:
+            q_rk4_proj = q_rk4_proj[:, None]
+    except Exception:
+        pass
+
+    try:
+        v_rk4_proj = np.loadtxt(os.path.join(csv_dir_rk4_proj, 'v_history.csv'), delimiter=',')
+        if v_rk4_proj.ndim == 1:
+            v_rk4_proj = v_rk4_proj[:, None]
+    except Exception:
+        v_rk4_proj = None
+
+    try:
+        t_rk4_proj = np.loadtxt(os.path.join(csv_dir_rk4_proj, 'time_history.csv'), delimiter=',')
+    except Exception:
+        t_rk4_proj = None
 
     # --- ETSVI: load q_history and time, v estimated by diff ---
     q_etsvi = None
@@ -655,6 +713,19 @@ def plot_phase_plane(tag, dpi_set, joint_index=6):
             plt.plot(qcol, vcol, label='RK4', linewidth=1)
             plotted = True
 
+    # plot rk4 projection baseline
+    if q_rk4_proj is not None:
+        qcol = q_rk4_proj[:, joint_index] if q_rk4_proj.shape[1] > joint_index else None
+        if qcol is not None:
+            if v_rk4_proj is not None and v_rk4_proj.shape[1] > joint_index:
+                vcol = v_rk4_proj[:, joint_index]
+            elif t_rk4_proj is not None:
+                vcol = np.gradient(qcol, t_rk4_proj)
+            else:
+                vcol = np.gradient(qcol)
+            plt.plot(qcol, vcol, label='RK4-Proj', linewidth=1)
+            plotted = True
+
     # plot etsvi
     if q_etsvi is not None and v_etsvi is not None:
         plt.plot(q_etsvi[:, joint_index], v_etsvi, label='ETSVI', linewidth=1)
@@ -694,6 +765,7 @@ def plot_rk4_pybullet_joint_phase_separate(tag, dpi_set, joint_idx=2):
     params = build_params_label()
 
     csv_rk4 = os.path.join(base, params, 'rk4')
+    csv_rk4_proj = os.path.join(base, params, 'rk4_proj')
     csv_py = os.path.join(base, params, 'pybullet')
 
     target_idx = joint_idx - 1
@@ -718,6 +790,27 @@ def plot_rk4_pybullet_joint_phase_separate(tag, dpi_set, joint_idx=2):
         t_rk4 = np.loadtxt(os.path.join(csv_rk4, 'time_history.csv'), delimiter=',')
     except Exception:
         t_rk4 = None
+
+    # --- RK4-Projection ---
+    q_rk4_proj = None
+    v_rk4_proj = None
+    t_rk4_proj = None
+    try:
+        q_rk4_proj = np.loadtxt(os.path.join(csv_rk4_proj, 'q_history.csv'), delimiter=',')
+        if q_rk4_proj.ndim == 1:
+            q_rk4_proj = q_rk4_proj[:, None]
+    except Exception:
+        q_rk4_proj = None
+    try:
+        v_rk4_proj = np.loadtxt(os.path.join(csv_rk4_proj, 'v_history.csv'), delimiter=',')
+        if v_rk4_proj.ndim == 1:
+            v_rk4_proj = v_rk4_proj[:, None]
+    except Exception:
+        v_rk4_proj = None
+    try:
+        t_rk4_proj = np.loadtxt(os.path.join(csv_rk4_proj, 'time_history.csv'), delimiter=',')
+    except Exception:
+        t_rk4_proj = None
 
     # 绘制 RK4 相图
     if q_rk4 is not None:
@@ -747,6 +840,34 @@ def plot_rk4_pybullet_joint_phase_separate(tag, dpi_set, joint_idx=2):
             _save_fig(tag, filename, dpi_set if dpi_set else DEFAULT_DPI, show=False)
     else:
         print('RK4 q_history.csv not found or unreadable; skipping RK4 phase plot')
+
+    # 绘制 RK4-Proj 相图
+    if q_rk4_proj is not None:
+        if target_idx < 0 or target_idx >= q_rk4_proj.shape[1]:
+            print(f"RK4-Proj: joint {joint_idx} out of range")
+        else:
+            qcol = q_rk4_proj[:, target_idx]
+            if v_rk4_proj is not None and v_rk4_proj.shape[1] > target_idx:
+                vcol = v_rk4_proj[:, target_idx]
+            elif t_rk4_proj is not None:
+                vcol = np.gradient(qcol, t_rk4_proj)
+            else:
+                vcol = np.gradient(qcol)
+            _init_fig(figsize=(7,6))
+            plt.plot(qcol, vcol, label='RK4-Proj', linewidth=1, color='tab:green')
+            plt.xlabel(f'Joint {joint_idx} q [rad]')
+            plt.ylabel(f'Joint {joint_idx} qdot [rad/s]')
+            plt.title(f'RK4-Proj Phase Portrait')
+            try:
+                plt.gca().set_aspect('equal', adjustable='box')
+            except Exception:
+                pass
+            plt.grid(True)
+            plt.legend()
+            filename = f'phase_rk4_proj_joint{joint_idx}_{tag}.png'
+            _save_fig(tag, filename, dpi_set if dpi_set else DEFAULT_DPI, show=False)
+    else:
+        print('RK4-Proj q_history.csv not found or unreadable; skipping RK4-Proj phase plot')
 
     # --- PyBullet ---
     q_py = None
@@ -848,6 +969,62 @@ def plot_rk4_phase(tag, dpi_set, joint_idx=2):
     filename = f"phase_rk4_joint{joint_idx}_{tag}.png"
     _save_fig(tag, filename, dpi_set if dpi_set else DEFAULT_DPI, show=False)
     return True
+
+def plot_rk4_proj_phase(tag, dpi_set, joint_idx=2):
+    print(f"Generating RK4-Proj phase portrait for joint {joint_idx}...")
+    base = os.path.expanduser('~/ros2_ws/dynamic_ws/src/vi_2p/csv/')
+    params_base = build_params_label(include_lyap=True)
+    csv_dir = os.path.join(base, params_base, 'rk4_proj')
+    q_path = os.path.join(csv_dir, 'q_history.csv')
+    time_path = os.path.join(csv_dir, 'time_history.csv')
+
+    if not os.path.exists(q_path):
+        print(f"No RK4-Proj q_history found at {q_path}; skipping phase plot.")
+        return None
+
+    try:
+        q_hist = np.loadtxt(q_path, delimiter=',')
+        q_hist = np.atleast_2d(q_hist).astype(float)
+    except Exception as e:
+        print(f"Failed to read {q_path}: {e}")
+        return None
+
+    try:
+        t = np.loadtxt(time_path, delimiter=',')
+        t = np.atleast_1d(t).astype(float)
+    except Exception:
+        t = np.arange(q_hist.shape[0])
+
+    idx0 = joint_idx - 1
+    if idx0 < 0 or idx0 >= q_hist.shape[1]:
+        print(f"Requested joint index {joint_idx} out of range (available columns={q_hist.shape[1]})")
+        return None
+
+    try:
+        qdot = np.gradient(q_hist[:, idx0], t)
+    except Exception:
+        dt = t[1] - t[0] if t.size > 1 else 1.0
+        qdot = np.zeros(q_hist.shape[0])
+        qdot[1:] = np.diff(q_hist[:, idx0]) / dt
+
+    _init_fig(figsize=(10, 5))
+    plt.ticklabel_format(style='sci', scilimits=(0,0), axis='y', useMathText=True)
+    plt.subplots_adjust(left=0.11, right=0.98, top=0.9, bottom=0.15)
+    plt.plot(q_hist[:, idx0], qdot, color='#2CA02C', linewidth=1.5)
+    plt.scatter(q_hist[0, idx0], qdot[0], marker='o', color='green', label='start', s=100)
+    plt.scatter(q_hist[-1, idx0], qdot[-1], marker='X', color='red', label='end', s=100)
+    plt.xlabel(f'Joint {joint_idx} q [rad]')
+    plt.ylabel(f'Joint {joint_idx} qdot [rad/s]')
+    plt.title(f'RK4-Proj Phase Portrait')
+    plt.xlim(-55, 5)
+    plt.grid(True, alpha=0.3)
+    handles, leg_labels = plt.gca().get_legend_handles_labels()
+    if leg_labels:
+        plt.legend(loc='upper left')
+    filename = f"phase_rk4_proj_joint{joint_idx}_{tag}.png"
+    _save_fig(tag, filename, dpi_set if dpi_set else DEFAULT_DPI, show=False)
+    return True
+
 
 def plot_pybullet_phase(tag, dpi_set, joint_idx=2):
     print(f"Generating PyBullet phase portrait for joint {joint_idx}...")
@@ -1042,11 +1219,11 @@ def main():
 
     # 运行仿真（除非用户要求跳过）
     if not args.skip_sim:
-        # if not run_etsvi():
-        #     return 1
-
         if not run_rk4():
             return 1
+
+        if not run_rk4_proj():
+            print("Warning: rk4_proj simulation failed or skipped. Proceeding with available CSVs.")
 
         # 运行 pybullet 对照仿真（内联执行 pybullet_sim.py）
         if not run_pybullet_inline():

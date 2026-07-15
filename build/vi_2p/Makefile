@@ -249,6 +249,19 @@ rk4_node/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rk4_node.dir/build.make CMakeFiles/rk4_node.dir/build
 .PHONY : rk4_node/fast
 
+#=============================================================================
+# Target rules for targets named rk4_proj_node
+
+# Build rule for target.
+rk4_proj_node: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rk4_proj_node
+.PHONY : rk4_proj_node
+
+# fast build rule for target.
+rk4_proj_node/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rk4_proj_node.dir/build.make CMakeFiles/rk4_proj_node.dir/build
+.PHONY : rk4_proj_node/fast
+
 src/atsvi_ad_node.o: src/atsvi_ad_node.cpp.o
 .PHONY : src/atsvi_ad_node.o
 
@@ -345,6 +358,30 @@ src/rk4_node.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rk4_node.dir/build.make CMakeFiles/rk4_node.dir/src/rk4_node.cpp.s
 .PHONY : src/rk4_node.cpp.s
 
+src/rk4_proj_node.o: src/rk4_proj_node.cpp.o
+.PHONY : src/rk4_proj_node.o
+
+# target to build an object file
+src/rk4_proj_node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rk4_proj_node.dir/build.make CMakeFiles/rk4_proj_node.dir/src/rk4_proj_node.cpp.o
+.PHONY : src/rk4_proj_node.cpp.o
+
+src/rk4_proj_node.i: src/rk4_proj_node.cpp.i
+.PHONY : src/rk4_proj_node.i
+
+# target to preprocess a source file
+src/rk4_proj_node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rk4_proj_node.dir/build.make CMakeFiles/rk4_proj_node.dir/src/rk4_proj_node.cpp.i
+.PHONY : src/rk4_proj_node.cpp.i
+
+src/rk4_proj_node.s: src/rk4_proj_node.cpp.s
+.PHONY : src/rk4_proj_node.s
+
+# target to generate assembly for a file
+src/rk4_proj_node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rk4_proj_node.dir/build.make CMakeFiles/rk4_proj_node.dir/src/rk4_proj_node.cpp.s
+.PHONY : src/rk4_proj_node.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -364,6 +401,7 @@ help:
 	@echo "... ctsvi_ad_node"
 	@echo "... etsvi_node"
 	@echo "... rk4_node"
+	@echo "... rk4_proj_node"
 	@echo "... src/atsvi_ad_node.o"
 	@echo "... src/atsvi_ad_node.i"
 	@echo "... src/atsvi_ad_node.s"
@@ -376,6 +414,9 @@ help:
 	@echo "... src/rk4_node.o"
 	@echo "... src/rk4_node.i"
 	@echo "... src/rk4_node.s"
+	@echo "... src/rk4_proj_node.o"
+	@echo "... src/rk4_proj_node.i"
+	@echo "... src/rk4_proj_node.s"
 .PHONY : help
 
 

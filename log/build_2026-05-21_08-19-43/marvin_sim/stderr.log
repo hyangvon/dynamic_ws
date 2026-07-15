@@ -1,0 +1,13 @@
+[01m[K/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/ctsvi_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/ctsvi_node.cpp:597:20:[m[K [01;31m[Kerror: [m[K‘[01m[K当前步长变量[m[K’ was not declared in this scope
+  597 |         double h = [01;31m[K当前步长变量[m[K; // 固定步长用 timestep，变步长用 h_next
+      |                    [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/ctsvi_node.cpp:598:38:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K...[m[K’ token
+  598 |         Vec q_next_ph = solve_q_next([01;31m[K...[m[K, h + eps_h).first;
+      |                                      [01;31m[K^~~[m[K
+[01m[K/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/ctsvi_node.cpp:599:38:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K...[m[K’ token
+  599 |         Vec q_next_mh = solve_q_next([01;31m[K...[m[K, h - eps_h).first;
+      |                                      [01;31m[K^~~[m[K
+gmake[2]: *** [CMakeFiles/ctsvi_node.dir/build.make:76: CMakeFiles/ctsvi_node.dir/src/ctsvi_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:141: CMakeFiles/ctsvi_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

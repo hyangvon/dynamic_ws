@@ -497,6 +497,7 @@ int main(int argc, char** argv)
     std::vector<double> delta_energy_history;
     std::vector<double> energy_T_history;
     std::vector<double> energy_U_history;
+    std::vector<double> dqk1_dhk_norm_history;
     std::vector<Eigen::Vector3d> ee_history;
     std::vector<Vec> momentum_history;
     std::vector<Vec> force_torque_history;
@@ -589,6 +590,19 @@ int main(int argc, char** argv)
         pinocchio::computeCentroidalMomentum(model, data, q_next, qdot);
         centroidal_lin_momentum_history.push_back(data.hg.linear());
 
+        // --- 计算 dqk1/dhk 数值近似范数 ---
+        double eps_h = 1e-6;
+        Vec q_last = q_history[q_history.size()-2];
+        Vec q_curr = q_history[q_history.size()-1];
+        double h = timestep; // 固定步长用 timestep，变步长用 h_next
+        Vec q_next_ph = solve_q_next(model_ad, data_ad, q_history[q_history.size()-2],
+                                           q_history[q_history.size()-1], tau_k, h + eps_h).first;
+        Vec q_next_mh = solve_q_next(model_ad, data_ad, q_history[q_history.size()-2],
+                                           q_history[q_history.size()-1], tau_k, h - eps_h).first;
+        Vec dq_dh = (q_next_ph - q_next_mh) / (2.0 * eps_h);
+        double dqk1_dhk_norm = dq_dh.norm();
+        dqk1_dhk_norm_history.push_back(dqk1_dhk_norm);
+
         auto t1 = high_resolution_clock::now();
         double elapsed = std::chrono::duration_cast<std::chrono::duration<double>>(t1 - t0).count();
         runtimes.push_back(elapsed);
@@ -663,6 +677,7 @@ int main(int argc, char** argv)
     write_csv_scalar_series(csv_dir + "energy_T_history.csv", energy_T_history);
     write_csv_scalar_series(csv_dir + "energy_U_history.csv", energy_U_history);
     write_csv_3d(csv_dir + "ee_history.csv", ee_history);
+    write_csv_scalar_series(csv_dir + "dqk1_dhk_norm_history.csv", dqk1_dhk_norm_history);
 
     std::ofstream avg_time_file(csv_dir + "avg_runtime.txt");
     avg_time_file << avg_time * 1000 << std::endl;

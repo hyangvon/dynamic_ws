@@ -67,6 +67,7 @@ all: CMakeFiles/ctsvi_ad_node.dir/all
 all: CMakeFiles/atsvi_ad_node.dir/all
 all: CMakeFiles/etsvi_node.dir/all
 all: CMakeFiles/rk4_node.dir/all
+all: CMakeFiles/rk4_proj_node.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -80,6 +81,7 @@ clean: CMakeFiles/ctsvi_ad_node.dir/clean
 clean: CMakeFiles/atsvi_ad_node.dir/clean
 clean: CMakeFiles/etsvi_node.dir/clean
 clean: CMakeFiles/rk4_node.dir/clean
+clean: CMakeFiles/rk4_proj_node.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -237,6 +239,32 @@ rk4_node: CMakeFiles/rk4_node.dir/rule
 CMakeFiles/rk4_node.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/rk4_node.dir/build.make CMakeFiles/rk4_node.dir/clean
 .PHONY : CMakeFiles/rk4_node.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/rk4_proj_node.dir
+
+# All Build rule for target.
+CMakeFiles/rk4_proj_node.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rk4_proj_node.dir/build.make CMakeFiles/rk4_proj_node.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rk4_proj_node.dir/build.make CMakeFiles/rk4_proj_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/user/ros2_ws/dynamic_ws/build/vi_2p/CMakeFiles --progress-num=9,10 "Built target rk4_proj_node"
+.PHONY : CMakeFiles/rk4_proj_node.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/rk4_proj_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/ros2_ws/dynamic_ws/build/vi_2p/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/rk4_proj_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/ros2_ws/dynamic_ws/build/vi_2p/CMakeFiles 0
+.PHONY : CMakeFiles/rk4_proj_node.dir/rule
+
+# Convenience name for target.
+rk4_proj_node: CMakeFiles/rk4_proj_node.dir/rule
+.PHONY : rk4_proj_node
+
+# clean rule for target.
+CMakeFiles/rk4_proj_node.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/rk4_proj_node.dir/build.make CMakeFiles/rk4_proj_node.dir/clean
+.PHONY : CMakeFiles/rk4_proj_node.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

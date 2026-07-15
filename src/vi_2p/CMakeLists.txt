@@ -18,6 +18,7 @@ ament_auto_add_executable(ctsvi_ad_node src/ctsvi_ad_node.cpp)
 ament_auto_add_executable(atsvi_ad_node src/atsvi_ad_node.cpp)
 ament_auto_add_executable(etsvi_node src/etsvi_node.cpp)
 ament_auto_add_executable(rk4_node src/rk4_node.cpp)
+ament_auto_add_executable(rk4_proj_node src/rk4_proj_node.cpp)
 
 install(PROGRAMS
         scripts/pybullet_sim.py

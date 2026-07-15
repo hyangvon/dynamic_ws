@@ -496,7 +496,10 @@ int main(int argc, char** argv)
     std::vector<double> energy_history;
     std::vector<double> delta_energy_history;
     std::vector<double> h_history;
+    std::vector<double> g_history;
+    std::vector<double> g_dagger_history;
     std::vector<double> runtimes;
+    std::vector<double> dqk1_dhk_norm_history;
     std::vector<Eigen::Vector3d> ee_history;
     std::vector<Vec> momentum_history;
     std::vector<Vec> force_torque_history;
@@ -533,8 +536,13 @@ int main(int argc, char** argv)
     double E_curr = discrete_energy_numeric(model, data, q_prev, q_curr, timestep);
     double E_d    = E_curr;  // 以第一步离散能量（中点公式）为 Lyapunov 控制器参考基线
     double E_prev = E_curr;  // 用于 force-off 之后的重置
+    double g_k = compute_energy_gradient(model_ad, data_ad, q_prev, q_curr, timestep);
+    double reg = 1e-8;
+    double g_k_dagger = g_k / (g_k * g_k + reg);
     energy_history.push_back(E_curr);     // t=dt 能量（中点公式）
     delta_energy_history.push_back(0.0);  // t=h 漂移 = 0（E[1] 定义为新基准）
+    g_history.push_back(g_k);
+    g_dagger_history.push_back(g_k_dagger);
     auto [ee_pos1, _ee_rot1] = compute_end_effector_pose(model, data, link_tcp_id, q_curr);
     ee_history.push_back(ee_pos1);
 
@@ -581,6 +589,9 @@ int main(int argc, char** argv)
 
         // 本步实际使用的步长（solve_q_next 已使用 h_next，先保存再决定是否更新）
         double h_cur = h_next;
+        double g_k = compute_energy_gradient(model_ad, data_ad,
+            q_history[q_history.size()-1], q_next, h_next);
+        double g_k_dagger = g_k / (g_k * g_k + reg);
 
         // 改进版
         // if (force_active_now) {
@@ -597,10 +608,8 @@ int main(int argc, char** argv)
         //     }
         //     double e_k = E_curr - E_prev;
         //     xi += e_k;
-        //     double de_dh = compute_energy_gradient(model_ad, data_ad,
-        //         q_history[q_history.size()-1], q_next, h_next);
+        //     double de_dh = g_k;
         //     // 控制律: u = (de/dh)^+ * (-alpha * e - beta * xi)
-        //     double reg = 1e-8;
         //     double u_k = (de_dh / (de_dh * de_dh + reg)) * (-alpha * e_k - beta * xi);
         //     h_next = std::clamp(h_next + u_k, 1e-5, 0.05);
         // }
@@ -621,11 +630,8 @@ int main(int argc, char** argv)
             }
             double e_k = E_curr - E_d;
             xi += e_k;
-            double de_dh = compute_energy_gradient(model_ad, data_ad,
-                q_history[q_history.size()-1], q_next, h_next);
-            // 控制律: u = (de/dh)^+ * (-alpha * e - beta * xi)
-            double reg = 1e-8;
-            double u_k = (de_dh / (de_dh * de_dh + reg)) * (-alpha * e_k - beta * xi);
+            // 控制律: u = g_k^† * (-alpha * e - beta * xi)
+            double u_k = g_k_dagger * (-alpha * e_k - beta * xi);
             h_next = std::clamp(h_next + u_k, 1e-5, 0.05);
         }
 
@@ -637,6 +643,8 @@ int main(int argc, char** argv)
 
         energy_history.push_back(E_curr);
         delta_energy_history.push_back(E_curr - E_0);  // 相对第一步离散能量的漂移
+        g_history.push_back(g_k);
+        g_dagger_history.push_back(g_k_dagger);
         // E_prev = E_curr;  // 滚动更新上一步能量
 
         auto [ee_pos, ee_rot] = compute_end_effector_pose(model, data, link_tcp_id, q_next);
@@ -650,6 +658,19 @@ int main(int argc, char** argv)
         // 系统总线动量
         pinocchio::computeCentroidalMomentum(model, data, q_next, qdot_step);
         centroidal_lin_momentum_history.push_back(data.hg.linear());
+
+        // --- 计算 dqk1/dhk 数值近似范数 ---
+        double eps_h = 1e-6;
+        Vec q_last = q_history[q_history.size()-2];
+        Vec q_curr = q_history[q_history.size()-1];
+        double h = h_cur; // 固定步长用 timestep，变步长用 h_next
+        Vec q_next_ph = solve_q_next(model_ad, data_ad, q_history[q_history.size()-2],
+                                           q_history[q_history.size()-1], tau_k, h, h + eps_h).first;
+        Vec q_next_mh = solve_q_next(model_ad, data_ad, q_history[q_history.size()-2],
+                                           q_history[q_history.size()-1], tau_k, h, h - eps_h).first;
+        Vec dq_dh = (q_next_ph - q_next_mh) / (2.0 * eps_h);
+        double dqk1_dhk_norm = dq_dh.norm();
+        dqk1_dhk_norm_history.push_back(dqk1_dhk_norm);
 
         auto t1 = high_resolution_clock::now();
         double elapsed = std::chrono::duration_cast<std::chrono::duration<double>>(t1 - t0).count();
@@ -706,7 +727,10 @@ int main(int argc, char** argv)
     write_csv_scalar_series(csv_dir + "energy_history.csv", energy_history);
     write_csv_scalar_series(csv_dir + "delta_energy_history.csv", delta_energy_history);
     write_csv_scalar_series(csv_dir + "h_history.csv", h_history);
+    write_csv_scalar_series(csv_dir + "g_history.csv", g_history);
+    write_csv_scalar_series(csv_dir + "g_dagger_history.csv", g_dagger_history);
     write_csv_3d(csv_dir + "ee_history.csv", ee_history);
+    write_csv_scalar_series(csv_dir + "dqk1_dhk_norm_history.csv", dqk1_dhk_norm_history);
 
     std::ofstream avg_time_file(csv_dir + "avg_runtime.txt");
     avg_time_file << avg_time * 1000 << std::endl;

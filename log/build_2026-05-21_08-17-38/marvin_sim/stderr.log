@@ -1,0 +1,30 @@
+[01m[K/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/atsvi_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/atsvi_node.cpp:802:12:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[KT[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+  802 |     double [01;35m[KT[m[K = kinetic_energy(model, data, (q_curr + q_prev) / 2.0, (q_curr - q_prev)/timestep);
+      |            [01;35m[K^[m[K
+[01m[K/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/atsvi_node.cpp:803:12:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[KU[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+  803 |     double [01;35m[KU[m[K = potential_energy(model, data, (q_curr + q_prev) / 2.0);
+      |            [01;35m[K^[m[K
+[01m[K/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/atsvi_node.cpp:806:12:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KE_ref[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  806 |     double [01;35m[KE_ref[m[K = total_energy;          // 以第一步离散能量（中点公式）为 delta_energy 基准
+      |            [01;35m[K^~~~~[m[K
+[01m[K/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/ctsvi_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/ctsvi_node.cpp:596:20:[m[K [01;31m[Kerror: [m[K‘[01m[K当前步长变量[m[K’ was not declared in this scope
+  596 |         double h = [01;31m[K当前步长变量[m[K; // 固定步长用 timestep，变步长用 h_next
+      |                    [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/ctsvi_node.cpp:597:38:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K...[m[K’ token
+  597 |         Vec q_next_ph = solve_q_next([01;31m[K...[m[K, h + eps_h).first;
+      |                                      [01;31m[K^~~[m[K
+[01m[K/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/ctsvi_node.cpp:598:38:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K...[m[K’ token
+  598 |         Vec q_next_mh = solve_q_next([01;31m[K...[m[K, h - eps_h).first;
+      |                                      [01;31m[K^~~[m[K
+[01m[K/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/ctsvi_node.cpp:601:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kdqk1_dhk_norm_history[m[K’ was not declared in this scope
+  601 |         [01;31m[Kdqk1_dhk_norm_history[m[K.push_back(dqk1_dhk_norm);
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/user/ros2_ws/dynamic_ws/src/marvin_sim/src/ctsvi_node.cpp:677:68:[m[K [01;31m[Kerror: [m[K‘[01m[Kdqk1_dhk_norm_history[m[K’ was not declared in this scope
+  677 |     write_csv_scalar_series(csv_dir + "dqk1_dhk_norm_history.csv", [01;31m[Kdqk1_dhk_norm_history[m[K);
+      |                                                                    [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/ctsvi_node.dir/build.make:76: CMakeFiles/ctsvi_node.dir/src/ctsvi_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:141: CMakeFiles/ctsvi_node.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake: *** [Makefile:146: all] Error 2

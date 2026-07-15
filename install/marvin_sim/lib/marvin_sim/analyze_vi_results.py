@@ -128,6 +128,17 @@ def load_data(csv_dir):
     if h_file.exists():
         data['h_history'] = np.loadtxt(h_file)
 
+    # 加载能量灵敏度
+    g_file = csv_dir / 'g_history.csv'
+    if g_file.exists():
+        data['g_history'] = np.loadtxt(g_file)
+    gdagger_file = csv_dir / 'g_dagger_history.csv'
+    if gdagger_file.exists():
+        data['g_dagger_history'] = np.loadtxt(gdagger_file)
+    dqk1_dhk_file = csv_dir / 'dqk1_dhk_norm_history.csv'
+    if dqk1_dhk_file.exists():
+        data['dqk1_dhk_norm_history'] = np.loadtxt(dqk1_dhk_file)
+
     # 加载执行时间
     rt_file = csv_dir / 'avg_runtime.txt'
     if rt_file.exists():
@@ -198,6 +209,19 @@ def print_summary(data, csv_dir, subfolder_name=None):
         print(f"\nComputational Performance:")
         print(f"  Avg Step Time:      {data['avg_runtime']:>15.3f} ms")
     
+    if 'g_history' in data:
+        g = data['g_history']
+        print(f"\nEnergy Sensitivity g_k:")
+        print(f"  Max g_k:            {np.max(g):>15.6e}")
+        print(f"  Min g_k:            {np.min(g):>15.6e}")
+        print(f"  Std g_k:            {np.std(g):>15.6e}")
+    if 'g_dagger_history' in data:
+        gd = data['g_dagger_history']
+        print(f"\nDamped Sensitivity g_k^\u2020:")
+        print(f"  Max g_k^\u2020:      {np.max(gd):>15.6e}")
+        print(f"  Min g_k^\u2020:      {np.min(gd):>15.6e}")
+        print(f"  Std g_k^\u2020:      {np.std(gd):>15.6e}")
+    
     if 'ee' in data:
         ee = data['ee']
         print(f"\nEnd-Effector Position:")
@@ -214,7 +238,7 @@ def print_summary(data, csv_dir, subfolder_name=None):
 # ---------------------------------------------------------------------------
 
 _COMP_STYLE = {
-    'ctsvi':   {'color': '#9467BD', 'linestyle': ':',  'linewidth': 1.5, 'label': 'CTSVI'},
+    'ctsvi':   {'color': '#9467BD', 'linestyle': ':',  'linewidth': 2.0, 'label': 'CTSVI'},
     'atsvi':   {'color': '#000000', 'linestyle': '-',  'linewidth': 1.2, 'label': 'ATSVI'},
     'c_atsvi': {'color': '#D62728', 'linestyle': '-',  'linewidth': 2.0, 'label': 'C-ATSVI'},
 }
@@ -407,6 +431,161 @@ def plot_comparison(all_data, parent_dir, config=None, show=False):
             plt.show()
     plt.close(fig4)
 
+    # ---- 5. 辛2-形式误差对比 ----
+    fig5, ax5 = plt.subplots(figsize=(10, 5))
+    plotted = False
+    for name in ordered:
+        d = all_data[name]
+        if 'q' in d and 'momentum' in d:
+            q = d['q']
+            p = d['momentum']
+            t = d['time'] if 'time' in d else np.arange(len(q))
+            min_len = min(len(q), len(p))
+            if min_len > 1:
+                # 对齐长度
+                q = q[:min_len]
+                p = p[:min_len]
+                dq = np.diff(q, axis=0)
+                dp = np.diff(p, axis=0)
+                omega = np.sum(dq * dp, axis=1)
+                omega0 = omega[0]
+                omega_err = np.abs(omega - omega0)
+                s = _style(name)
+                ax5.plot(t[1:min_len], omega_err, label=f'|Δω| of {s["label"]}', 
+                        color=s['color'], linestyle=s['linestyle'], linewidth=s['linewidth'])
+                plotted = True
+    if plotted:
+        ax5.ticklabel_format(style='sci', scilimits=(0, 0), axis='y', useMathText=True)
+        ax5.set_xlabel('Time [s]')
+        ax5.set_ylabel('Symplectic 2-form Error')
+        ax5.set_title('Preservation Error of Symplectic 2-form')
+        ax5.legend()
+        ax5.grid(True, alpha=0.3)
+        ax5.set_xlim([0, 20])
+        # ax5.set_xlim([0, 40])
+        # fig5.subplots_adjust(left=0.1, right=0.97, top=0.9, bottom=0.15)
+        fig5.subplots_adjust(left=0.12, right=0.95, top=0.9, bottom=0.15)
+        # fig5.subplots_adjust(left=0.14, right=0.96, top=0.9, bottom=0.15)
+        _save_comparison_fig(fig5, parent_dir, 'symplectic2form_comparison')
+        if show:
+            plt.show()
+    plt.close(fig5)
+
+    # ---- 6. 能量灵敏度对比 ----
+    fig6, ax6 = plt.subplots(figsize=(10, 5))
+    plotted = False
+    start_idx = 10
+    for name in ordered:
+        d = all_data[name]
+        if 'time' not in d:
+            continue
+        t = d['time']
+        s = _style(name)
+        if 'g_history' in d:
+            g = np.asarray(d['g_history'])
+            if g.size <= start_idx:
+                continue
+            g = g[start_idx:]
+            t_g = t
+            if len(d['g_history']) == len(t) - 1:
+                t_g = t[1:len(d['g_history'])+1]
+            elif len(d['g_history']) != len(t):
+                t_g = np.arange(len(d['g_history']))
+            t_g = np.asarray(t_g)[start_idx:]
+            ax6.plot(t_g, g, label=f'g_k of {s["label"]}',
+                     color=s['color'], linestyle=s['linestyle'], linewidth=s['linewidth'])
+            plotted = True
+        if 'g_dagger_history' in d:
+            gd = np.asarray(d['g_dagger_history'])
+            if gd.size <= start_idx:
+                continue
+            gd = gd[start_idx:]
+            t_gd = t
+            if len(d['g_dagger_history']) == len(t) - 1:
+                t_gd = t[1:len(d['g_dagger_history'])+1]
+            elif len(d['g_dagger_history']) != len(t):
+                t_gd = np.arange(len(d['g_dagger_history']))
+            t_gd = np.asarray(t_gd)[start_idx:]
+            ax6.plot(t_gd, gd, label=f'g_k^† of {s["label"]}',
+                     color=s['color'], linestyle='--', linewidth=s['linewidth'])
+            plotted = True
+    if plotted:
+        ax6.ticklabel_format(style='sci', scilimits=(0, 0), axis='y', useMathText=True)
+        ax6.set_xlabel('Time [s]')
+        ax6.set_ylabel('Sensitivity')
+        ax6.set_title('Energy Sensitivity Comparison')
+        ax6.legend()
+        ax6.grid(True, alpha=0.3)
+        ax6.set_xlim([0, 20])
+        # ax6.set_xlim([0, 40])
+        fig6.subplots_adjust(left=0.14, right=0.96, top=0.9, bottom=0.15)
+        _save_comparison_fig(fig6, parent_dir, 'sensitivity_comparison')
+        if show:
+            plt.show()
+    plt.close(fig6)
+
+    # ---- 7. 伪逆正则化函数 f(g) = g / (g^2 + eps) ----
+    all_g_values = np.concatenate([d['g_history'] for d in all_data.values() if 'g_history' in d]) if any('g_history' in d for d in all_data.values()) else np.array([])
+    if all_g_values.size > 0:
+        eps = 1e-8
+        g_range = np.linspace(-max(1.0, np.max(np.abs(all_g_values))) * 1.1,
+                              max(1.0, np.max(np.abs(all_g_values))) * 1.1,
+                              400)
+        g_dagger_func = g_range / (g_range * g_range + eps)
+
+        fig7, ax7 = plt.subplots(figsize=(10, 5))
+        ax7.plot(g_range, g_dagger_func, 'k-', linewidth=1.5,
+                 label=f'f(g)=g/(g^2+{eps:.0e})')
+
+        for name in ordered:
+            d = all_data[name]
+            if 'g_history' in d and 'g_dagger_history' in d:
+                s = _style(name)
+                g = np.asarray(d['g_history'])
+                gd = np.asarray(d['g_dagger_history'])
+                if g.size > start_idx and gd.size > start_idx:
+                    ax7.scatter(g[start_idx:], gd[start_idx:],
+                                s=12, alpha=0.7,
+                                color=s['color'], marker='o',
+                                label=f"{s['label']} samples")
+
+        ax7.set_xlabel('g_k')
+        ax7.set_ylabel('g_k^†')
+        ax7.set_title('Regularized Pseudoinverse Function f(g)=g/(g^2+ε)')
+        ax7.grid(True, alpha=0.3)
+        ax7.set_xlim([-5, 5])
+        ax7.set_ylim([-100, 100])
+        ax7.legend(loc='best', fontsize=8)
+        fig7.subplots_adjust(left=0.14, right=0.96, top=0.9, bottom=0.15)
+        _save_comparison_fig(fig7, parent_dir, 'g_regularization_function')
+        if show:
+            plt.show()
+        plt.close(fig7)
+
+    # ---- 8. C-ATSVI 步长灵敏度 ||∂q_{k+1}/∂h_k|| ----
+    c_atsvi_name = None
+    for name in ordered:
+        if 'dqk1_dhk_norm_history' in all_data[name]:
+            c_atsvi_name = name
+            break
+
+    if c_atsvi_name is not None:
+        dq_norm = np.asarray(all_data[c_atsvi_name]['dqk1_dhk_norm_history'])
+        t_dq = np.arange(len(dq_norm))
+
+        fig8, ax8 = plt.subplots(figsize=(10, 5))
+        ax8.plot(t_dq, dq_norm, '-', linewidth=1.5, color='tab:blue')
+        ax8.set_xlabel('Step index k')
+        ax8.set_ylabel(r"$\left\|\frac{\partial q_{k+1}}{\partial h_k}\right\|$")
+        ax8.set_title(r"Implicit term of $e_k$")
+        ax8.grid(True, alpha=0.3)
+        ax8.set_xlim([0, 2000])
+        # ax8.set_xlim([0, 4000])
+        fig8.subplots_adjust(left=0.14, right=0.96, top=0.9, bottom=0.15)
+        _save_comparison_fig(fig8, parent_dir, 'c_atsvi_dqk1_dhk_norm_history')
+        if show:
+            plt.show()
+        plt.close(fig8)
 
 def plot_results(data, config=None):
     """绘制仿真结果
@@ -441,11 +620,11 @@ def plot_results(data, config=None):
     cfg_traj3d = config.get('trajectory_3d', {}) or {}
     cfg_momentum = config.get('momentum', {}) or {}
     
-    fig = plt.figure(figsize=(18, 13))
+    fig = plt.figure(figsize=(18, 16))
     
     # 能量曲线
     if 'energy' in data:
-        ax1 = plt.subplot(3, 3, 1)
+        ax1 = plt.subplot(4, 3, 1)
         energy = data['energy']
         ax1.plot(time, energy, 'b-', linewidth=1.5, label='Total Energy')
         if 'energy_T' in data:
@@ -466,7 +645,7 @@ def plot_results(data, config=None):
     
     # 能量漂移
     if 'delta_energy' in data:
-        ax2 = plt.subplot(3, 3, 2)
+        ax2 = plt.subplot(4, 3, 2)
         de = data['delta_energy']
         ax2.plot(time, de, 'r-', linewidth=1, label='ΔE (from t=0)')
         ax2.fill_between(time, de, alpha=0.2, color='red')
@@ -613,7 +792,26 @@ def plot_results(data, config=None):
             ax7.set_xlim(cfg_momentum['xlim'])
         if cfg_momentum.get('ylim'):
             ax7.set_ylim(cfg_momentum['ylim'])
-    
+
+    # --------- 新增：辛2-形式误差 ---------
+    if 'q' in data and 'momentum' in data:
+        q = data['q']
+        p = data['momentum']
+        if len(q) > 1 and len(p) > 1 and len(q) == len(p):
+            dq = np.diff(q, axis=0)
+            dp = np.diff(p, axis=0)
+            # 对每一步，omega_n = sum_i dq_i * dp_i
+            omega = np.sum(dq * dp, axis=1)
+            omega0 = omega[0]
+            omega_err = np.abs(omega - omega0)
+            ax8 = plt.subplot(3, 3, 8)
+            ax8.plot(time[1:], omega_err, 'm-', linewidth=1.5, label='|Δω|')
+            ax8.set_ylabel('Symplectic 2-form Error')
+            ax8.set_xlabel('Time [s]')
+            ax8.set_title('Preservation Error of Symplectic 2-form')
+            ax8.grid(True, alpha=0.3)
+            ax8.legend()
+
     plt.tight_layout()
     return fig
 
